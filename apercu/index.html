@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Générateur d'aperçus · PYLOMAE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..800&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+/* Outil interne PYLOMAE : une colonne, formulaire puis résultat (lien + message prêt à envoyer). */
+:root{
+  --paper:#F3F5F8; --surface:#FFFFFF; --ink:#0F1828; --muted:#4B5568; --line:#D6DCE6;
+  --blue:#1B3C9E; --blue-deep:#122B75; --on-blue:#FFFFFF; --yellow:#F4C21B; --on-yellow:#1A1405;
+  --wa:#1F8A4C; --on-wa:#FFFFFF;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.5}
+.wrap{max-width:640px;margin:0 auto;padding-inline:16px;padding-block:calc(24px + env(safe-area-inset-top,0px)) 56px;display:flex;flex-direction:column;gap:20px}
+h1{font-family:var(--f-display);font-weight:800;font-stretch:112%;font-size:1.7rem;margin:0;line-height:1.1}
+.sub{color:var(--muted);margin:0}
+.brand{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:800;font-stretch:125%;letter-spacing:.08em;font-size:.9rem}
+.brand i{width:12px;height:12px;background:var(--yellow);border:2px solid var(--ink);border-radius:2px}
+form,.out{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:14px}
+label{display:flex;flex-direction:column;gap:6px;font-weight:600;font-size:.92rem}
+label small{font-weight:400;color:var(--muted)}
+input,select,textarea{font:inherit;font-size:16px;padding:11px 12px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--yellow);outline-offset:1px;border-color:var(--ink)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){ .row{grid-template-columns:1fr} }
+.out h2{font-family:var(--f-display);font-weight:800;font-size:1.15rem;margin:0}
+.link{font-size:.85rem;word-break:break-all;background:var(--paper);padding:10px;border-radius:8px;color:var(--muted)}
+textarea{min-height:210px;resize:vertical;line-height:1.5}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:700;text-decoration:none;border:2px solid transparent;border-radius:8px;padding:12px 14px;cursor:pointer;text-align:center}
+.btn-wa{background:var(--wa);color:var(--on-wa);grid-column:1/-1}
+.btn-blue{background:var(--blue);color:var(--on-blue)}
+.btn-line{background:var(--surface);color:var(--ink);border-color:var(--ink)}
+.btn:focus-visible{outline:3px solid var(--yellow);outline-offset:2px}
+.note{font-size:.85rem;color:var(--muted);margin:0}
+.toast{font-size:.88rem;font-weight:700;color:var(--wa);min-height:1.3em;margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><i></i>PYLOMAE</div>
+  <div>
+    <h1>Générateur d’aperçus</h1>
+    <p class="sub">Remplis la fiche du prospect : le lien de son aperçu et ton message sont prêts à envoyer.</p>
+  </div>
+
+  <form id="f" autocomplete="off">
+    <label for="metier">Métier
+      <select id="metier">
+        <option value="plombier">Plombier</option>
+        <option value="electricien">Électricien</option>
+        <option value="paysagiste">Paysagiste</option>
+      </select>
+    </label>
+    <label for="nom">Nom de l’entreprise
+      <input id="nom" placeholder="Durand Plomberie">
+    </label>
+    <div class="row">
+      <label for="ville">Ville
+        <input id="ville" placeholder="Commercy">
+      </label>
+      <label for="tel">Téléphone de l’entreprise <small>affiché sur l’aperçu et utilisé pour WhatsApp</small>
+        <input id="tel" inputmode="tel" placeholder="06 12 34 56 78">
+      </label>
+    </div>
+  </form>
+
+  <section class="out" aria-live="polite">
+    <h2>Lien de l’aperçu</h2>
+    <div class="link" id="link"></div>
+    <h2>Message</h2>
+    <label for="msg" style="font-weight:400"><span class="note">Tu peux retoucher le texte avant l’envoi.</span>
+      <textarea id="msg"></textarea>
+    </label>
+    <div class="btns">
+      <a class="btn btn-wa" id="wa" href="#" target="_blank" rel="noopener">Envoyer sur WhatsApp</a>
+      <a class="btn btn-blue" id="open" href="#" target="_blank" rel="noopener">Voir l’aperçu</a>
+      <button class="btn btn-line" type="button" id="copy">Copier le message</button>
+    </div>
+    <p class="toast" id="toast"></p>
+    <p class="note">WhatsApp s’ouvre sur la conversation avec le numéro saisi. Sans numéro mobile, copie le message et envoie-le par e-mail.</p>
+  </section>
+</div>
+
+<script>
+(function(){
+  var LABEL = { plombier:"plombier", electricien:"électricien", paysagiste:"paysagiste" };
+  var $ = function(id){ return document.getElementById(id); };
+  var edited = false;
+
+  function intl(t){
+    var d = (t || "").replace(/[^0-9+]/g,"");
+    if (d.charAt(0) === "+") return d.slice(1);
+    if (/^0\d{9}$/.test(d)) return "33" + d.slice(1);
+    return d;
+  }
+  function build(){
+    var m = $("metier").value, nom = $("nom").value.trim(), ville = $("ville").value.trim(), tel = $("tel").value.trim();
+    var p = new URLSearchParams();
+    if (nom) p.set("nom", nom);
+    if (ville) p.set("ville", ville);
+    if (tel) p.set("tel", tel.replace(/[^0-9+]/g,""));
+    var qs = p.toString();
+    var url = "https://pylomae.fr/modeles/" + m + "/" + (qs ? "?" + qs : "");
+    $("link").textContent = url;
+    $("open").href = url;
+    if (!edited){
+      $("msg").value =
+        "Bonjour, en cherchant un " + LABEL[m] + (ville ? " à " + ville : "") + " sur Google, je suis tombé sur votre fiche, mais pas sur votre site. Je vous ai préparé un aperçu de ce que pourrait être le vôtre :\n" + url +
+        "\n\nSi le résultat vous plaît, je le mets en ligne sous 48 h pour 49 €/mois, sans rien à payer avant. Sinon, dites-le-moi et je le supprime, sans relance." +
+        "\n\nAdrien – PYLOMAE\npylomae.fr";
+    }
+    updateWa();
+  }
+  function updateWa(){
+    var n = intl($("tel").value);
+    $("wa").href = "https://wa.me/" + n + "?text=" + encodeURIComponent($("msg").value);
+  }
+  ["metier","nom","ville","tel"].forEach(function(id){ $(id).addEventListener("input", build); });
+  $("msg").addEventListener("input", function(){ edited = true; updateWa(); });
+  $("f").addEventListener("submit", function(e){ e.preventDefault(); });
+  $("copy").addEventListener("click", function(){
+    var t = $("msg").value;
+    function ok(){ $("toast").textContent = "Message copié."; setTimeout(function(){ $("toast").textContent = ""; }, 2500); }
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(t).then(ok, function(){ $("msg").select(); $("toast").textContent = "Texte sélectionné : copie-le avec le menu."; });
+    } else { $("msg").select(); $("toast").textContent = "Texte sélectionné : copie-le avec le menu."; }
+  });
+  $("metier").addEventListener("change", function(){ edited = false; build(); });
+  build();
+})();
+</script>
+</body>
+</html>
