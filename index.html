@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PYLOMAE · Sites internet pour artisans, gérés par message</title>
+<meta name="description" content="Votre site d'artisan en ligne sous 48 h, sans avance : 0 € à la commande puis 49 €/mois. Aperçu gratuit, tout se règle par message.">
+<meta property="og:title" content="PYLOMAE · Sites internet pour artisans">
+<meta property="og:description" content="Aperçu gratuit de votre site, mise en ligne sous 48 h, 49 €/mois sans avance. Tout se règle par message.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B3C9E'/%3E%3Crect x='8' y='8' width='16' height='16' rx='2' fill='%23F4C21B'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Public+Sans:wght@400;600;700&display=swap">
+
+<script>
+/* ============================================================
+   À REMPLIR AVANT LA MISE EN LIGNE (tout le site se met à jour)
+   ============================================================ */
+const CONFIG = {
+  nom:       "Adrien Piat",            // prénom et nom de l'entrepreneur
+  siret:     "109 249 557 00017",                 // 14 chiffres
+  adresse:   "4 bis rue du Château, 55190 Sorcy-Saint-Martin",       // adresse de l'entreprise (ou de domiciliation)
+  telephone: "06 51 60 37 05",             // obligatoire dans les mentions légales
+  whatsapp:  "33651603705",             // numéro WhatsApp au format 33XXXXXXXXX (sans + ni espaces)
+  email:     "contact@pylomae.fr"
+};
+</script>
+
+<style>
+/* Layout : une colonne de lecture (max 1080px) ; héros en deux colonnes sur grand écran (texte + téléphone), tout empilé sur mobile.
+   Motif : le bleu de travail et le jaune du mètre ruban, l'univers des artisans. */
+:root{
+  --paper:#F3F5F8; --surface:#FFFFFF; --ink:#0F1828; --muted:#4B5568; --line:#D6DCE6;
+  --blue:#1B3C9E; --blue-deep:#122B75; --blue-soft:#E4EAF8; --on-blue:#FFFFFF;
+  --yellow:#F4C21B; --on-yellow:#1A1405;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--blue)}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:1.08}
+p{margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
+.eyebrow{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue)}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:4px}
+
+/* Mètre ruban */
+.tape{height:26px;background-color:var(--yellow);
+  background-image:
+    repeating-linear-gradient(90deg,var(--on-yellow) 0 1px,transparent 1px 10px),
+    repeating-linear-gradient(90deg,var(--on-yellow) 0 2px,transparent 2px 50px);
+  background-size:100% 7px,100% 13px;background-repeat:repeat-x;background-position:0 0,0 0}
+
+/* En-tête */
+.top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-stretch:125%;letter-spacing:.08em;font-size:1.15rem;color:var(--ink);text-decoration:none}
+.brand i{width:14px;height:14px;background:var(--yellow);border:2px solid var(--ink);border-radius:2px;display:block}
+.nav{display:flex;align-items:center;gap:22px}
+.nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+.nav a.btn{color:var(--on-blue)}
+@media (max-width:720px){ .nav a:not(.btn){display:none} }
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:1rem;text-decoration:none;border-radius:8px;padding:13px 20px;border:2px solid transparent;cursor:pointer;line-height:1.2}
+.btn-blue{background:var(--blue);color:var(--on-blue)}
+.btn-blue:hover{background:var(--blue-deep)}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--surface)}
+.btn-sm{padding:9px 14px;font-size:.92rem}
+
+/* Héros */
+.hero{background:var(--surface)}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;padding-block:64px 56px}
+.hero h1{font-size:clamp(2.2rem,5.4vw,3.7rem);font-weight:800;font-stretch:112%;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--yellow) 62%);padding-inline:2px}
+.hero .lead{font-size:1.15rem;color:var(--muted);max-width:52ch;margin-top:20px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;padding:0;list-style:none;font-weight:600;font-size:.95rem}
+.facts li{display:flex;align-items:center;gap:8px}
+.facts li::before{content:"";width:8px;height:8px;background:var(--yellow);border:1.5px solid var(--ink);border-radius:2px}
+
+/* Téléphone d'exemple */
+.phone-box{display:flex;flex-direction:column;align-items:center;gap:12px}
+.phone{width:min(280px,100%);aspect-ratio:9/18;border:10px solid var(--ink);border-radius:34px;background:var(--ink);overflow:hidden;box-shadow:0 24px 50px -24px rgba(15,24,40,.45)}
+.screen{height:100%;background:#FFFFFF;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;font-size:11px;color:#0F1828}
+.m-top{display:flex;justify-content:space-between;align-items:center;padding:16px 14px 10px;font-weight:800;font-family:var(--f-display);font-size:12px}
+.m-burger{width:16px;height:10px;border-top:2px solid #0F1828;border-bottom:2px solid #0F1828;position:relative}
+.m-burger::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid #0F1828}
+.m-hero{background:#1E5BB8;color:#FFFFFF;padding:22px 14px;display:flex;flex-direction:column;gap:10px}
+.m-k{font-size:9px;text-transform:uppercase;letter-spacing:.12em;opacity:.85;font-weight:700}
+.m-h{font-family:var(--f-display);font-weight:800;font-size:19px;line-height:1.08}
+.m-btn{align-self:flex-start;background:#F4C21B;color:#1A1405;font-weight:800;padding:7px 10px;border-radius:5px;font-size:10px}
+.m-list{padding:14px;display:grid;gap:8px}
+.m-list div{border:1px solid #D6DCE6;border-radius:6px;padding:10px;font-weight:700;display:flex;justify-content:space-between}
+.m-list div::after{content:"›";color:#1E5BB8}
+.m-foot{margin-top:auto;padding:12px 14px;background:#F3F5F8;font-size:9px;color:#4B5568}
+.caption{font-size:.82rem;color:var(--muted)}
+
+@media (max-width:820px){
+  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:44px 44px}
+  .phone{width:min(240px,80%)}
+}
+
+/* Sections */
+section.block{padding-block:72px}
+.head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;max-width:60ch}
+.head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:800;font-stretch:108%;letter-spacing:-.015em}
+.head p{color:var(--muted)}
+
+/* Étapes */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 20px;display:flex;flex-direction:column;gap:10px;counter-increment:s;min-width:0}
+.steps li::before{content:counter(s);font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:1.05rem;width:38px;height:38px;border-radius:8px;background:var(--yellow);color:var(--on-yellow);display:flex;align-items:center;justify-content:center;border:2px solid var(--ink)}
+.steps h3{font-size:1.12rem;font-weight:700}
+.steps p{color:var(--muted);font-size:.97rem}
+@media (max-width:900px){ .steps{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media (max-width:560px){ .steps{grid-template-columns:1fr} }
+
+/* Pourquoi par message */
+.why{background:var(--blue);color:var(--on-blue)}
+.why .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.why h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:800;font-stretch:108%}
+.why .eyebrow{color:var(--yellow)}
+.why ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.why li{display:grid;gap:4px;padding-left:18px;border-left:3px solid var(--yellow)}
+.why li strong{font-size:1.05rem}
+.why li span{opacity:.88}
+@media (max-width:820px){ .why .wrap{grid-template-columns:1fr} }
+
+/* Exemples */
+.models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.model{display:flex;flex-direction:column;gap:12px;min-width:0}
+.frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#FFFFFF;box-shadow:0 10px 30px -22px rgba(15,24,40,.5)}
+.bar{display:flex;gap:5px;padding:9px 12px;background:#E9EDF3;border-bottom:1px solid var(--line)}
+.bar i{width:8px;height:8px;border-radius:50%;background:#C3CBD8}
+.mini{padding:18px 16px 20px;display:flex;flex-direction:column;gap:10px;min-height:170px}
+.mini .n{font-family:var(--f-display);font-weight:800;font-size:.85rem}
+.mini .t{font-family:var(--f-display);font-weight:800;font-size:1.35rem;line-height:1.1}
+.mini .b{align-self:flex-start;font-weight:700;font-size:.78rem;padding:6px 10px;border-radius:5px}
+.mini.plomb{background:#F2F7FF;color:#0F2A5C} .mini.plomb .b{background:#1E5BB8;color:#FFFFFF}
+.mini.elec{background:#14161B;color:#F5F5F0} .mini.elec .b{background:#F4C21B;color:#1A1405}
+.mini.jardin{background:#EEF4EA;color:#1F3A1A} .mini.jardin .b{background:#3D7A2E;color:#FFFFFF}
+.model h3{font-size:1.05rem;font-weight:700}
+.model p{color:var(--muted);font-size:.93rem}
+.tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+@media (max-width:820px){ .models{grid-template-columns:1fr} .mini{min-height:140px} }
+
+/* Tarif */
+.price-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.price{background:var(--surface);border:2px solid var(--ink);border-radius:14px;overflow:hidden}
+.price-body{padding:26px 24px 28px;display:flex;flex-direction:column;gap:18px}
+.amount{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.amount b{font-family:var(--f-display);font-size:3.4rem;font-weight:800;font-stretch:115%;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.amount span{font-weight:700;font-size:1.1rem}
+.zero{display:inline-flex;align-self:flex-start;background:var(--blue-soft);color:var(--blue-deep);font-weight:700;padding:6px 10px;border-radius:6px;font-size:.92rem}
+.incl{list-style:none;margin:0;padding:0;display:grid;gap:9px}
+.incl li{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start}
+.incl li::before{content:"";width:12px;height:7px;border-left:3px solid var(--blue);border-bottom:3px solid var(--blue);transform:rotate(-45deg);margin-top:6px}
+.fine{font-size:.85rem;color:var(--muted)}
+.launch{background:var(--yellow);color:var(--on-yellow);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px;border:2px solid var(--ink)}
+.launch h3{font-size:1.35rem;font-weight:800}
+.terms{display:grid;gap:14px;margin-top:22px}
+.terms div{display:grid;gap:2px}
+.terms dt{font-weight:700}
+.terms dd{margin:0;color:var(--muted);font-size:.96rem}
+@media (max-width:820px){ .price-wrap{grid-template-columns:1fr} }
+
+/* FAQ */
+.faq{display:grid;gap:10px;max-width:780px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:700;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--f-display);font-weight:800;color:var(--blue);font-size:1.2rem;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{padding:0 18px 18px;color:var(--muted);max-width:66ch}
+
+/* Contact */
+.contact{background:var(--ink);color:#FFFFFF}
+.contact .wrap{display:flex;flex-direction:column;gap:22px;padding-block:72px}
+.contact h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;font-stretch:110%;max-width:22ch}
+.contact p{color:#C9D1DE;max-width:56ch}
+.contact .btn-line{color:#FFFFFF;border-color:#FFFFFF}
+.contact .btn-line:hover{background:rgba(255,255,255,.08)}
+.contact .mail{font-weight:700;color:#FFFFFF;word-break:break-all}
+
+/* Mentions légales */
+.legal{padding-block:56px;border-top:1px solid var(--line)}
+.legal h2{font-size:1.4rem;font-weight:800;margin-bottom:18px}
+.legal h3{font-size:1rem;font-weight:700;margin:18px 0 6px;font-family:var(--f-body)}
+.legal p{color:var(--muted);font-size:.93rem;max-width:72ch}
+footer{padding-block:22px 40px;font-size:.85rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><i></i>PYLOMAE</a>
+    <nav class="nav" aria-label="Navigation principale">
+      <a href="#etapes">Comment ça marche</a>
+      <a href="#exemples">Exemples</a>
+      <a href="#tarif">Tarif</a>
+      <a class="btn btn-blue btn-sm" href="#contact">Aperçu gratuit</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Sites internet pour artisans</p>
+        <h1 style="margin-top:14px">Votre site en ligne sous 48 h. <em>Tout se règle par message.</em></h1>
+        <p class="lead">Je prépare gratuitement un aperçu de votre site. Si le résultat vous plaît, il est en ligne sous 48&nbsp;h pour 49&nbsp;€ par mois, sans rien payer à la commande. Pas de rendez-vous, pas d’appel : vous répondez quand vous avez deux minutes entre deux chantiers.</p>
+        <div class="cta">
+          <a class="btn btn-blue" data-wa href="https://wa.me/33651603705">Demander mon aperçu sur WhatsApp</a>
+          <a class="btn btn-line" data-mail href="mailto:contact@pylomae.fr">Par e-mail</a>
+        </div>
+        <ul class="facts">
+          <li>Aperçu gratuit</li>
+          <li>0 € à la commande</li>
+          <li>En ligne sous 48 h</li>
+        </ul>
+      </div>
+      <div class="phone-box">
+        <div class="phone" aria-hidden="true">
+          <div class="screen">
+            <div class="m-top"><span>Martin Plomberie</span><span class="m-burger"></span></div>
+            <div class="m-hero">
+              <span class="m-k">Plombier · dépannage</span>
+              <span class="m-h">Une fuite&nbsp;? On intervient sous 24&nbsp;h.</span>
+              <span class="m-btn">Demander un devis</span>
+            </div>
+            <div class="m-list">
+              <div>Dépannage urgent</div>
+              <div>Salle de bain</div>
+              <div>Chauffe-eau</div>
+            </div>
+            <div class="m-foot">Devis gratuit · Intervention dans votre secteur</div>
+          </div>
+        </div>
+        <p class="caption">Exemple d’aperçu · entreprise fictive</p>
+      </div>
+    </div>
+    <div class="tape" aria-hidden="true"></div>
+  </section>
+
+  <section class="block" id="etapes">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Comment ça marche</p>
+        <h2>Quatre étapes, zéro rendez-vous</h2>
+      </div>
+      <ol class="steps">
+        <li><h3>Je prépare votre aperçu</h3><p>À partir de votre activité et de votre secteur. C’est gratuit et sans engagement.</p></li>
+        <li><h3>Vous dites ce qui change</h3><p>Un texte, une photo, une couleur : vous me l’écrivez par message, je corrige.</p></li>
+        <li><h3>Vous activez en ligne</h3><p>Un lien sécurisé pour payer par carte ou prélèvement. Rien à signer sur place.</p></li>
+        <li><h3>Votre site est en ligne</h3><p>Sous 48 h, sur votre propre adresse, relié à votre fiche Google.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block why">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:0">
+        <p class="eyebrow">Pourquoi tout par message</p>
+        <h2>Vous êtes sur les chantiers, pas au bureau</h2>
+      </div>
+      <ul>
+        <li><strong>Vous répondez quand vous voulez</strong><span>Le soir, le week-end, à la pause. Personne ne vous appelle en pleine intervention.</span></li>
+        <li><strong>Tout est écrit</strong><span>Le prix, les modifications, ce qui est inclus : rien ne se perd, rien ne se discute deux fois.</span></li>
+        <li><strong>Vous voyez avant de payer</strong><span>L’aperçu est prêt avant toute décision. S’il ne vous plaît pas, il est supprimé.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block" id="exemples">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Exemples</p>
+        <h2>Un modèle pensé pour chaque métier</h2>
+        <p>Chaque site part d’un modèle adapté à votre activité, puis il est personnalisé à votre nom, vos services et votre secteur.</p>
+      </div>
+      <div class="models">
+        <article class="model">
+          <div class="frame" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="mini plomb"><span class="n">Martin Plomberie</span><span class="t">Une fuite&nbsp;? On intervient sous 24&nbsp;h.</span><span class="b">Demander un devis</span></div>
+          </div>
+          <span class="tag">Modèle · entreprise fictive</span>
+          <h3>Plombier, chauffagiste</h3>
+          <p>Urgences mises en avant, liste des interventions, demande de devis en un geste.</p>
+        </article>
+        <article class="model">
+          <div class="frame" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="mini elec"><span class="n">Lefort Électricité</span><span class="t">Mise aux normes et dépannage électrique.</span><span class="b">Être rappelé</span></div>
+          </div>
+          <span class="tag">Modèle · entreprise fictive</span>
+          <h3>Électricien</h3>
+          <p>Prestations détaillées, certifications et zone d’intervention clairement affichées.</p>
+        </article>
+        <article class="model">
+          <div class="frame" aria-hidden="true">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <div class="mini jardin"><span class="n">Jardins Vasseur</span><span class="t">Création et entretien de vos espaces verts.</span><span class="b">Voir les réalisations</span></div>
+          </div>
+          <span class="tag">Modèle · entreprise fictive</span>
+          <h3>Paysagiste</h3>
+          <p>Galerie de réalisations avant/après, entretien à l’année, devis sur photo.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="tarif" style="background:var(--surface)">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Tarif</p>
+        <h2>Un seul prix, tout compris</h2>
+      </div>
+      <div class="price-wrap">
+        <div class="price">
+          <div class="tape" aria-hidden="true"></div>
+          <div class="price-body">
+            <span class="zero">0 € à la commande</span>
+            <div class="amount"><b>49 €</b><span>par mois</span></div>
+            <ul class="incl">
+              <li>Site sur mesure jusqu’à 5 pages, adapté aux téléphones</li>
+              <li>Nom de domaine et adresse sécurisée (https)</li>
+              <li>Hébergement et sauvegardes</li>
+              <li>Lien avec votre fiche Google</li>
+              <li>Petites modifications sur simple message : textes, photos, horaires</li>
+              <li>Mentions légales de votre site rédigées</li>
+            </ul>
+            <p class="fine">Engagement 12 mois, puis sans engagement. TVA non applicable, art. 293 B du CGI.</p>
+            <a class="btn btn-blue" href="#contact">Demander mon aperçu gratuit</a>
+          </div>
+        </div>
+        <div>
+          <div class="launch">
+            <p class="eyebrow" style="color:var(--on-yellow)">Offre de lancement</p>
+            <h3>39 € par mois pour les 3 premiers clients</h3>
+            <p>Pendant 12 mois, en échange de pouvoir montrer votre site en exemple sur cette page.</p>
+          </div>
+          <dl class="terms">
+            <div><dt>Quand est-ce que je paie ?</dt><dd>Le premier mois, au moment de la mise en ligne. Ensuite, un prélèvement chaque mois.</dd></div>
+            <div><dt>Et si l’aperçu ne me plaît pas ?</dt><dd>Vous ne payez rien et je le supprime.</dd></div>
+            <div><dt>Après 12 mois ?</dt><dd>Vous continuez au mois, et vous arrêtez quand vous voulez.</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow">Questions fréquentes</p>
+        <h2>Ce qu’on me demande souvent</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Je dois fournir quoi ?</summary><p>Rien d’obligatoire. Vos photos de chantiers et votre logo sont un plus. Sans eux, je prépare un site avec des images adaptées à votre métier.</p></details>
+        <details><summary>Le site m’appartient-il ?</summary><p>Vos textes et vos photos restent à vous. Si vous arrêtez l’abonnement, je vous transmets votre nom de domaine pour que vous gardiez votre adresse.</p></details>
+        <details><summary>Je pourrai demander des changements ?</summary><p>Oui. Un horaire, un tarif, une nouvelle photo de chantier : vous m’écrivez et c’est fait, sans surcoût pour les petites modifications.</p></details>
+        <details><summary>Pourquoi pas d’appel ?</summary><p>Parce que vous avez mieux à faire que de rester au téléphone. Par écrit, vous répondez à votre rythme et chaque décision reste noir sur blanc.</p></details>
+        <details><summary>Mon site sera-t-il trouvé sur Google ?</summary><p>Il est construit pour être rapide, lisible sur téléphone et relié à votre fiche Google, ce qui aide les clients de votre secteur à vous trouver. Personne ne peut garantir une position précise sur Google.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--yellow)">Aperçu gratuit</p>
+      <h2>Envoyez le nom de votre entreprise, je m’occupe du reste</h2>
+      <p>Indiquez votre métier et votre ville. Vous recevez votre aperçu par message, sans engagement.</p>
+      <div class="cta" style="margin-top:0">
+        <a class="btn btn-blue" style="background:var(--yellow);color:var(--on-yellow)" data-wa href="https://wa.me/33651603705">Écrire sur WhatsApp</a>
+        <a class="btn btn-line" data-mail href="mailto:contact@pylomae.fr">Écrire par e-mail</a>
+      </div>
+      <p>Ou directement : <span class="mail" data-c="email">contact@pylomae.fr</span></p>
+    </div>
+  </section>
+
+  <section class="legal" id="mentions-legales">
+    <div class="wrap">
+      <h2>Mentions légales</h2>
+      <h3>Éditeur du site</h3>
+      <p><span data-c="nom">Adrien Piat</span>, entrepreneur individuel (EI), nom commercial PYLOMAE.<br>
+      Adresse : <span data-c="adresse">4 bis rue du Château, 55190 Sorcy-Saint-Martin</span><br>
+      Téléphone : <span data-c="telephone">06 51 60 37 05</span><br>
+      E-mail : <span data-c="email">contact@pylomae.fr</span><br>
+      SIRET : <span data-c="siret">109 249 557 00017</span></p>
+      <p style="margin-top:8px">Directeur de la publication : <span data-c="nom">Adrien Piat</span>.</p>
+      <h3>Hébergement</h3>
+      <p>Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, États-Unis.</p>
+      <h3>Données personnelles</h3>
+      <p>Ce site n’utilise ni cookies ni outil de mesure d’audience. Les informations que vous envoyez par message ou par e-mail servent uniquement à vous répondre et à préparer votre aperçu. Elles sont conservées au plus 3 ans après notre dernier échange, sauf si vous devenez client. Vous pouvez demander à les consulter, les corriger ou les supprimer en écrivant à <span data-c="email">contact@pylomae.fr</span>. Vous pouvez aussi adresser une réclamation à la CNIL (cnil.fr).</p>
+      <h3>Propriété intellectuelle</h3>
+      <p>Les textes et visuels de ce site appartiennent à PYLOMAE, sauf mention contraire. Les entreprises présentées en exemple sont fictives.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 PYLOMAE · Sites internet pour artisans</span>
+    <a href="#mentions-legales">Mentions légales</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var waText = "Bonjour, je souhaite un aperçu gratuit de mon site. Mon entreprise : ";
+  document.querySelectorAll("[data-c]").forEach(function(el){
+    var v = CONFIG[el.getAttribute("data-c")];
+    if (v) el.textContent = v;
+  });
+  document.querySelectorAll("[data-wa]").forEach(function(a){
+    a.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(waText);
+    a.target = "_blank"; a.rel = "noopener";
+  });
+  document.querySelectorAll("[data-mail]").forEach(function(a){
+    a.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("Aperçu gratuit de mon site");
+  });
+})();
+</script>
+</body>
+</html>
