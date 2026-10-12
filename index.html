@@ -8,208 +8,213 @@
 <meta property="og:title" content="PYLOMAE · Sites internet pour artisans">
 <meta property="og:description" content="Aperçu gratuit de votre site, mise en ligne sous 48 h, 49 €/mois sans avance. Tout se règle par message.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231B3C9E'/%3E%3Crect x='8' y='8' width='16' height='16' rx='2' fill='%23F4C21B'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#111111">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111111'/%3E%3Ctext x='29' y='46' font-family='Poppins,Arial,sans-serif' font-weight='600' font-size='38' fill='%23ffffff' text-anchor='middle'%3EP%3C/text%3E%3Ccircle cx='47' cy='43' r='4.5' fill='%2334B98A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,600..800&family=Public+Sans:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;1,500&family=Poppins:wght@400;500;600&display=swap">
 
 <script>
 /* ============================================================
-   À REMPLIR AVANT LA MISE EN LIGNE (tout le site se met à jour)
+   COORDONNÉES (tout le site se met à jour à partir d'ici)
    ============================================================ */
 const CONFIG = {
-  nom:       "Adrien Piat",            // prénom et nom de l'entrepreneur
-  siret:     "109 249 557 00017",                 // 14 chiffres
-  adresse:   "4 bis rue du Château Emy, 55190 Sorcy-Saint-Martin",       // adresse de l'entreprise (ou de domiciliation)
-  telephone: "06 51 60 37 05",             // obligatoire dans les mentions légales
-  whatsapp:  "33651603705",             // numéro WhatsApp au format 33XXXXXXXXX (sans + ni espaces)
+  nom:       "Adrien Piat",
+  siret:     "109 249 557 00017",
+  adresse:   "4 bis rue du Château Emy, 55190 Sorcy-Saint-Martin",
+  telephone: "06 51 60 37 05",          // obligatoire dans les mentions légales
+  whatsapp:  "33651603705",             // format 33XXXXXXXXX, sans + ni espaces
   email:     "contact@pylomae.fr"
 };
 </script>
 
 <style>
-/* Layout : une colonne de lecture (max 1080px) ; héros en deux colonnes sur grand écran (texte + téléphone), tout empilé sur mobile.
-   Motif : le bleu de travail et le jaune du mètre ruban, l'univers des artisans. */
+/* Identité PYLOMAE : noir, blanc et une seule couleur forte (vert émeraude). Titres en serif, texte en sans-serif.
+   Layout : une colonne (max 1080px), héros en deux colonnes sur grand écran, sections alternant blanc, gris très clair et noir. */
 :root{
-  --paper:#F3F5F8; --surface:#FFFFFF; --ink:#0F1828; --muted:#4B5568; --line:#D6DCE6;
-  --blue:#1B3C9E; --blue-deep:#122B75; --blue-soft:#E4EAF8; --on-blue:#FFFFFF;
-  --yellow:#F4C21B; --on-yellow:#1A1405;
-  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
-  --f-body:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --paper:#FFFFFF; --soft:#F4F4F2; --ink:#111111; --muted:#5F5F5B; --line:#E4E4E0;
+  --accent:#0E6B4E; --accent-soft:#E4F1EB; --on-accent:#FFFFFF;
+  --dark:#111111; --on-dark:#FFFFFF; --on-dark-muted:#A9A9A4; --accent-on-dark:#34B98A;
+  --f-display:"Lora",Georgia,"Times New Roman",serif;
+  --f-body:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
-img{max-width:100%}
-a{color:var(--blue)}
-h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;line-height:1.08}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-display);font-weight:500;margin:0;text-wrap:balance;line-height:1.12;letter-spacing:-.01em}
 p{margin:0}
+a{color:var(--ink)}
 .wrap{max-width:1080px;margin:0 auto;padding-inline:20px}
-.eyebrow{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--blue)}
-:focus-visible{outline:3px solid var(--yellow);outline-offset:3px;border-radius:4px}
+.eyebrow{font-size:.74rem;font-weight:500;text-transform:uppercase;letter-spacing:.18em;color:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
-/* Mètre ruban */
-.tape{height:26px;background-color:var(--yellow);
-  background-image:
-    repeating-linear-gradient(90deg,var(--on-yellow) 0 1px,transparent 1px 10px),
-    repeating-linear-gradient(90deg,var(--on-yellow) 0 2px,transparent 2px 50px);
-  background-size:100% 7px,100% 13px;background-repeat:repeat-x;background-position:0 0,0 0}
+/* Marque */
+.brand{display:inline-flex;align-items:baseline;gap:4px;font-family:var(--f-body);font-weight:500;letter-spacing:.28em;font-size:1rem;color:var(--ink);text-decoration:none;text-transform:uppercase}
+.brand i{width:6px;height:6px;border-radius:50%;background:var(--accent);display:inline-block;margin-left:-2px}
 
 /* En-tête */
-.top{background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;padding-top:env(safe-area-inset-top,0px)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.brand{display:flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:800;font-stretch:125%;letter-spacing:.08em;font-size:1.15rem;color:var(--ink);text-decoration:none}
-.brand i{width:14px;height:14px;background:var(--yellow);border:2px solid var(--ink);border-radius:2px;display:block}
-.nav{display:flex;align-items:center;gap:22px}
-.nav a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
-.nav a.btn{color:var(--on-blue)}
-@media (max-width:720px){ .nav a:not(.btn){display:none} }
+.top{background:rgba(255,255,255,.94);backdrop-filter:saturate(1.4) blur(8px);-webkit-backdrop-filter:saturate(1.4) blur(8px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10;padding-top:env(safe-area-inset-top,0px)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{color:var(--muted);text-decoration:none;font-size:.9rem}
+.nav a:hover{color:var(--ink)}
+.nav a.btn{color:var(--on-dark)}
+@media (max-width:760px){ .nav a:not(.btn){display:none} }
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:1rem;text-decoration:none;border-radius:8px;padding:13px 20px;border:2px solid transparent;cursor:pointer;line-height:1.2}
-.btn-blue{background:var(--blue);color:var(--on-blue)}
-.btn-blue:hover{background:var(--blue-deep)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-body);font-weight:500;font-size:.95rem;text-decoration:none;border-radius:999px;padding:13px 24px;border:1px solid transparent;cursor:pointer;line-height:1.2;transition:background .15s,color .15s,border-color .15s}
+.btn-dark{background:var(--ink);color:var(--on-dark)}
+.btn-dark:hover{background:#2A2A2A}
 .btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
-.btn-line:hover{background:var(--surface)}
-.btn-sm{padding:9px 14px;font-size:.92rem}
+.btn-line:hover{background:var(--ink);color:var(--on-dark)}
+.btn-sm{padding:9px 18px;font-size:.88rem}
+@media (prefers-reduced-motion: reduce){ .btn{transition:none} }
 
 /* Héros */
-.hero{background:var(--surface)}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center;padding-block:64px 56px}
-.hero h1{font-size:clamp(2.2rem,5.4vw,3.7rem);font-weight:800;font-stretch:112%;letter-spacing:-.02em}
-.hero h1 em{font-style:normal;background:linear-gradient(transparent 62%,var(--yellow) 62%);padding-inline:2px}
-.hero .lead{font-size:1.15rem;color:var(--muted);max-width:52ch;margin-top:20px}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
-.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:26px;padding:0;list-style:none;font-weight:600;font-size:.95rem}
-.facts li{display:flex;align-items:center;gap:8px}
-.facts li::before{content:"";width:8px;height:8px;background:var(--yellow);border:1.5px solid var(--ink);border-radius:2px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:center;padding-block:80px 72px}
+.hero h1{font-size:clamp(2.4rem,5.6vw,4rem);margin-top:18px}
+.hero h1 em{display:block;font-style:italic;color:var(--accent)}
+.hero .lead{font-size:1.08rem;color:var(--muted);max-width:50ch;margin-top:22px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,max-content));margin:36px 0 0;padding:0;list-style:none;font-size:.88rem;color:var(--muted);line-height:1.4}
+@media (max-width:480px){ .facts{grid-template-columns:repeat(3,minmax(0,1fr))} .facts li{padding-inline:10px} }
+.facts li{padding-inline:16px;border-left:1px solid var(--line)}
+.facts li:first-child{padding-left:0;border-left:0}
+.facts b{display:block;color:var(--ink);font-family:var(--f-display);font-size:1.25rem;font-weight:500}
 
 /* Téléphone d'exemple */
-.phone-box{display:flex;flex-direction:column;align-items:center;gap:12px}
-.phone{width:min(280px,100%);aspect-ratio:9/18;border:10px solid var(--ink);border-radius:34px;background:var(--ink);overflow:hidden;box-shadow:0 24px 50px -24px rgba(15,24,40,.45)}
-.screen{height:100%;background:#FFFFFF;border-radius:24px;overflow:hidden;display:flex;flex-direction:column;font-size:11px;color:#0F1828}
-.m-top{display:flex;justify-content:space-between;align-items:center;padding:16px 14px 10px;font-weight:800;font-family:var(--f-display);font-size:12px}
+.phone-box{display:flex;flex-direction:column;align-items:center;gap:14px}
+.phone{width:min(270px,100%);aspect-ratio:9/18;border:9px solid var(--ink);border-radius:36px;background:var(--ink);overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,0,0,.45)}
+.screen{height:100%;background:#FFFFFF;border-radius:27px;overflow:hidden;display:flex;flex-direction:column;font-size:11px;color:#0F1828;font-family:var(--f-body)}
+.m-top{display:flex;justify-content:space-between;align-items:center;padding:18px 14px 10px;font-weight:600;font-size:12px}
 .m-burger{width:16px;height:10px;border-top:2px solid #0F1828;border-bottom:2px solid #0F1828;position:relative}
 .m-burger::after{content:"";position:absolute;left:0;right:0;top:2px;border-top:2px solid #0F1828}
 .m-hero{background:#1E5BB8;color:#FFFFFF;padding:22px 14px;display:flex;flex-direction:column;gap:10px}
-.m-k{font-size:9px;text-transform:uppercase;letter-spacing:.12em;opacity:.85;font-weight:700}
-.m-h{font-family:var(--f-display);font-weight:800;font-size:19px;line-height:1.08}
-.m-btn{align-self:flex-start;background:#F4C21B;color:#1A1405;font-weight:800;padding:7px 10px;border-radius:5px;font-size:10px}
+.m-k{font-size:9px;text-transform:uppercase;letter-spacing:.12em;opacity:.85;font-weight:600}
+.m-h{font-weight:700;font-size:18px;line-height:1.1}
+.m-btn{align-self:flex-start;background:#E8542E;color:#FFFFFF;font-weight:600;padding:7px 10px;border-radius:5px;font-size:10px}
 .m-list{padding:14px;display:grid;gap:8px}
-.m-list div{border:1px solid #D6DCE6;border-radius:6px;padding:10px;font-weight:700;display:flex;justify-content:space-between}
+.m-list div{border:1px solid #D9E2EE;border-radius:6px;padding:10px;font-weight:600;display:flex;justify-content:space-between}
 .m-list div::after{content:"›";color:#1E5BB8}
-.m-foot{margin-top:auto;padding:12px 14px;background:#F3F5F8;font-size:9px;color:#4B5568}
-.caption{font-size:.82rem;color:var(--muted)}
-
+.m-foot{margin-top:auto;padding:12px 14px;background:#F5F8FC;font-size:9px;color:#4E5D72}
+.caption{font-size:.8rem;color:var(--muted)}
 @media (max-width:820px){
-  .hero .wrap{grid-template-columns:1fr;gap:40px;padding-block:44px 44px}
-  .phone{width:min(240px,80%)}
+  .hero .wrap{grid-template-columns:1fr;gap:48px;padding-block:52px 56px}
+  .phone{width:min(240px,78%)}
 }
 
 /* Sections */
-section.block{padding-block:72px}
-.head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;max-width:60ch}
-.head h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:800;font-stretch:108%;letter-spacing:-.015em}
+section.block{padding-block:88px}
+section.soft{background:var(--soft)}
+.head{display:flex;flex-direction:column;gap:12px;margin-bottom:44px;max-width:60ch}
+.head h2{font-size:clamp(1.9rem,3.8vw,2.7rem)}
 .head p{color:var(--muted)}
 
 /* Étapes */
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;counter-reset:s}
-.steps li{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 20px;display:flex;flex-direction:column;gap:10px;counter-increment:s;min-width:0}
-.steps li::before{content:counter(s);font-family:var(--f-display);font-weight:800;font-stretch:125%;font-size:1.05rem;width:38px;height:38px;border-radius:8px;background:var(--yellow);color:var(--on-yellow);display:flex;align-items:center;justify-content:center;border:2px solid var(--ink)}
-.steps h3{font-size:1.12rem;font-weight:700}
-.steps p{color:var(--muted);font-size:.97rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;counter-reset:s}
+.steps li{display:flex;flex-direction:column;gap:10px;counter-increment:s;min-width:0;padding-top:18px;border-top:1px solid var(--ink)}
+.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-display);font-style:italic;font-size:1.5rem;color:var(--accent);line-height:1}
+.steps h3{font-size:1.2rem}
+.steps p{color:var(--muted);font-size:.93rem}
 @media (max-width:900px){ .steps{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@media (max-width:560px){ .steps{grid-template-columns:1fr} }
+@media (max-width:560px){ .steps{grid-template-columns:1fr;gap:24px} }
 
 /* Pourquoi par message */
-.why{background:var(--blue);color:var(--on-blue)}
-.why .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
-.why h2{font-size:clamp(1.8rem,3.6vw,2.5rem);font-weight:800;font-stretch:108%}
-.why .eyebrow{color:var(--yellow)}
-.why ul{list-style:none;margin:0;padding:0;display:grid;gap:18px}
-.why li{display:grid;gap:4px;padding-left:18px;border-left:3px solid var(--yellow)}
-.why li strong{font-size:1.05rem}
-.why li span{opacity:.88}
-@media (max-width:820px){ .why .wrap{grid-template-columns:1fr} }
+.why{background:var(--dark);color:var(--on-dark)}
+.why .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:start}
+.why .eyebrow{color:var(--on-dark-muted)}
+.why h2{font-size:clamp(1.9rem,3.8vw,2.7rem)}
+.why h2 em{font-style:italic;color:var(--accent-on-dark)}
+.why ul{list-style:none;margin:0;padding:0;display:grid;gap:26px}
+.why li{display:grid;gap:4px;padding-left:20px;border-left:1px solid var(--accent-on-dark)}
+.why li strong{font-weight:500;font-size:1.02rem}
+.why li span{color:var(--on-dark-muted);font-size:.95rem}
+@media (max-width:820px){ .why .wrap{grid-template-columns:1fr;gap:36px} }
 
 /* Exemples */
-.models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.models{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .model{display:flex;flex-direction:column;gap:12px;min-width:0}
-.frame{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#FFFFFF;box-shadow:0 10px 30px -22px rgba(15,24,40,.5)}
-.bar{display:flex;gap:5px;padding:9px 12px;background:#E9EDF3;border-bottom:1px solid var(--line)}
-.bar i{width:8px;height:8px;border-radius:50%;background:#C3CBD8}
-.mini{padding:18px 16px 20px;display:flex;flex-direction:column;gap:10px;min-height:170px}
-.mini .n{font-family:var(--f-display);font-weight:800;font-size:.85rem}
-.mini .t{font-family:var(--f-display);font-weight:800;font-size:1.35rem;line-height:1.1}
-.mini .b{align-self:flex-start;font-weight:700;font-size:.78rem;padding:6px 10px;border-radius:5px}
+.frame{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#FFFFFF}
+.bar{display:flex;gap:5px;padding:9px 12px;background:var(--soft);border-bottom:1px solid var(--line)}
+.bar i{width:7px;height:7px;border-radius:50%;background:#CFCFCA}
+.mini{padding:18px 16px 20px;display:flex;flex-direction:column;gap:10px;min-height:170px;font-family:var(--f-body)}
+.mini .n{font-weight:600;font-size:.82rem}
+.mini .t{font-weight:700;font-size:1.25rem;line-height:1.15}
+.mini .b{align-self:flex-start;font-weight:600;font-size:.76rem;padding:6px 10px;border-radius:5px}
 .mini.plomb{background:#F2F7FF;color:#0F2A5C} .mini.plomb .b{background:#1E5BB8;color:#FFFFFF}
-.mini.elec{background:#14161B;color:#F5F5F0} .mini.elec .b{background:#F4C21B;color:#1A1405}
-.mini.jardin{background:#EEF4EA;color:#1F3A1A} .mini.jardin .b{background:#3D7A2E;color:#FFFFFF}
-.model h3{font-size:1.05rem;font-weight:700}
-.model p{color:var(--muted);font-size:.93rem}
-.see{font-weight:700;color:var(--blue);text-decoration:none;font-size:.95rem}
-.see:hover{text-decoration:underline}
-.tag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.mini.elec{background:#15171C;color:#F2F2EE} .mini.elec .b{background:#F4C21B;color:#17140A}
+.mini.jardin{background:#EEF4EA;color:#1E4A1B;font-family:Georgia,serif} .mini.jardin .b{background:#2F6B2A;color:#FFFFFF;font-family:var(--f-body)}
+.model h3{font-size:1.15rem}
+.model p{color:var(--muted);font-size:.92rem}
+.tag{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+.see{font-weight:500;font-size:.92rem;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--accent);align-self:flex-start;padding-bottom:1px}
+.see:hover{color:var(--accent)}
 @media (max-width:820px){ .models{grid-template-columns:1fr} .mini{min-height:140px} }
 
 /* Tarif */
-.price-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
-.price{background:var(--surface);border:2px solid var(--ink);border-radius:14px;overflow:hidden}
-.price-body{padding:26px 24px 28px;display:flex;flex-direction:column;gap:18px}
-.amount{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
-.amount b{font-family:var(--f-display);font-size:3.4rem;font-weight:800;font-stretch:115%;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.amount span{font-weight:700;font-size:1.1rem}
-.zero{display:inline-flex;align-self:flex-start;background:var(--blue-soft);color:var(--blue-deep);font-weight:700;padding:6px 10px;border-radius:6px;font-size:.92rem}
-.incl{list-style:none;margin:0;padding:0;display:grid;gap:9px}
-.incl li{display:grid;grid-template-columns:20px 1fr;gap:10px;align-items:start}
-.incl li::before{content:"";width:12px;height:7px;border-left:3px solid var(--blue);border-bottom:3px solid var(--blue);transform:rotate(-45deg);margin-top:6px}
-.fine{font-size:.85rem;color:var(--muted)}
-.launch{background:var(--yellow);color:var(--on-yellow);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:10px;border:2px solid var(--ink)}
-.launch h3{font-size:1.35rem;font-weight:800}
-.terms{display:grid;gap:14px;margin-top:22px}
+.price-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:stretch}
+.price{background:var(--paper);border:1px solid var(--ink);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;gap:20px}
+.amount{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.amount b{font-family:var(--f-display);font-size:3.6rem;font-weight:500;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.amount span{color:var(--muted)}
+.zero{align-self:flex-start;font-size:.82rem;font-weight:500;color:var(--accent);background:var(--accent-soft);padding:5px 12px;border-radius:999px}
+.incl{list-style:none;margin:0;padding:0;display:grid;gap:10px;font-size:.95rem}
+.incl li{display:grid;grid-template-columns:18px 1fr;gap:12px;align-items:start}
+.incl li::before{content:"";width:10px;height:6px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent);transform:rotate(-45deg);margin-top:8px}
+.fine{font-size:.8rem;color:var(--muted)}
+.side{display:flex;flex-direction:column;gap:24px}
+.launch{background:var(--dark);color:var(--on-dark);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:10px}
+.launch .eyebrow{color:var(--accent-on-dark)}
+.launch h3{font-size:1.5rem}
+.launch p{color:var(--on-dark-muted);font-size:.95rem}
+.terms{display:grid;gap:18px;margin:0}
 .terms div{display:grid;gap:2px}
-.terms dt{font-weight:700}
-.terms dd{margin:0;color:var(--muted);font-size:.96rem}
+.terms dt{font-weight:500}
+.terms dd{margin:0;color:var(--muted);font-size:.93rem}
 @media (max-width:820px){ .price-wrap{grid-template-columns:1fr} }
 
 /* FAQ */
-.faq{display:grid;gap:10px;max-width:780px}
-.faq details{background:var(--surface);border:1px solid var(--line);border-radius:10px}
-.faq summary{cursor:pointer;list-style:none;padding:16px 18px;font-weight:700;display:flex;justify-content:space-between;gap:16px}
+.faq{display:grid;max-width:780px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:500;display:flex;justify-content:space-between;gap:16px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--f-display);font-weight:800;color:var(--blue);font-size:1.2rem;line-height:1}
+.faq summary::after{content:"+";color:var(--accent);font-size:1.3rem;line-height:1;font-weight:400}
 .faq details[open] summary::after{content:"–"}
-.faq details p{padding:0 18px 18px;color:var(--muted);max-width:66ch}
+.faq details p{padding:0 0 22px;color:var(--muted);max-width:66ch;font-size:.95rem}
 
 /* Contact */
-.contact{background:var(--ink);color:#FFFFFF}
-.contact .wrap{display:flex;flex-direction:column;gap:22px;padding-block:72px}
-.contact h2{font-size:clamp(1.9rem,4vw,2.8rem);font-weight:800;font-stretch:110%;max-width:22ch}
-.contact p{color:#C9D1DE;max-width:56ch}
-.contact .btn-line{color:#FFFFFF;border-color:#FFFFFF}
-.contact .btn-line:hover{background:rgba(255,255,255,.08)}
-.contact .mail{font-weight:700;color:#FFFFFF;word-break:break-all}
+.contact{background:var(--dark);color:var(--on-dark)}
+.contact .wrap{display:flex;flex-direction:column;gap:22px;padding-block:88px}
+.contact .eyebrow{color:var(--accent-on-dark)}
+.contact h2{font-size:clamp(2rem,4.4vw,3rem);max-width:20ch}
+.contact p{color:var(--on-dark-muted);max-width:54ch}
+.btn-light{background:#FFFFFF;color:var(--ink)}
+.btn-light:hover{background:#E8E8E4}
+.contact .btn-line{color:#FFFFFF;border-color:rgba(255,255,255,.6)}
+.contact .btn-line:hover{background:#FFFFFF;color:var(--ink)}
+.contact .mail{color:#FFFFFF;font-weight:500;word-break:break-all}
 
 /* Mentions légales */
-.legal{padding-block:56px;border-top:1px solid var(--line)}
-.legal h2{font-size:1.4rem;font-weight:800;margin-bottom:18px}
-.legal h3{font-size:1rem;font-weight:700;margin:18px 0 6px;font-family:var(--f-body)}
-.legal p{color:var(--muted);font-size:.93rem;max-width:72ch}
-footer{padding-block:22px 40px;font-size:.85rem;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+.legal{padding-block:64px;background:var(--soft)}
+.legal h2{font-size:1.5rem;margin-bottom:18px}
+.legal h3{font-size:.95rem;font-weight:500;margin:20px 0 6px;font-family:var(--f-body)}
+.legal p{color:var(--muted);font-size:.88rem;max-width:72ch}
+footer{padding-block:24px 40px;font-size:.82rem;color:var(--muted);background:var(--soft);border-top:1px solid var(--line)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between;align-items:center}
+footer a{color:var(--muted)}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#"><i></i>PYLOMAE</a>
+    <a class="brand" href="#" aria-label="PYLOMAE, accueil">Pylomae<i aria-hidden="true"></i></a>
     <nav class="nav" aria-label="Navigation principale">
-      <a href="#etapes">Comment ça marche</a>
+      <a href="#etapes">Fonctionnement</a>
       <a href="#exemples">Exemples</a>
       <a href="#tarif">Tarif</a>
-      <a class="btn btn-blue btn-sm" href="#contact">Aperçu gratuit</a>
+      <a class="btn btn-dark btn-sm" href="#contact">Aperçu gratuit</a>
     </nav>
   </div>
 </header>
@@ -219,16 +224,16 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     <div class="wrap">
       <div>
         <p class="eyebrow">Sites internet pour artisans</p>
-        <h1 style="margin-top:14px">Votre site en ligne sous 48 h. <em>Tout se règle par message.</em></h1>
+        <h1>Votre site en ligne sous 48 h. <em>Tout se règle par message.</em></h1>
         <p class="lead">Je prépare gratuitement un aperçu de votre site. Si le résultat vous plaît, il est en ligne sous 48&nbsp;h pour 49&nbsp;€ par mois, sans rien payer à la commande. Pas de rendez-vous, pas d’appel : vous répondez quand vous avez deux minutes entre deux chantiers.</p>
         <div class="cta">
-          <a class="btn btn-blue" data-wa href="https://wa.me/33651603705">Demander mon aperçu sur WhatsApp</a>
+          <a class="btn btn-dark" data-wa href="https://wa.me/33651603705">Demander mon aperçu sur WhatsApp</a>
           <a class="btn btn-line" data-mail href="mailto:contact@pylomae.fr">Par e-mail</a>
         </div>
         <ul class="facts">
-          <li>Aperçu gratuit</li>
-          <li>0 € à la commande</li>
-          <li>En ligne sous 48 h</li>
+          <li><b>0 €</b>à la commande</li>
+          <li><b>48 h</b>pour être en ligne</li>
+          <li><b>49 €</b>par mois, tout compris</li>
         </ul>
       </div>
       <div class="phone-box">
@@ -251,13 +256,12 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
         <p class="caption">Exemple d’aperçu · entreprise fictive</p>
       </div>
     </div>
-    <div class="tape" aria-hidden="true"></div>
   </section>
 
-  <section class="block" id="etapes">
+  <section class="block soft" id="etapes">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow">Comment ça marche</p>
+        <p class="eyebrow">Fonctionnement</p>
         <h2>Quatre étapes, zéro rendez-vous</h2>
       </div>
       <ol class="steps">
@@ -273,7 +277,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
     <div class="wrap">
       <div class="head" style="margin-bottom:0">
         <p class="eyebrow">Pourquoi tout par message</p>
-        <h2>Vous êtes sur les chantiers, pas au bureau</h2>
+        <h2>Vous êtes sur les chantiers, <em>pas au bureau.</em></h2>
       </div>
       <ul>
         <li><strong>Vous répondez quand vous voulez</strong><span>Le soir, le week-end, à la pause. Personne ne vous appelle en pleine intervention.</span></li>
@@ -299,7 +303,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
           <span class="tag">Modèle · entreprise fictive</span>
           <h3>Plombier, chauffagiste</h3>
           <p>Urgences mises en avant, liste des interventions, demande de devis en un geste.</p>
-          <a class="see" href="/modeles/plombier/">Voir le modèle complet →</a>
+          <a class="see" href="/modeles/plombier/">Voir le modèle complet</a>
         </article>
         <article class="model">
           <div class="frame" aria-hidden="true">
@@ -308,24 +312,24 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
           </div>
           <span class="tag">Modèle · entreprise fictive</span>
           <h3>Électricien</h3>
-          <p>Prestations détaillées, certifications et zone d’intervention clairement affichées.</p>
-          <a class="see" href="/modeles/electricien/">Voir le modèle complet →</a>
+          <p>Prestations détaillées, signes d’alerte et zone d’intervention clairement affichés.</p>
+          <a class="see" href="/modeles/electricien/">Voir le modèle complet</a>
         </article>
         <article class="model">
           <div class="frame" aria-hidden="true">
             <div class="bar"><i></i><i></i><i></i></div>
-            <div class="mini jardin"><span class="n">Jardins Vasseur</span><span class="t">Création et entretien de vos espaces verts.</span><span class="b">Voir les réalisations</span></div>
+            <div class="mini jardin"><span class="n">Jardins Vasseur</span><span class="t">Un jardin qui vous ressemble, entretenu toute l’année.</span><span class="b">Devis sur photo</span></div>
           </div>
           <span class="tag">Modèle · entreprise fictive</span>
           <h3>Paysagiste</h3>
-          <p>Galerie de réalisations avant/après, entretien à l’année, devis sur photo.</p>
-          <a class="see" href="/modeles/paysagiste/">Voir le modèle complet →</a>
+          <p>Prestations, calendrier des saisons et devis sur photo, sans déplacement.</p>
+          <a class="see" href="/modeles/paysagiste/">Voir le modèle complet</a>
         </article>
       </div>
     </div>
   </section>
 
-  <section class="block" id="tarif" style="background:var(--surface)">
+  <section class="block soft" id="tarif">
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Tarif</p>
@@ -333,25 +337,22 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
       </div>
       <div class="price-wrap">
         <div class="price">
-          <div class="tape" aria-hidden="true"></div>
-          <div class="price-body">
-            <span class="zero">0 € à la commande</span>
-            <div class="amount"><b>49 €</b><span>par mois</span></div>
-            <ul class="incl">
-              <li>Site sur mesure jusqu’à 5 pages, adapté aux téléphones</li>
-              <li>Nom de domaine et adresse sécurisée (https)</li>
-              <li>Hébergement et sauvegardes</li>
-              <li>Lien avec votre fiche Google</li>
-              <li>Petites modifications sur simple message : textes, photos, horaires</li>
-              <li>Mentions légales de votre site rédigées</li>
-            </ul>
-            <p class="fine">Engagement 12 mois, puis sans engagement. TVA non applicable, art. 293 B du CGI.</p>
-            <a class="btn btn-blue" href="#contact">Demander mon aperçu gratuit</a>
-          </div>
+          <span class="zero">0 € à la commande</span>
+          <div class="amount"><b>49 €</b><span>par mois</span></div>
+          <ul class="incl">
+            <li>Site sur mesure jusqu’à 5 pages, adapté aux téléphones</li>
+            <li>Nom de domaine et adresse sécurisée (https)</li>
+            <li>Hébergement et sauvegardes</li>
+            <li>Lien avec votre fiche Google</li>
+            <li>Petites modifications sur simple message : textes, photos, horaires</li>
+            <li>Mentions légales de votre site rédigées</li>
+          </ul>
+          <p class="fine">Engagement 12 mois, puis sans engagement. TVA non applicable, art. 293 B du CGI.</p>
+          <a class="btn btn-dark" href="#contact">Demander mon aperçu gratuit</a>
         </div>
-        <div>
+        <div class="side">
           <div class="launch">
-            <p class="eyebrow" style="color:var(--on-yellow)">Offre de lancement</p>
+            <p class="eyebrow">Offre de lancement</p>
             <h3>39 € par mois pour les 3 premiers clients</h3>
             <p>Pendant 12 mois, en échange de pouvoir montrer votre site en exemple sur cette page.</p>
           </div>
@@ -383,11 +384,11 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 
   <section class="contact" id="contact">
     <div class="wrap">
-      <p class="eyebrow" style="color:var(--yellow)">Aperçu gratuit</p>
-      <h2>Envoyez le nom de votre entreprise, je m’occupe du reste</h2>
+      <p class="eyebrow">Aperçu gratuit</p>
+      <h2>Envoyez le nom de votre entreprise, je m’occupe du reste.</h2>
       <p>Indiquez votre métier et votre ville. Vous recevez votre aperçu par message, sans engagement.</p>
       <div class="cta" style="margin-top:0">
-        <a class="btn btn-blue" style="background:var(--yellow);color:var(--on-yellow)" data-wa href="https://wa.me/33651603705">Écrire sur WhatsApp</a>
+        <a class="btn btn-light" data-wa href="https://wa.me/33651603705">Écrire sur WhatsApp</a>
         <a class="btn btn-line" data-mail href="mailto:contact@pylomae.fr">Écrire par e-mail</a>
       </div>
       <p>Ou directement : <span class="mail" data-c="email">contact@pylomae.fr</span></p>
@@ -416,8 +417,8 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-betw
 
 <footer>
   <div class="wrap">
-    <span>© 2026 PYLOMAE · Sites internet pour artisans</span>
-    <a href="#mentions-legales">Mentions légales</a>
+    <span class="brand" style="font-size:.85rem">Pylomae<i aria-hidden="true"></i></span>
+    <span>© 2026 · Sites internet pour artisans · <a href="#mentions-legales">Mentions légales</a></span>
   </div>
 </footer>
 
