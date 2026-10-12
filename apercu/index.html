@@ -56,9 +56,23 @@ textarea{min-height:210px;resize:vertical;line-height:1.5}
   <form id="f" autocomplete="off">
     <label for="metier">Métier
       <select id="metier">
-        <option value="plombier">Plombier</option>
-        <option value="electricien">Électricien</option>
-        <option value="paysagiste">Paysagiste</option>
+        <optgroup label="Bâtiment et extérieur">
+          <option value="plombier">Plombier</option>
+          <option value="electricien">Électricien</option>
+          <option value="paysagiste">Paysagiste</option>
+        </optgroup>
+        <optgroup label="Services">
+          <option value="garage">Garagiste</option>
+          <option value="nettoyage">Entreprise de nettoyage</option>
+          <option value="demenageur">Déménageur</option>
+        </optgroup>
+        <optgroup label="Commerces">
+          <option value="coiffeur">Coiffeur</option>
+          <option value="institut">Institut de beauté</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="boulangerie">Boulangerie</option>
+          <option value="fleuriste">Fleuriste</option>
+        </optgroup>
       </select>
     </label>
     <label for="nom">Nom de l’entreprise
@@ -93,7 +107,7 @@ textarea{min-height:210px;resize:vertical;line-height:1.5}
 
 <script>
 (function(){
-  var LABEL = { plombier:"plombier", electricien:"électricien", paysagiste:"paysagiste" };
+  var LABEL = {"plombier": "un plombier", "electricien": "un électricien", "paysagiste": "un paysagiste", "garage": "un garage", "nettoyage": "une entreprise de nettoyage", "demenageur": "un déménageur", "coiffeur": "un coiffeur", "restaurant": "un restaurant", "boulangerie": "une boulangerie", "fleuriste": "un fleuriste", "institut": "un institut de beauté"};
   var $ = function(id){ return document.getElementById(id); };
   var edited = false;
 
@@ -115,7 +129,7 @@ textarea{min-height:210px;resize:vertical;line-height:1.5}
     $("open").href = url;
     if (!edited){
       $("msg").value =
-        "Bonjour, en cherchant un " + LABEL[m] + (ville ? " à " + ville : "") + " sur Google, je suis tombé sur votre fiche, mais pas sur votre site. Je vous ai préparé un aperçu de ce que pourrait être le vôtre :\n" + url +
+        "Bonjour, en cherchant " + LABEL[m] + (ville ? " à " + ville : "") + " sur Google, je suis tombé sur votre fiche, mais pas sur votre site. Je vous ai préparé un aperçu de ce que pourrait être le vôtre :\n" + url +
         "\n\nSi le résultat vous plaît, je le mets en ligne sous 48 h pour 49 €/mois, sans rien à payer avant. Sinon, dites-le-moi et je le supprime, sans relance." +
         "\n\nAdrien – PYLOMAE\npylomae.fr";
     }

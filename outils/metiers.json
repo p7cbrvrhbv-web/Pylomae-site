@@ -1,0 +1,42 @@
+[
+  {
+    "slug": "garage",
+    "label": "Garagiste",
+    "phrase": "un garage"
+  },
+  {
+    "slug": "nettoyage",
+    "label": "Entreprise de nettoyage",
+    "phrase": "une entreprise de nettoyage"
+  },
+  {
+    "slug": "demenageur",
+    "label": "Déménageur",
+    "phrase": "un déménageur"
+  },
+  {
+    "slug": "coiffeur",
+    "label": "Coiffeur",
+    "phrase": "un coiffeur"
+  },
+  {
+    "slug": "restaurant",
+    "label": "Restaurant",
+    "phrase": "un restaurant"
+  },
+  {
+    "slug": "boulangerie",
+    "label": "Boulangerie",
+    "phrase": "une boulangerie"
+  },
+  {
+    "slug": "fleuriste",
+    "label": "Fleuriste",
+    "phrase": "un fleuriste"
+  },
+  {
+    "slug": "institut",
+    "label": "Institut de beauté",
+    "phrase": "un institut de beauté"
+  }
+]
