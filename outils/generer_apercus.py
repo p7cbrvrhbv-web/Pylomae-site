@@ -276,7 +276,7 @@ METIERS = [
     {
         "slug": "demenageur", "label": "Déménageur", "phrase": "un déménageur", "theme": "robuste", "icon": "carton",
         "nom": "Déménagements Roux", "tel": "06 39 98 12 39",
-        "colors": {"brand": "#E2701B", "deep": "#16223B", "soft": "#F4F5F8", "ink": "#121A2B", "cta": "#E2701B"},
+        "colors": {"brand": "#E2701B", "brand_text": "#A9500F", "deep": "#16223B", "soft": "#F4F5F8", "ink": "#121A2B", "cta": "#E2701B"},
         "tagline": "Votre déménagement organisé de A à Z, de l’emballage à l’installation.",
         "about_title": "Votre déménageur à {ville}",
         "about": "{nom} déménage les particuliers et les professionnels depuis {ville}, partout en France. Nous estimons le volume, protégeons votre mobilier et l’installons pièce par pièce à l’arrivée.",
@@ -522,6 +522,210 @@ METIERS = [
 ]
 
 
+# ---------------------------------------------------------------------------------------------
+# Modules propres à chaque métier : réservation de créneau, commande ou demande de devis
+# (la demande part par SMS au commerce), et grille de tarifs d'exemple.
+# Jours : 0 = dimanche … 6 = samedi. Créneaux toutes les 30 minutes entre les heures données.
+
+def week(days, ranges):
+    return {d: ranges for d in days}
+
+NOM = {"id": "nom", "label": "Votre nom", "type": "text", "optional": True, "placeholder": "Votre nom"}
+COMMUNE = {"id": "commune", "label": "Commune", "type": "text", "placeholder": "Votre commune"}
+
+WIDGETS = {
+    "plombier": {
+        "title": "Demander une intervention", "intro": "Décrivez le problème en quelques clics : nous vous répondons rapidement avec un délai et un prix.",
+        "note": "La demande part par SMS. Vous pourrez y ajouter une photo du problème.", "short": "Demander", "submit": "Envoyer la demande par SMS",
+        "smsIntro": "Bonjour, j’ai besoin d’un plombier :",
+        "fields": [
+            {"id": "probleme", "label": "Problème", "type": "chips", "options": ["Fuite", "Canalisation bouchée", "Chauffe-eau", "Salle de bain", "Robinetterie", "Autre"]},
+            {"id": "delai", "label": "Délai souhaité", "type": "chips", "options": ["Urgent, aujourd’hui", "Cette semaine", "Pas pressé"]},
+            COMMUNE, {"id": "details", "label": "Précisions", "type": "textarea", "optional": True, "placeholder": "Ex. : fuite sous l’évier de la cuisine"}, NOM,
+        ],
+    },
+    "electricien": {
+        "title": "Demander un devis", "intro": "Quelques clics suffisent : nous revenons vers vous avec une estimation.",
+        "note": "La demande part par SMS. Vous pourrez y ajouter une photo de votre tableau électrique.", "short": "Devis", "submit": "Envoyer la demande par SMS",
+        "smsIntro": "Bonjour, je souhaite un devis d’électricité :",
+        "fields": [
+            {"id": "besoin", "label": "Besoin", "type": "chips", "options": ["Panne", "Mise aux normes", "Tableau électrique", "Rénovation", "Éclairage", "Autre"]},
+            {"id": "delai", "label": "Délai souhaité", "type": "chips", "options": ["Urgent", "Dans le mois", "Pas pressé"]},
+            COMMUNE, {"id": "details", "label": "Précisions", "type": "textarea", "optional": True, "placeholder": "Ex. : le disjoncteur saute quand le four est allumé"}, NOM,
+        ],
+    },
+    "paysagiste": {
+        "title": "Demander un devis", "intro": "Choisissez les travaux et la taille du jardin : nous vous envoyons une première estimation.",
+        "note": "Ajoutez quelques photos de votre jardin au SMS pour un chiffrage plus précis.", "short": "Devis", "submit": "Envoyer la demande par SMS",
+        "smsIntro": "Bonjour, je souhaite un devis pour mon jardin :",
+        "fields": [
+            {"id": "travaux", "label": "Travaux", "type": "multi", "options": ["Entretien régulier", "Tonte", "Taille de haies", "Élagage", "Création de jardin", "Terrasse ou allée"]},
+            {"id": "surface", "label": "Surface du jardin", "type": "chips", "options": ["Moins de 200 m²", "200 à 500 m²", "Plus de 500 m²"]},
+            COMMUNE, {"id": "details", "label": "Précisions", "type": "textarea", "optional": True, "placeholder": "Ex. : haie de 20 m à tailler avant l’été"}, NOM,
+        ],
+    },
+    "garage": {
+        "title": "Prendre rendez-vous à l’atelier", "intro": "Choisissez la prestation, le jour et l’heure de dépose de votre véhicule : nous vous confirmons par SMS.",
+        "note": "Les créneaux suivent les horaires de l’atelier. Le rendez-vous est confirmé par SMS.", "short": "Rendez-vous", "submit": "Envoyer ma demande par SMS",
+        "smsIntro": "Bonjour, je souhaite prendre rendez-vous à l’atelier :",
+        "schedule": {**week([1, 2, 3, 4, 5], [["08:00", "11:30"], ["14:00", "17:30"]]), 6: [["08:00", "11:30"]]},
+        "fields": [
+            {"id": "presta", "label": "Prestation", "type": "chips", "options": ["Révision", "Freins", "Pneus", "Diagnostic", "Climatisation", "Pré-contrôle technique"]},
+            {"id": "vehicule", "label": "Véhicule", "type": "text", "placeholder": "Ex. : Peugeot 208 de 2019"},
+            {"id": "jour", "label": "Jour", "type": "days"}, {"id": "heure", "label": "Heure de dépose", "type": "slots"}, NOM,
+        ],
+    },
+    "nettoyage": {
+        "title": "Demander un devis", "intro": "Indiquez le type de locaux, la surface et la fréquence : vous recevez un devis rapidement.",
+        "note": "La demande part par SMS. Nous pouvons ensuite passer voir les locaux.", "short": "Devis", "submit": "Envoyer la demande par SMS",
+        "smsIntro": "Bonjour, je souhaite un devis de nettoyage :",
+        "fields": [
+            {"id": "locaux", "label": "Type de locaux", "type": "chips", "options": ["Bureaux", "Commerce", "Copropriété", "Logement", "Fin de chantier"]},
+            {"id": "surface", "label": "Surface", "type": "chips", "options": ["Moins de 100 m²", "100 à 300 m²", "Plus de 300 m²"]},
+            {"id": "frequence", "label": "Fréquence", "type": "chips", "options": ["Ponctuelle", "Chaque semaine", "Plusieurs fois par semaine"]},
+            COMMUNE, {"id": "nom", "label": "Nom ou entreprise", "type": "text", "optional": True, "placeholder": "Votre nom ou votre entreprise"},
+        ],
+    },
+    "demenageur": {
+        "title": "Estimer votre déménagement", "intro": "Quelques informations suffisent pour un premier devis, sans visite.",
+        "note": "Le volume affiché est une estimation. Le devis précis vous est envoyé par SMS.", "short": "Devis", "submit": "Envoyer la demande par SMS",
+        "smsIntro": "Bonjour, je souhaite un devis de déménagement :",
+        "fields": [
+            {"id": "depart", "label": "Ville de départ", "type": "text", "placeholder": "Ex. : Commercy"},
+            {"id": "arrivee", "label": "Ville d’arrivée", "type": "text", "placeholder": "Ex. : Nancy"},
+            {"id": "date", "label": "Date souhaitée", "type": "date"},
+            {"id": "logement", "label": "Logement", "type": "chips", "options": [
+                {"label": "Studio", "info": "Volume estimé : 10 à 15 m³"}, {"label": "2 pièces", "info": "Volume estimé : 20 à 25 m³"},
+                {"label": "3 pièces", "info": "Volume estimé : 30 à 40 m³"}, {"label": "4 pièces et plus", "info": "Volume estimé : 45 m³ et plus"}]},
+            {"id": "options", "label": "Options", "type": "multi", "optional": True, "options": ["Emballage", "Démontage des meubles", "Garde-meubles", "Monte-meubles"]},
+            NOM,
+        ],
+    },
+    "coiffeur": {
+        "title": "Prendre rendez-vous", "intro": "Choisissez votre prestation et un créneau : nous vous confirmons le rendez-vous par SMS.",
+        "note": "Les créneaux suivent les horaires du salon. Le rendez-vous est confirmé par SMS.", "short": "Réserver", "submit": "Envoyer ma demande par SMS",
+        "smsIntro": "Bonjour, je souhaite prendre rendez-vous :",
+        "schedule": {**week([2, 3, 4, 5], [["09:00", "18:30"]]), 6: [["08:30", "16:30"]]},
+        "fields": [
+            {"id": "presta", "label": "Prestation", "type": "chips", "options": ["Coupe femme", "Coupe homme", "Coupe enfant", "Couleur", "Balayage", "Brushing"]},
+            {"id": "jour", "label": "Jour", "type": "days"}, {"id": "heure", "label": "Heure", "type": "slots"},
+            {"id": "nom", "label": "Votre prénom", "type": "text", "optional": True, "placeholder": "Votre prénom"},
+        ],
+    },
+    "institut": {
+        "title": "Prendre rendez-vous", "intro": "Choisissez votre soin et un créneau : nous vous confirmons le rendez-vous par SMS.",
+        "note": "Les créneaux suivent les horaires de l’institut. Le rendez-vous est confirmé par SMS.", "short": "Réserver", "submit": "Envoyer ma demande par SMS",
+        "smsIntro": "Bonjour, je souhaite prendre rendez-vous :",
+        "schedule": {**week([2, 3, 4, 5], [["09:30", "18:00"]]), 6: [["09:00", "16:00"]]},
+        "fields": [
+            {"id": "soin", "label": "Soin", "type": "chips", "options": ["Soin du visage", "Épilation", "Manucure", "Beauté des pieds", "Massage"]},
+            {"id": "jour", "label": "Jour", "type": "days"}, {"id": "heure", "label": "Heure", "type": "slots"},
+            {"id": "nom", "label": "Votre prénom", "type": "text", "optional": True, "placeholder": "Votre prénom"},
+        ],
+    },
+    "restaurant": {
+        "title": "Réserver une table", "intro": "Indiquez le nombre de personnes, le jour et l’heure : nous vous confirmons la réservation par SMS.",
+        "note": "Les horaires proposés sont ceux du service. La réservation est confirmée par SMS.", "short": "Réserver", "submit": "Envoyer ma réservation par SMS",
+        "smsIntro": "Bonjour, je souhaite réserver une table :",
+        "schedule": {**week([2, 3, 4, 5, 6], [["12:00", "13:30"], ["19:00", "21:30"]]), 0: [["12:00", "13:30"]]},
+        "fields": [
+            {"id": "couverts", "label": "Nombre de personnes", "type": "stepper", "min": 1, "max": 12, "value": 2, "suffix": " personnes"},
+            {"id": "jour", "label": "Jour", "type": "days"}, {"id": "heure", "label": "Heure", "type": "slots"},
+            {"id": "nom", "label": "Nom de la réservation", "type": "text", "placeholder": "Votre nom"},
+        ],
+    },
+    "boulangerie": {
+        "title": "Commander un gâteau", "intro": "Choisissez votre gâteau, le nombre de parts et le jour de retrait : nous vous confirmons la commande par SMS.",
+        "note": "Commande au moins 48 h à l’avance. Le prix est confirmé par SMS.", "short": "Commander", "submit": "Envoyer ma commande par SMS",
+        "smsIntro": "Bonjour, je souhaite commander un gâteau :",
+        "schedule": {**week([2, 3, 4, 5, 6], [["07:00", "19:00"]]), 0: [["07:00", "12:30"]]},
+        "estimate": {"option": "gateau", "qty": "parts"},
+        "fields": [
+            {"id": "gateau", "label": "Gâteau", "type": "chips", "options": [
+                {"label": "Fraisier", "unit": 4.8}, {"label": "Forêt-noire", "unit": 4.5}, {"label": "Tarte aux fruits", "unit": 3.9},
+                {"label": "Entremets chocolat", "unit": 4.5}, {"label": "Paris-brest", "unit": 4.6}]},
+            {"id": "parts", "label": "Nombre de parts", "type": "stepper", "min": 4, "max": 30, "step": 2, "value": 8, "suffix": " parts"},
+            {"id": "jour", "label": "Jour de retrait", "type": "days", "ahead": 2},
+            {"id": "moment", "label": "Heure de retrait", "type": "chips", "options": ["Matin", "Midi", "Après-midi"]},
+            {"id": "inscription", "label": "Inscription sur le gâteau", "type": "text", "optional": True, "placeholder": "Ex. : Joyeux anniversaire Léa"},
+            NOM,
+        ],
+    },
+    "fleuriste": {
+        "title": "Commander un bouquet", "intro": "Dites-nous l’occasion, votre budget et la date : nous vous proposons une composition par SMS.",
+        "note": "Nous vous envoyons la proposition avant de préparer le bouquet.", "short": "Commander", "submit": "Envoyer ma commande par SMS",
+        "smsIntro": "Bonjour, je souhaite commander un bouquet :",
+        "schedule": {**week([2, 3, 4, 5, 6], [["09:00", "19:00"]]), 0: [["09:00", "13:00"]]},
+        "fields": [
+            {"id": "occasion", "label": "Occasion", "type": "chips", "options": ["Anniversaire", "Remerciement", "Naissance", "Mariage", "Deuil", "Juste comme ça"]},
+            {"id": "budget", "label": "Budget", "type": "chips", "options": ["30 €", "50 €", "80 €", "Plus de 80 €"]},
+            {"id": "jour", "label": "Pour quel jour ?", "type": "days"},
+            {"id": "mode", "label": "Retrait ou livraison", "type": "chips", "options": ["Retrait en boutique", "Livraison"]},
+            {"id": "carte", "label": "Message de la carte", "type": "text", "optional": True, "placeholder": "Ex. : Merci pour tout !"},
+            NOM,
+        ],
+    },
+}
+
+TARIFS = {
+    "coiffeur": {
+        "title": "Tarifs", "note": "Tarifs d’exemple : vos propres prestations et tarifs les remplaceront.",
+        "groups": [
+            ["Femmes", [["Coupe, shampoing et brushing", "45 min", "38 €"], ["Brushing", "30 min", "25 €"], ["Chignon", "45 min", "dès 45 €"]]],
+            ["Hommes et enfants", [["Coupe homme", "30 min", "22 €"], ["Coupe et barbe", "45 min", "30 €"], ["Coupe enfant, moins de 12 ans", "20 min", "15 €"]]],
+            ["Couleur et soins", [["Couleur racines", "1 h 15", "35 €"], ["Balayage", "2 h", "dès 65 €"], ["Soin profond", "15 min", "12 €"]]],
+        ],
+    },
+    "institut": {
+        "title": "Tarifs", "note": "Tarifs d’exemple : vos propres soins et tarifs les remplaceront.",
+        "groups": [
+            ["Visage", [["Soin éclat", "1 h", "55 €"], ["Soin express", "30 min", "35 €"], ["Restructuration des sourcils", "15 min", "12 €"]]],
+            ["Épilations", [["Sourcils", "10 min", "10 €"], ["Demi-jambes", "20 min", "20 €"], ["Jambes entières", "40 min", "32 €"]]],
+            ["Mains et pieds", [["Manucure", "30 min", "25 €"], ["Vernis semi-permanent", "45 min", "35 €"], ["Beauté des pieds", "45 min", "35 €"]]],
+            ["Massages", [["Massage du dos", "30 min", "35 €"], ["Massage du corps", "1 h", "65 €"]]],
+        ],
+    },
+    "restaurant": {
+        "title": "La carte", "note": "Carte d’exemple : vos plats et vos prix la remplaceront.",
+        "highlight": ["Formule du midi", "Entrée et plat, ou plat et dessert, du mardi au samedi midi.", "18 €"],
+        "groups": [
+            ["Entrées", [["Velouté de saison", "", "7 €"], ["Œuf parfait, crème de champignons", "", "9 €"], ["Terrine maison et pickles", "", "8 €"]]],
+            ["Plats", [["Plat du jour", "En semaine", "14 €"], ["Suprême de volaille, purée maison", "", "18 €"], ["Poisson du marché, légumes de saison", "", "19 €"], ["Assiette végétarienne de saison", "", "15 €"]]],
+            ["Desserts", [["Dessert du jour", "", "6 €"], ["Mousse au chocolat", "", "7 €"], ["Tarte fine aux pommes", "", "7 €"]]],
+        ],
+    },
+    "garage": {
+        "title": "Tarifs indicatifs", "note": "Tarifs d’exemple : vos propres tarifs les remplaceront. Un devis précis est établi pour chaque véhicule.",
+        "groups": [
+            ["Entretien", [["Vidange et filtre à huile", "Selon le véhicule", "dès 89 €"], ["Révision constructeur", "Selon le carnet d’entretien", "dès 149 €"], ["Recharge de climatisation", "", "79 €"]]],
+            ["Réparation", [["Plaquettes de frein avant", "Pièces et main-d’œuvre", "dès 129 €"], ["Montage et équilibrage de 4 pneus", "Hors pneus", "50 €"], ["Diagnostic électronique", "", "49 €"]]],
+        ],
+    },
+    "boulangerie": {
+        "title": "Nos gâteaux", "note": "Tarifs d’exemple : vos propres gâteaux et tarifs les remplaceront.",
+        "groups": [
+            ["Gâteaux", [["Fraisier", "La part", "4,80 €"], ["Forêt-noire", "La part", "4,50 €"], ["Tarte aux fruits", "La part", "3,90 €"]]],
+            ["Entremets", [["Entremets chocolat", "La part", "4,50 €"], ["Paris-brest", "La part", "4,60 €"], ["Pièce montée", "Pour vos fêtes", "Sur devis"]]],
+        ],
+    },
+}
+
+
+def tarifs_html(t, cls):
+    groups = []
+    for name, items in t["groups"]:
+        rows = "".join(
+            f'<div class="pitem"><b>{html.escape(a)}</b>{f"<span class=d>{html.escape(d)}</span>" if d else ""}<span class="p">{html.escape(p)}</span></div>'
+            for a, d, p in items)
+        groups.append(f'        <div class="pgroup"><h3>{html.escape(name)}</h3>{rows}</div>')
+    hl = ""
+    if t.get("highlight"):
+        a, b, p = t["highlight"]
+        hl = f'      <div class="formule"><div><h3>{html.escape(a)}</h3><p>{html.escape(b)}</p></div><span class="p">{html.escape(p)}</span></div>\n'
+    return (f'\n  <section class="s {cls}" id="tarifs">\n    <div class="wrap">\n      <h2>{html.escape(t["title"])}</h2>\n{hl}'
+            f'      <div class="prices">\n' + "\n".join(groups) + f'\n      </div>\n      <p class="note">{html.escape(t["note"])}</p>\n    </div>\n  </section>\n')
+
+
 def img(pid, w, h=None, q=70):
     url = f"https://images.unsplash.com/photo-{pid}?auto=format&fit=crop&q={q}&w={w}"
     if h:
@@ -570,6 +774,12 @@ def build(m):
     hours = "".join(f"<dt>{html.escape(a)}</dt><dd>{html.escape(b)}</dd>" for a, b in m["hours"])
     faq = "\n".join(f"        <details><summary>{fill(q)}</summary><p>{fill(a)}</p></details>" for q, a in m["faq"])
     defaults = json.dumps({"nom": m["nom"], "ville": "Villeneuve", "tel": m["tel"], "metier": m["label"]}, ensure_ascii=False)
+    w = dict(WIDGETS[m["slug"]])
+    w.setdefault("schedule", {})
+    order = ["services"] + (["tarifs"] if m["slug"] in TARIFS else []) + ["booking", "special", "gallery", "info", "faq"]
+    cls = {name: ("s-soft" if i % 2 == 0 else "") for i, name in enumerate(order)}
+    tarifs = tarifs_html(TARIFS[m["slug"]], cls["tarifs"]) if m["slug"] in TARIFS else ""
+    widget_json = json.dumps({k: v for k, v in w.items() if k in ("fields", "schedule", "smsIntro", "estimate")}, ensure_ascii=False).replace("</", "<\\/")
 
     rep = {
         "FONTS": th["fonts"], "F_HEAD": th["head"], "F_BODY": th["body"],
@@ -595,6 +805,10 @@ def build(m):
         "PLACE_TITLE": html.escape(m["place_title"]), "PLACE_TEXT": fill(m["place_text"]), "HOURS": hours,
         "FAQ": faq, "CONTACT_H2": html.escape(m["contact_h2"]), "CONTACT_P": html.escape(m["contact_p"]),
         "CTA": html.escape(m["cta"]), "SMS": html.escape(m["sms"]), "TEL_DIGITS": digits, "DEFAULTS": defaults,
+        "CLS_SERVICES": cls["services"], "CLS_BOOKING": cls["booking"], "CLS_SPECIAL": cls["special"], "CLS_GALLERY": cls["gallery"],
+        "CLS_INFO": cls["info"], "CLS_FAQ": cls["faq"], "TARIFS": tarifs,
+        "W_TITLE": html.escape(w["title"]), "W_INTRO": html.escape(w["intro"]), "W_NOTE": html.escape(w["note"]),
+        "W_SUBMIT": html.escape(w["submit"]), "W_SHORT": html.escape(w["short"]), "WIDGET": widget_json,
     }
     out = TEMPLATE
     for k, v in rep.items():

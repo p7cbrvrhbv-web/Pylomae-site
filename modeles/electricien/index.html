@@ -151,6 +151,51 @@ footer{padding-block:26px 30px;font-size:.86rem;color:var(--muted)}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px}
 footer a{color:var(--muted)}
 
+.about-body{display:grid;gap:28px;min-width:0}
+.about .reviews{margin-top:4px}
+
+/* Tarifs */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:36px 56px;margin-top:36px}
+.pgroup h3{font-size:1.45rem;padding-bottom:10px;border-bottom:2px solid var(--brand)}
+.pitem{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.pitem b{font-weight:600}
+.pitem .d{grid-column:1;color:var(--muted);font-size:.92rem}
+.pitem .p{grid-column:2;grid-row:1/span 2;align-self:center;font-family:var(--f-head);font-weight:var(--head-weight);font-size:1.3rem;font-variant-numeric:tabular-nums;white-space:nowrap}
+.formule{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;margin-top:32px;padding:24px 28px;background:var(--deep);color:#FFFFFF;border-radius:var(--radius)}
+.formule h3{font-size:1.6rem}
+.formule p{color:rgba(255,255,255,.8);margin-top:4px}
+.formule .p{font-family:var(--f-head);font-weight:var(--head-weight);font-size:2.4rem;line-height:1}
+
+/* Réservation, commande ou devis */
+.bk{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px 64px;align-items:start}
+.bk-panel{background:#FFFFFF;border:1px solid var(--line);border-radius:max(var(--radius),8px);padding:clamp(20px,3.4vw,34px);display:grid;gap:24px;box-shadow:0 24px 60px -36px rgba(0,0,0,.35);min-width:0}
+.bk-fields{display:grid;gap:22px;min-width:0}
+.bk-field{display:grid;gap:10px;min-width:0}
+.bk-label{font-weight:600}
+.bk-label small{font-weight:400;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip,.day,.step{font:inherit;color:var(--ink);background:#FFFFFF;border:1px solid rgba(0,0,0,.2);border-radius:var(--btn-radius);cursor:pointer}
+.chip{font-size:.95rem;padding:9px 15px;line-height:1.2}
+.chip[aria-pressed="true"],.day[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:var(--brand-ink)}
+.days{display:flex;gap:8px;overflow-x:auto;padding:2px 2px 6px;margin:-2px;scrollbar-width:thin}
+.day{flex:none;display:grid;justify-items:center;gap:2px;min-width:60px;padding:10px 6px;border-radius:max(var(--radius),8px)}
+.day small{font-size:.76rem;color:var(--muted);text-transform:capitalize}
+.day b{font-size:1.15rem;font-variant-numeric:tabular-nums}
+.day[aria-pressed="true"] small{color:inherit;opacity:.85}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(82px,1fr));gap:8px}
+.slots .chip{padding:10px 6px;font-variant-numeric:tabular-nums}
+.stepper{display:inline-flex;align-items:center;align-self:start;gap:6px}
+.step{width:44px;height:44px;font-size:1.3rem;line-height:1}
+.stepper output{min-width:92px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.bk-input{font:inherit;color:var(--ink);width:100%;padding:12px 14px;border:1px solid rgba(0,0,0,.2);border-radius:min(max(var(--radius),6px),10px);background:#FFFFFF}
+textarea.bk-input{min-height:96px;resize:vertical}
+.bk-info{font-size:.92rem;font-weight:600;color:var(--brand-text)}
+.bk-hint{font-size:.92rem;color:var(--muted)}
+.bk-sum{font-size:.92rem;color:var(--muted);min-height:1.4em}
+.bk-go{width:100%;padding:16px 20px;font-size:1.02rem}
+.bk-go:disabled{opacity:.42;cursor:not-allowed}
+@media (max-width:860px){ .bk{grid-template-columns:1fr} }
+
 /* Barre d'appel sur téléphone */
 .mobile-bar{display:none}
 @media (max-width:759px){
@@ -180,7 +225,7 @@ footer a{color:var(--muted)}
     <a class="rating" data-rating hidden target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span><b data-note></b><span class="n"><span data-avis></span> avis Google</span></a>
     <div class="ctas">
       <a class="btn btn-cta" data-tel href="tel:0639981235"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
-      <a class="btn btn-ghost" href="#contact">Demander un devis</a>
+      <a class="btn btn-ghost" href="#reserver">Demander un devis</a>
     </div>
   </div>
 </section>
@@ -197,7 +242,17 @@ footer a{color:var(--muted)}
   <section class="s about">
     <div class="wrap">
       <h2>Votre électricien à <span data-f="ville"></span></h2>
-      <p><span data-f="nom"></span> intervient chez les particuliers et les professionnels de <span data-f="ville"></span> et des environs. Panne, tableau électrique, rénovation : nous expliquons ce qui doit être fait, pourquoi, et combien cela coûte, avant de commencer.</p>
+      <div class="about-body">
+        <p><span data-f="nom"></span> intervient chez les particuliers et les professionnels de <span data-f="ville"></span> et des environs. Panne, tableau électrique, rénovation : nous expliquons ce qui doit être fait, pourquoi, et combien cela coûte, avant de commencer.</p>
+        <div class="reviews" data-rating hidden>
+          <span class="big" data-note></span>
+          <div>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <p>Note moyenne sur <span data-avis></span> avis Google.</p>
+            <a data-maps target="_blank" rel="noopener">Lire les avis sur Google</a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -215,7 +270,22 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="s special">
+  <section class="s booking " id="reserver">
+    <div class="wrap bk">
+      <div class="bk-intro">
+        <h2>Demander un devis</h2>
+        <p class="lead">Quelques clics suffisent : nous revenons vers vous avec une estimation.</p>
+        <p class="note">La demande part par SMS. Vous pourrez y ajouter une photo de votre tableau électrique.</p>
+      </div>
+      <form class="bk-panel" id="bk" novalidate>
+        <div class="bk-fields" id="bk-fields"></div>
+        <p class="bk-sum" id="bk-sum" aria-live="polite"></p>
+        <button class="btn btn-brand bk-go" type="submit" id="bk-go">Envoyer la demande par SMS</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="s special s-soft">
     <div class="wrap">
       <div><h2>Les signes qui doivent vous alerter</h2><p class="lead">Si vous reconnaissez l’un de ces cas, faites vérifier votre installation.</p></div>
       <ul class="list points">
@@ -227,7 +297,7 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="s s-soft">
+  <section class="s ">
     <div class="wrap">
       <h2>Nos chantiers en images</h2>
       <div class="gallery">
@@ -239,19 +309,6 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="s" data-rating hidden>
-    <div class="wrap">
-      <div class="reviews">
-        <span class="big" data-note></span>
-        <div>
-          <span class="stars" aria-hidden="true">★★★★★</span>
-          <p>Note moyenne sur <span data-avis></span> avis Google.</p>
-          <a data-maps target="_blank" rel="noopener">Lire les avis sur Google</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="s s-soft">
     <div class="wrap info">
       <div><h3>Zone d’intervention</h3><p><span data-f="ville"></span> et les environs, dans un rayon d’environ 30 km.</p></div>
@@ -260,7 +317,7 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="s">
+  <section class="s ">
     <div class="wrap">
       <h2>Questions fréquentes</h2>
       <div class="faq">
@@ -293,7 +350,7 @@ footer a{color:var(--muted)}
 
 <nav class="mobile-bar" aria-label="Contact rapide">
   <a class="btn btn-brand" data-tel href="tel:0639981235">Appeler</a>
-  <a class="btn btn-line" data-sms href="sms:0639981235">Envoyer un SMS</a>
+  <a class="btn btn-line" href="#reserver">Devis</a>
 </nav>
 
 <script>
@@ -323,6 +380,131 @@ footer a{color:var(--muted)}
   if (clean(P.get("nom"))){
     document.getElementById("preview-text").textContent = "Aperçu préparé pour " + D.nom + " par PYLOMAE. Ce site n’est pas encore en ligne.";
   }
+
+  /* Module de réservation, commande ou devis : la demande part par SMS au commerce, qui confirme. */
+  var W = {"smsIntro": "Bonjour, je souhaite un devis d’électricité :", "fields": [{"id": "besoin", "label": "Besoin", "type": "chips", "options": ["Panne", "Mise aux normes", "Tableau électrique", "Rénovation", "Éclairage", "Autre"]}, {"id": "delai", "label": "Délai souhaité", "type": "chips", "options": ["Urgent", "Dans le mois", "Pas pressé"]}, {"id": "commune", "label": "Commune", "type": "text", "placeholder": "Votre commune"}, {"id": "details", "label": "Précisions", "type": "textarea", "optional": true, "placeholder": "Ex. : le disjoncteur saute quand le four est allumé"}, {"id": "nom", "label": "Votre nom", "type": "text", "optional": true, "placeholder": "Votre nom"}], "schedule": {}};
+  var form = document.getElementById("bk");
+  if (!W || !form) return;
+  var box = document.getElementById("bk-fields"), sum = document.getElementById("bk-sum"), go = document.getElementById("bk-go");
+  var V = {}, sent = false;
+  var fmtDay = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+  var fmtWd = new Intl.DateTimeFormat("fr-FR", { weekday: "short" });
+  var fmtMonth = new Intl.DateTimeFormat("fr-FR", { month: "short" });
+  function el(tag, cls, text){ var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+  function toMin(s){ var p = s.split(":"); return (+p[0]) * 60 + (+p[1]); }
+  function hm(m){ var h = Math.floor(m / 60), mm = m % 60; return h + " h" + (mm ? " " + (mm < 10 ? "0" : "") + mm : ""); }
+  function labelOf(o){ return typeof o === "string" ? o : o.label; }
+  function openDays(ahead){
+    var out = [], d = new Date(); d.setHours(12, 0, 0, 0); d.setDate(d.getDate() + (ahead || 0));
+    for (var i = 0; out.length < 12 && i < 40; i++){ var x = new Date(d); x.setDate(d.getDate() + i); if (W.schedule[x.getDay()]) out.push(x); }
+    return out;
+  }
+  function slotsFor(day){
+    var out = [], now = new Date(), today = day.toDateString() === now.toDateString(), limit = now.getHours() * 60 + now.getMinutes() + 60;
+    (W.schedule[day.getDay()] || []).forEach(function(r){ for (var m = toMin(r[0]); m <= toMin(r[1]); m += (W.step || 30)) if (!today || m >= limit) out.push(m); });
+    return out;
+  }
+  function button(cls, pressed, key, onClick){
+    var b = el("button", cls); b.type = "button"; b.setAttribute("data-k", key);
+    if (pressed !== null) b.setAttribute("aria-pressed", pressed ? "true" : "false");
+    b.addEventListener("click", onClick); return b;
+  }
+  function valueText(f){
+    var v = V[f.id];
+    if (f.type === "multi") return v && v.length ? v.join(", ") : "";
+    if (f.type === "stepper") return v != null ? v + (f.suffix || "") : "";
+    if (f.type === "date") return v ? fmtDay.format(new Date(v + "T12:00")) : "";
+    return v ? String(v).trim() : "";
+  }
+  function render(){
+    var focused = document.activeElement && document.activeElement.getAttribute("data-k");
+    box.innerHTML = "";
+    W.fields.forEach(function(f){
+      var g = el("div", "bk-field"), lab = el("p", "bk-label", f.label);
+      lab.id = "bk-" + f.id;
+      if (f.optional) lab.appendChild(el("small", null, " (facultatif)"));
+      g.setAttribute("role", "group"); g.setAttribute("aria-labelledby", lab.id); g.appendChild(lab);
+      if (f.type === "chips" || f.type === "multi"){
+        var wrap = el("div", "chips");
+        f.options.forEach(function(o){
+          var t = labelOf(o), on = f.type === "multi" ? (V[f.id] || []).indexOf(t) >= 0 : V[f.id] === t;
+          var b = button("chip", on, f.id + "|" + t, function(){
+            if (f.type === "multi"){ var a = (V[f.id] || []).slice(), i = a.indexOf(t); if (i >= 0) a.splice(i, 1); else a.push(t); V[f.id] = a; }
+            else V[f.id] = V[f.id] === t ? undefined : t;
+            render();
+          });
+          b.textContent = t; wrap.appendChild(b);
+        });
+        g.appendChild(wrap);
+        f.options.forEach(function(o){ if (typeof o !== "string" && o.info && o.label === V[f.id]) g.appendChild(el("p", "bk-info", o.info)); });
+      } else if (f.type === "days"){
+        var days = el("div", "days");
+        openDays(f.ahead).forEach(function(d){
+          var key = d.toDateString();
+          var b = button("day", V[f.id + "Key"] === key, f.id + "|" + key, function(){ V[f.id + "Key"] = key; V[f.id] = fmtDay.format(d); V.day = d; W.fields.forEach(function(x){ if (x.type === "slots") V[x.id] = undefined; }); render(); });
+          b.appendChild(el("small", null, fmtWd.format(d).replace(".", "")));
+          b.appendChild(el("b", null, String(d.getDate())));
+          b.appendChild(el("small", null, fmtMonth.format(d).replace(".", "")));
+          b.setAttribute("aria-label", fmtDay.format(d));
+          days.appendChild(b);
+        });
+        g.appendChild(days);
+      } else if (f.type === "slots"){
+        if (!V.day) g.appendChild(el("p", "bk-hint", "Choisissez d’abord un jour."));
+        else {
+          var list = slotsFor(V.day), slots = el("div", "slots");
+          if (!list.length) g.appendChild(el("p", "bk-hint", "Plus de créneau ce jour-là : choisissez un autre jour."));
+          list.forEach(function(m){ var t = hm(m), b = button("chip", V[f.id] === t, f.id + "|" + t, function(){ V[f.id] = t; render(); }); b.textContent = t; slots.appendChild(b); });
+          g.appendChild(slots);
+        }
+      } else if (f.type === "stepper"){
+        if (V[f.id] == null) V[f.id] = f.value || f.min || 1;
+        var st = el("div", "stepper");
+        var minus = button("step", null, f.id + "|-", function(){ V[f.id] = Math.max(f.min || 1, V[f.id] - (f.step || 1)); render(); });
+        var plus = button("step", null, f.id + "|+", function(){ V[f.id] = Math.min(f.max || 99, V[f.id] + (f.step || 1)); render(); });
+        minus.textContent = "−"; minus.setAttribute("aria-label", "Moins"); plus.textContent = "+"; plus.setAttribute("aria-label", "Plus");
+        st.appendChild(minus); st.appendChild(el("output", null, valueText(f))); st.appendChild(plus);
+        g.appendChild(st);
+      } else {
+        var inp = el(f.type === "textarea" ? "textarea" : "input", "bk-input");
+        if (f.type === "date"){ inp.type = "date"; inp.min = new Date().toISOString().slice(0, 10); }
+        else if (f.type !== "textarea") inp.type = "text";
+        if (f.placeholder) inp.placeholder = f.placeholder;
+        inp.value = V[f.id] || ""; inp.setAttribute("aria-labelledby", lab.id); inp.setAttribute("data-k", f.id);
+        inp.addEventListener("input", function(){ V[f.id] = inp.value; update(); });
+        g.appendChild(inp);
+      }
+      box.appendChild(g);
+    });
+    if (focused){ var again = box.querySelector('[data-k="' + focused.replace(/"/g, '\\"') + '"]'); if (again) again.focus(); }
+    update();
+  }
+  function estimate(){
+    if (!W.estimate) return "";
+    var f = W.fields.filter(function(x){ return x.id === W.estimate.option; })[0];
+    var o = f && f.options.filter(function(x){ return typeof x !== "string" && x.label === V[f.id]; })[0];
+    var n = V[W.estimate.qty];
+    return o && o.unit && n ? "Prix indicatif : " + (o.unit * n).toLocaleString("fr-FR", { style: "currency", currency: "EUR" }) + "." : "";
+  }
+  function update(){
+    var missing = W.fields.filter(function(f){ return !f.optional && !valueText(f); }).map(function(f){ return f.label.toLowerCase(); });
+    go.disabled = missing.length > 0;
+    if (sent && !missing.length) return;
+    sent = false;
+    var est = estimate();
+    sum.textContent = missing.length ? "À compléter : " + missing.join(", ") + "." : (est ? est + " " : "") + "Votre demande est prête à partir par SMS.";
+  }
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    if (go.disabled) return;
+    var lines = [W.smsIntro];
+    W.fields.forEach(function(f){ var t = valueText(f); if (t) lines.push(f.label + " : " + t); });
+    lines.push("", "Envoyé depuis votre site");
+    sent = true;
+    sum.textContent = "Votre application de SMS s’ouvre avec la demande. Si rien ne s’ouvre, appelez le " + D.tel + ".";
+    location.href = "sms:" + digits + "?&body=" + encodeURIComponent(lines.join("\n"));
+  });
+  render();
 })();
 </script>
 </body>
