@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PYLOMAE · Sites internet pour artisans, gérés par message</title>
-<meta name="description" content="Votre site d'artisan en ligne sous 48 h, sans avance : 0 € à la commande puis 49 €/mois. Aperçu gratuit, tout se règle par message.">
-<meta property="og:title" content="PYLOMAE · Sites internet pour artisans">
+<title>PYLOMAE · Sites internet pour artisans et commerçants, gérés par message</title>
+<meta name="description" content="Votre site en ligne sous 48 h, pour artisans et commerçants, sans avance : 0 € à la commande puis 49 €/mois. Aperçu gratuit, tout se règle par message.">
+<meta property="og:title" content="PYLOMAE · Sites internet pour artisans et commerçants">
 <meta property="og:description" content="Aperçu gratuit de votre site, mise en ligne sous 48 h, 49 €/mois sans avance. Tout se règle par message.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#111111">
@@ -77,6 +77,12 @@ a{color:var(--ink)}
 .hero h1{font-size:clamp(2.4rem,5.6vw,4rem);margin-top:18px}
 .hero h1 em{display:block;font-style:italic;color:var(--accent)}
 .hero .lead{font-size:1.08rem;color:var(--muted);max-width:50ch;margin-top:22px}
+/* Mot qui change en fin de phrase : tous les mots occupent la même case, un seul est visible. */
+.rot{display:inline-grid;vertical-align:bottom;color:var(--ink);font-weight:500}
+.rot span{grid-area:1/1;opacity:0;transform:translateY(.4em);transition:opacity .45s ease,transform .45s ease;white-space:nowrap}
+.rot span.on{opacity:1;transform:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+@media (prefers-reduced-motion: reduce){ .rot span{transition:none;transform:none} }
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 .facts{display:grid;grid-template-columns:repeat(3,minmax(0,max-content));margin:36px 0 0;padding:0;list-style:none;font-size:.88rem;color:var(--muted);line-height:1.4}
 @media (max-width:480px){ .facts{grid-template-columns:repeat(3,minmax(0,1fr))} .facts li{padding-inline:10px} }
@@ -229,9 +235,9 @@ footer a{color:var(--muted)}
   <section class="hero">
     <div class="wrap">
       <div>
-        <p class="eyebrow">Sites internet pour artisans</p>
+        <p class="eyebrow">Sites internet pour artisans et commerçants</p>
         <h1>Votre site en ligne sous 48 h. <em>Tout se règle par message.</em></h1>
-        <p class="lead">Je prépare gratuitement un aperçu de votre site. Si le résultat vous plaît, il est en ligne sous 48&nbsp;h pour 49&nbsp;€ par mois, sans rien payer à la commande. Pas de rendez-vous, pas d’appel : vous répondez quand vous avez deux minutes entre deux chantiers.</p>
+        <p class="lead">Je prépare gratuitement un aperçu de votre site. Si le résultat vous plaît, il est en ligne sous 48&nbsp;h pour 49&nbsp;€ par mois, sans rien payer à la commande. Pas de rendez-vous, pas d’appel : vous répondez quand vous avez deux minutes, entre deux <span class="rot" aria-hidden="true"><span>chantiers.</span><span>clients.</span><span>services.</span><span>commandes.</span></span><span class="sr-only">clients.</span></p>
         <div class="cta">
           <a class="btn btn-dark" data-wa href="https://wa.me/33651603705">Demander mon aperçu sur WhatsApp</a>
           <a class="btn btn-line" data-mail href="mailto:contact@pylomae.fr">Par e-mail</a>
@@ -281,10 +287,10 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="head" style="margin-bottom:0">
         <p class="eyebrow">Pourquoi tout par message</p>
-        <h2>Vous êtes sur les chantiers, <em>pas au bureau.</em></h2>
+        <h2>Vous êtes avec vos clients, <em>pas devant un écran.</em></h2>
       </div>
       <ul>
-        <li><strong>Vous répondez quand vous voulez</strong><span>Le soir, le week-end, à la pause. Personne ne vous appelle en pleine intervention.</span></li>
+        <li><strong>Vous répondez quand vous voulez</strong><span>Le soir, le week-end, à la pause. Personne ne vous dérange en plein travail.</span></li>
         <li><strong>Tout est écrit</strong><span>Le prix, les modifications, ce qui est inclus : rien ne se perd, rien ne se discute deux fois.</span></li>
         <li><strong>Vous voyez avant de payer</strong><span>L’aperçu est prêt avant toute décision. S’il ne vous plaît pas, il est supprimé.</span></li>
       </ul>
@@ -377,9 +383,9 @@ footer a{color:var(--muted)}
         <h2>Ce qu’on me demande souvent</h2>
       </div>
       <div class="faq">
-        <details><summary>Je dois fournir quoi ?</summary><p>Rien d’obligatoire. Vos photos de chantiers et votre logo sont un plus. Sans eux, je prépare un site avec des images adaptées à votre métier.</p></details>
+        <details><summary>Je dois fournir quoi ?</summary><p>Rien d’obligatoire. Vos photos (réalisations, boutique, plats…) et votre logo sont un plus. Sans eux, je prépare un site avec des images adaptées à votre métier.</p></details>
         <details><summary>Le site m’appartient-il ?</summary><p>Vos textes et vos photos restent à vous. Si vous arrêtez l’abonnement, je vous transmets votre nom de domaine pour que vous gardiez votre adresse.</p></details>
-        <details><summary>Je pourrai demander des changements ?</summary><p>Oui. Un horaire, un tarif, une nouvelle photo de chantier : vous m’écrivez et c’est fait, sans surcoût pour les petites modifications.</p></details>
+        <details><summary>Je pourrai demander des changements ?</summary><p>Oui. Un horaire, un tarif, une nouvelle photo : vous m’écrivez et c’est fait, sans surcoût pour les petites modifications.</p></details>
         <details><summary>Pourquoi pas d’appel ?</summary><p>Parce que vous avez mieux à faire que de rester au téléphone. Par écrit, vous répondez à votre rythme et chaque décision reste noir sur blanc.</p></details>
         <details><summary>Mon site sera-t-il trouvé sur Google ?</summary><p>Il est construit pour être rapide, lisible sur téléphone et relié à votre fiche Google, ce qui aide les clients de votre secteur à vous trouver. Personne ne peut garantir une position précise sur Google.</p></details>
       </div>
@@ -422,7 +428,7 @@ footer a{color:var(--muted)}
 <footer>
   <div class="wrap">
     <span class="brand" style="font-size:.85rem">Pylomae<i aria-hidden="true"></i></span>
-    <span>© 2026 · Sites internet pour artisans · <a href="#mentions-legales">Mentions légales</a></span>
+    <span>© 2026 · Sites internet pour artisans et commerçants · <a href="#mentions-legales">Mentions légales</a></span>
   </div>
 </footer>
 
@@ -437,6 +443,12 @@ footer a{color:var(--muted)}
     a.href = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(waText);
     a.target = "_blank"; a.rel = "noopener";
   });
+  var words = document.querySelectorAll(".rot span"), w = 0;
+  if (words.length){
+    words[0].classList.add("on");
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!still) setInterval(function(){ words[w].classList.remove("on"); w = (w + 1) % words.length; words[w].classList.add("on"); }, 2200);
+  }
   document.querySelectorAll("[data-mail]").forEach(function(a){
     a.href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("Aperçu gratuit de mon site");
   });
