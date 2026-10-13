@@ -63,6 +63,8 @@ ICONS = {
     "lotus": '<path d="M12 20c-5 0-8.5-3-8.5-8 4.5 0 8.5 3 8.5 8z"/><path d="M12 20c5 0 8.5-3 8.5-8-4.5 0-8.5 3-8.5 8z"/><path d="M12 20c-2.2-3.2-2.2-9.5 0-15 2.2 5.5 2.2 11.8 0 15z"/>',
 }
 
+WA_PYLOMAE = "33651603705"  # WhatsApp d'Adrien : boutons « Ce site me plaît » et « Demander une modification »
+
 CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>'
 
 H = ["Lundi au vendredi", "Samedi", "Dimanche", "Dimanche et lundi", "Lundi"]
@@ -626,7 +628,7 @@ WIDGETS = {
     "restaurant": {
         "title": "Réserver une table", "intro": "Indiquez le nombre de personnes, le jour et l’heure : nous vous confirmons la réservation par SMS.",
         "note": "Les horaires proposés sont ceux du service. La réservation est confirmée par SMS.", "short": "Réserver", "submit": "Envoyer ma réservation par SMS",
-        "smsIntro": "Bonjour, je souhaite réserver une table :",
+        "smsIntro": "Bonjour, je souhaite réserver une table :", "lead": 60,
         "schedule": {**week([2, 3, 4, 5, 6], [["12:00", "13:30"], ["19:00", "21:30"]]), 0: [["12:00", "13:30"]]},
         "fields": [
             {"id": "couverts", "label": "Nombre de personnes", "type": "stepper", "min": 1, "max": 12, "value": 2, "suffix": " personnes"},
@@ -779,7 +781,7 @@ def build(m):
     order = ["services"] + (["tarifs"] if m["slug"] in TARIFS else []) + ["booking", "special", "gallery", "info", "faq"]
     cls = {name: ("s-soft" if i % 2 == 0 else "") for i, name in enumerate(order)}
     tarifs = tarifs_html(TARIFS[m["slug"]], cls["tarifs"]) if m["slug"] in TARIFS else ""
-    widget_json = json.dumps({k: v for k, v in w.items() if k in ("fields", "schedule", "smsIntro", "estimate")}, ensure_ascii=False).replace("</", "<\\/")
+    widget_json = json.dumps({k: v for k, v in w.items() if k in ("fields", "schedule", "smsIntro", "estimate", "lead")}, ensure_ascii=False).replace("</", "<\\/")
 
     rep = {
         "FONTS": th["fonts"], "F_HEAD": th["head"], "F_BODY": th["body"],
@@ -808,7 +810,7 @@ def build(m):
         "CLS_SERVICES": cls["services"], "CLS_BOOKING": cls["booking"], "CLS_SPECIAL": cls["special"], "CLS_GALLERY": cls["gallery"],
         "CLS_INFO": cls["info"], "CLS_FAQ": cls["faq"], "TARIFS": tarifs,
         "W_TITLE": html.escape(w["title"]), "W_INTRO": html.escape(w["intro"]), "W_NOTE": html.escape(w["note"]),
-        "W_SUBMIT": html.escape(w["submit"]), "W_SHORT": html.escape(w["short"]), "WIDGET": widget_json,
+        "W_SUBMIT": html.escape(w["submit"]), "W_SHORT": html.escape(w["short"]), "WIDGET": widget_json, "WA_PYLOMAE": WA_PYLOMAE,
     }
     out = TEMPLATE
     for k, v in rep.items():

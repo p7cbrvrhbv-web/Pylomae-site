@@ -34,9 +34,26 @@ img{display:block;max-width:100%}
 [hidden]{display:none!important}
 
 /* Bandeau d'aperçu */
-.preview{background:#111111;color:#E9E9E6;font-size:.8rem;line-height:1.4;padding:8px 0;padding-top:calc(8px + env(safe-area-inset-top,0px))}
-.preview .wrap{display:flex;flex-wrap:wrap;gap:2px 12px;justify-content:center;text-align:center}
-.preview a{color:#34B98A;font-weight:600;text-decoration:none}
+.preview{position:sticky;top:0;z-index:30;background:#111111;color:#E9E9E6;font-size:.8rem;line-height:1.35;padding:8px 0;padding-top:calc(8px + env(safe-area-inset-top,0px))}
+.preview .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.preview p{min-width:0}
+.preview p b{color:#FFFFFF;font-weight:600}
+.like{flex:none;display:inline-flex;align-items:center;gap:6px;background:#34B98A;color:#0B1F17;font-weight:700;font-size:.85rem;text-decoration:none;padding:8px 14px;border-radius:999px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.like svg{width:15px;height:15px}
+
+/* Proposition PYLOMAE, après le site */
+.offer{background:#111111;color:#FFFFFF;padding-block:56px 64px;border-top:4px solid #34B98A;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.offer .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:14px}
+.offer-brand{font-size:.78rem;font-weight:600;letter-spacing:.24em;color:#A9A9A4}
+.offer-brand i{display:inline-block;width:6px;height:6px;border-radius:50%;background:#34B98A;margin-left:2px;vertical-align:middle}
+.offer h2{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-weight:700;font-size:clamp(1.7rem,5vw,2.4rem);letter-spacing:-.01em}
+.offer p{color:#C9C9C4;max-width:54ch}
+.offer .ctas{margin-top:8px}
+.offer .btn{font-family:inherit}
+.offer .btn-like{background:#34B98A;color:#0B1F17}
+.offer .btn-change{border-color:rgba(255,255,255,.6);color:#FFFFFF}
+.offer small{color:#8C8C87;font-size:.82rem}
+.offer small a{color:#C9C9C4}
 
 /* Héros */
 .hero{position:relative;isolation:isolate;color:#FFFFFF;display:flex;flex-direction:column;min-height:640px;min-height:min(92svh,820px);overflow:hidden;background:var(--deep)}
@@ -207,7 +224,7 @@ textarea.bk-input{min-height:96px;resize:vertical}
 </head>
 <body>
 
-<div class="preview"><div class="wrap"><span id="preview-text">Modèle de démonstration réalisé par PYLOMAE, entreprise fictive</span><a href="https://pylomae.fr">pylomae.fr</a></div></div>
+<div class="preview"><div class="wrap"><p id="preview-text">Modèle de démonstration par <b>PYLOMAE</b>, entreprise fictive</p><a class="like" data-like href="https://wa.me/%%WA_PYLOMAE%%" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>Ce site me plaît</a></div></div>
 
 <section class="hero">
   <picture class="hero-img">
@@ -300,8 +317,8 @@ textarea.bk-input{min-height:96px;resize:vertical}
   <section class="s %%CLS_INFO%%">
     <div class="wrap info">
       <div><h3>%%PLACE_TITLE%%</h3><p>%%PLACE_TEXT%%</p></div>
-      <div><h3>Horaires</h3><dl class="hours">%%HOURS%%</dl></div>
-      <div><h3>Contact</h3><p><a data-tel href="tel:%%TEL_DIGITS%%" data-f="tel"></a></p><p>Par téléphone ou par SMS.</p></div>
+      <div><h3>Horaires</h3><dl class="hours" id="hours">%%HOURS%%</dl></div>
+      <div><h3>Contact</h3><p><a data-tel href="tel:%%TEL_DIGITS%%" data-f="tel"></a></p><p>Par téléphone ou par SMS.</p><p data-adresse hidden><span data-adr></span><br><a data-route target="_blank" rel="noopener">Itinéraire</a></p></div>
     </div>
   </section>
 
@@ -334,6 +351,19 @@ textarea.bk-input{min-height:96px;resize:vertical}
   </div>
 </footer>
 
+<section class="offer" aria-labelledby="offer-title">
+  <div class="wrap">
+    <p class="offer-brand">PYLOMAE<i></i></p>
+    <h2 id="offer-title">Ce site vous plaît ?</h2>
+    <p id="offer-text">Il peut être en ligne sous 48 h, à votre nom, pour 49 € par mois, sans rien payer à la commande. Textes, photos, tarifs : on ajuste tout ensemble, par message.</p>
+    <div class="ctas">
+      <a class="btn btn-like" data-like href="https://wa.me/%%WA_PYLOMAE%%" target="_blank" rel="noopener">Ce site me plaît</a>
+      <a class="btn btn-ghost btn-change" data-change href="https://wa.me/%%WA_PYLOMAE%%" target="_blank" rel="noopener">Demander une modification</a>
+    </div>
+    <small>Engagement 12 mois, puis sans engagement. <a href="https://pylomae.fr">pylomae.fr</a></small>
+  </div>
+</section>
+
 <nav class="mobile-bar" aria-label="Contact rapide">
   <a class="btn btn-brand" data-tel href="tel:%%TEL_DIGITS%%">Appeler</a>
   <a class="btn btn-line" href="#reserver">%%W_SHORT%%</a>
@@ -364,13 +394,69 @@ textarea.bk-input{min-height:96px;resize:vertical}
     document.querySelectorAll("[data-rating]").forEach(function(el){ el.hidden = false; });
   }
   if (clean(P.get("nom"))){
-    document.getElementById("preview-text").textContent = "Aperçu préparé pour " + D.nom + " par PYLOMAE. Ce site n’est pas encore en ligne.";
+    var pt = document.getElementById("preview-text");
+    var de = /^(le|les)\s/i.test(D.nom) ? (/^les\s/i.test(D.nom) ? "des " : "du ") + D.nom.replace(/^(le|les)\s+/i, "")
+           : (/^[aeiouyhàâäéèêëîïôöùûü]/i.test(D.nom) ? "d’" : "de ") + D.nom;
+    pt.textContent = "Aperçu du site " + de + ", préparé par ";
+    var b = document.createElement("b"); b.textContent = "PYLOMAE"; pt.appendChild(b);
+  }
+  var custom = !!clean(P.get("nom"));
+  var waLike = custom ? "Bonjour Adrien, j’ai vu l’aperçu du site pour " + D.nom + ", il me plaît ! On peut en parler ?"
+                      : "Bonjour, j’ai vu le modèle " + D.metier.toLowerCase() + " sur pylomae.fr. Je voudrais le même pour mon entreprise.";
+  var waChange = custom ? "Bonjour Adrien, j’ai vu l’aperçu du site pour " + D.nom + ". J’aimerais modifier : "
+                        : "Bonjour, j’ai vu le modèle " + D.metier.toLowerCase() + " sur pylomae.fr. Pour mon entreprise, j’aimerais : ";
+  document.querySelectorAll("[data-like]").forEach(function(a){ a.href = "https://wa.me/%%WA_PYLOMAE%%?text=" + encodeURIComponent(waLike); });
+  document.querySelectorAll("[data-change]").forEach(function(a){ a.href = "https://wa.me/%%WA_PYLOMAE%%?text=" + encodeURIComponent(waChange); });
+
+  var adresse = clean(P.get("adresse")).slice(0, 160);
+  if (adresse){
+    document.querySelectorAll("[data-adr]").forEach(function(el){ el.textContent = adresse; });
+    document.querySelectorAll("[data-route]").forEach(function(a){ a.href = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(D.nom + " " + adresse); });
+    document.querySelectorAll("[data-adresse]").forEach(function(el){ el.hidden = false; });
+  }
+
+  // Horaires de la fiche Google : « 0800-1200,1400-1800_… », 7 jours du dimanche au samedi.
+  var REAL = null, rawH = P.get("h") || "";
+  if (/^[0-9,_-]+$/.test(rawH) && rawH.split("_").length === 7){
+    REAL = {};
+    rawH.split("_").forEach(function(seg, day){
+      var ranges = seg ? seg.split(",").filter(function(r){ return /^\d{4}-\d{4}$/.test(r); }).map(function(r){ return [r.slice(0, 2) + ":" + r.slice(2, 4), r.slice(5, 7) + ":" + r.slice(7, 9)]; }) : [];
+      if (ranges.length) REAL[day] = ranges;
+    });
+    if (!Object.keys(REAL).length) REAL = null;
+  }
+  if (REAL){
+    var NAMES = ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"], ORDER = [1, 2, 3, 4, 5, 6, 0];
+    var fmt = function(t){ var h = parseInt(t.slice(0, 2), 10), m = t.slice(3, 5); return h + " h" + (m !== "00" ? " " + m : ""); };
+    var textOf = function(d){ return REAL[d] ? REAL[d].map(function(r){ return fmt(r[0]) + " – " + fmt(r[1]); }).join(", ") : "Fermé"; };
+    var groups = [];
+    ORDER.forEach(function(d){ var t = textOf(d), last = groups[groups.length - 1]; if (last && last.t === t) last.days.push(d); else groups.push({ t: t, days: [d] }); });
+    var dl = document.getElementById("hours");
+    if (dl){
+      dl.innerHTML = "";
+      groups.forEach(function(g){
+        var dt = document.createElement("dt"), dd = document.createElement("dd");
+        dt.textContent = g.days.length === 1 ? NAMES[g.days[0]] : g.days.length === 2 ? NAMES[g.days[0]] + " et " + NAMES[g.days[1]].toLowerCase() : NAMES[g.days[0]] + " au " + NAMES[g.days[g.days.length - 1]].toLowerCase();
+        dd.textContent = g.t; dl.appendChild(dt); dl.appendChild(dd);
+      });
+    }
   }
 
   /* Module de réservation, commande ou devis : la demande part par SMS au commerce, qui confirme. */
   var W = %%WIDGET%%;
   var form = document.getElementById("bk");
   if (!W || !form) return;
+  if (REAL && W.schedule && Object.keys(W.schedule).length){
+    var lead = W.lead || 30, sched = {};
+    var mins = function(t){ var p = t.split(":"); return (+p[0]) * 60 + (+p[1]); };
+    var hhmm = function(m){ var h = Math.floor(m / 60), mm = m % 60; return (h < 10 ? "0" : "") + h + ":" + (mm < 10 ? "0" : "") + mm; };
+    Object.keys(REAL).forEach(function(d){
+      var r = [];
+      REAL[d].forEach(function(x){ var s = mins(x[0]), e = mins(x[1]) - lead; if (e >= s) r.push([x[0], hhmm(e)]); });
+      if (r.length) sched[d] = r;
+    });
+    if (Object.keys(sched).length) W.schedule = sched;
+  }
   var box = document.getElementById("bk-fields"), sum = document.getElementById("bk-sum"), go = document.getElementById("bk-go");
   var V = {}, sent = false;
   var fmtDay = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" });
