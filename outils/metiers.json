@@ -1,42 +1,79 @@
 [
   {
+    "slug": "plombier",
+    "label": "Plombier",
+    "phrase": "un plombier",
+    "hero": "https://images.unsplash.com/photo-1749532125405-70950966b0e5?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Martin Plomberie"
+  },
+  {
+    "slug": "electricien",
+    "label": "Électricien",
+    "phrase": "un électricien",
+    "hero": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Lefort Électricité"
+  },
+  {
+    "slug": "paysagiste",
+    "label": "Paysagiste",
+    "phrase": "un paysagiste",
+    "hero": "https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Jardins Vasseur"
+  },
+  {
     "slug": "garage",
     "label": "Garagiste",
-    "phrase": "un garage"
+    "phrase": "un garage",
+    "hero": "https://images.unsplash.com/photo-1625047509248-ec889cbff17f?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Garage Moreau"
   },
   {
     "slug": "nettoyage",
     "label": "Entreprise de nettoyage",
-    "phrase": "une entreprise de nettoyage"
+    "phrase": "une entreprise de nettoyage",
+    "hero": "https://images.unsplash.com/photo-1577412647305-991150c7d163?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Net & Clair"
   },
   {
     "slug": "demenageur",
     "label": "Déménageur",
-    "phrase": "un déménageur"
+    "phrase": "un déménageur",
+    "hero": "https://images.unsplash.com/photo-1730154838368-c37b1fdebcf6?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Déménagements Roux"
   },
   {
     "slug": "coiffeur",
     "label": "Coiffeur",
-    "phrase": "un coiffeur"
-  },
-  {
-    "slug": "restaurant",
-    "label": "Restaurant",
-    "phrase": "un restaurant"
-  },
-  {
-    "slug": "boulangerie",
-    "label": "Boulangerie",
-    "phrase": "une boulangerie"
-  },
-  {
-    "slug": "fleuriste",
-    "label": "Fleuriste",
-    "phrase": "un fleuriste"
+    "phrase": "un coiffeur",
+    "hero": "https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Atelier Lise"
   },
   {
     "slug": "institut",
     "label": "Institut de beauté",
-    "phrase": "un institut de beauté"
+    "phrase": "un institut de beauté",
+    "hero": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Institut Éclat"
+  },
+  {
+    "slug": "restaurant",
+    "label": "Restaurant",
+    "phrase": "un restaurant",
+    "hero": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Le Comptoir"
+  },
+  {
+    "slug": "boulangerie",
+    "label": "Boulangerie",
+    "phrase": "une boulangerie",
+    "hero": "https://images.unsplash.com/photo-1568254183919-78a4f43a2877?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Maison Lefèvre"
+  },
+  {
+    "slug": "fleuriste",
+    "label": "Fleuriste",
+    "phrase": "un fleuriste",
+    "hero": "https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Fleurs d’Iris"
   }
 ]

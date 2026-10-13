@@ -4,159 +4,220 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#1C1917">
 <title>Atelier Lise · Coiffeur à Villeneuve</title>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,600&family=Jost:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap">
 <style>
-/* Modèle PYLOMAE généré par outils/build_modeles.py. Ne pas modifier à la main : modifier le gabarit ou les données. */
+/* Aperçu PYLOMAE généré par outils/generer_apercus.py : modifier le gabarit ou les données, pas ce fichier. */
 :root{
-  --bg:#FFFFFF; --soft:#F7F2EF; --ink:#1C1917; --muted:#5E5B5F; --line:rgba(0,0,0,.1);
-  --brand:#9A6556; --brand-deep:#1C1917; --on-brand:#FFFFFF;
-  --hero-bg:#F7F2EF; --hero-ink:#1C1917; --hero-muted:#5E5B5F; --hero-kicker:#9A6556; --hero-btn2:#1C1917; --hero-btn-bg:#9A6556; --hero-btn-ink:#FFFFFF;
+  --brand:#9A6556; --brand-ink:#FFFFFF; --brand-text:#9A6556;
+  --deep:#1C1917; --soft:#F7F2EF; --ink:#1C1917; --muted:#5E5860; --line:rgba(0,0,0,.1);
+  --cta:#FFFFFF; --cta-ink:#1C1917;
+  --shade-strong:rgba(28,25,23,0.94); --shade-mid:rgba(28,25,23,0.5);
   --f-head:"Cormorant Garamond",Georgia,"Times New Roman",serif; --f-body:"Jost",system-ui,-apple-system,"Segoe UI",sans-serif;
-  --radius:4px; --btn-radius:999px;
+  --head-weight:600; --name-weight:600; --name-case:none; --name-track:-.01em; --name-size:clamp(3.1rem,12.5vw,6.8rem);
+  --radius:2px; --btn-radius:999px;
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6}
-h1,h2,h3{font-family:var(--f-head);font-weight:600;text-transform:none;letter-spacing:0;margin:0;line-height:1.08;text-wrap:balance}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#FFFFFF;color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--f-head);font-weight:var(--head-weight);margin:0;line-height:1.08;text-wrap:balance}
 p{margin:0}
 a{color:inherit}
-.wrap{max-width:1060px;margin:0 auto;padding-inline:20px}
+img{display:block;max-width:100%}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding-inline:20px}
 :focus-visible{outline:3px solid var(--brand);outline-offset:3px}
+[hidden]{display:none!important}
 
-.preview{background:#111111;color:#E9E9E6;font-size:.82rem;padding:8px 0;padding-top:calc(8px + env(safe-area-inset-top,0px))}
-.preview .wrap{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:center;text-align:center}
+/* Bandeau d'aperçu */
+.preview{background:#111111;color:#E9E9E6;font-size:.8rem;line-height:1.4;padding:8px 0;padding-top:calc(8px + env(safe-area-inset-top,0px))}
+.preview .wrap{display:flex;flex-wrap:wrap;gap:2px 12px;justify-content:center;text-align:center}
 .preview a{color:#34B98A;font-weight:600;text-decoration:none}
 
-header{background:#FFFFFF;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px}
-.logo{display:flex;align-items:center;gap:10px;font-family:var(--f-head);font-weight:600;text-transform:none;font-size:1.3rem;text-decoration:none;min-width:0;color:var(--ink)}
-.logo span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mark{flex:none;width:34px;height:34px;border-radius:50%;background:var(--brand);color:var(--on-brand);display:grid;place-items:center}
-.mark svg{width:18px;height:18px}
-.call{flex:none;display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:var(--on-brand);font-weight:600;text-decoration:none;padding:10px 16px;border-radius:var(--btn-radius);font-size:.95rem}
-@media (max-width:420px){ .logo{font-size:1.08rem} .call{padding:9px 12px;font-size:.9rem} }
-
-.hero{background:var(--hero-bg);color:var(--hero-ink);overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:36px;align-items:center;padding-block:60px 68px}
-.kicker{font-weight:600;font-size:.82rem;text-transform:uppercase;letter-spacing:.14em;color:var(--hero-kicker)}
-.hero h1{font-size:clamp(2.3rem,6vw,4rem);margin-top:14px}
-.hero .lead{font-size:1.12rem;color:var(--hero-muted);max-width:50ch;margin-top:16px}
+/* Héros */
+.hero{position:relative;isolation:isolate;color:#FFFFFF;display:flex;flex-direction:column;min-height:640px;min-height:min(92svh,820px);overflow:hidden;background:var(--deep)}
+.hero-img,.hero-img img{position:absolute;inset:0;width:100%;height:100%}
+.hero-img{z-index:-2}
+.hero-img img{object-fit:cover;animation:settle 1.8s cubic-bezier(.2,.7,.2,1) both}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,var(--shade-strong) 0%,var(--shade-mid) 48%,rgba(0,0,0,.18) 100%)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:18px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;font-weight:600;font-size:1rem}
+.brand span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mark{flex:none;width:36px;height:36px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center}
+.mark svg{width:19px;height:19px}
+.top .call{flex:none;display:inline-flex;align-items:center;gap:8px;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 16px;border:1.5px solid rgba(255,255,255,.7);border-radius:var(--btn-radius)}
+.hero-body{margin-top:auto;padding-bottom:52px;max-width:1120px;animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
+.kicker{font-size:1rem;font-weight:500;color:rgba(255,255,255,.86)}
+.hero h1{font-weight:var(--name-weight);text-transform:var(--name-case);letter-spacing:var(--name-track);font-size:var(--name-size);line-height:.98;margin-top:10px;max-width:14ch;overflow-wrap:anywhere}
+.tagline{font-size:clamp(1.12rem,2.6vw,1.4rem);line-height:1.45;color:rgba(255,255,255,.9);max-width:34ch;margin-top:18px}
+.rating{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);text-decoration:none;font-size:.95rem}
+.rating b{font-weight:700}
+.rating span.n{color:rgba(255,255,255,.82)}
+.stars{position:relative;display:inline-block;font-size:1rem;letter-spacing:1px;color:rgba(255,255,255,.32);line-height:1}
+.stars::before{content:"★★★★★";position:absolute;inset:0;width:var(--p,100%);overflow:hidden;white-space:nowrap;color:#F5B301}
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;text-decoration:none;padding:14px 22px;border-radius:var(--btn-radius);font-size:1.02rem;border:2px solid transparent}
-.btn-main{background:var(--brand);color:var(--on-brand)}
-.hero .btn-main{background:var(--hero-btn-bg);color:var(--hero-btn-ink)}
-.btn-ghost{border-color:var(--hero-btn2);color:var(--hero-btn2)}
-.disc{justify-self:center;width:min(230px,70%);aspect-ratio:1;border-radius:50%;background:var(--brand);color:var(--on-brand);display:grid;place-items:center;box-shadow:0 0 0 14px rgba(255,255,255,.06),0 0 0 28px rgba(0,0,0,.04)}
-.disc svg{width:46%;height:46%}
-@media (max-width:760px){ .hero .wrap{grid-template-columns:1fr;padding-block:40px 48px} .disc{display:none} }
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f-body);font-weight:600;font-size:1rem;text-decoration:none;padding:15px 24px;border-radius:var(--btn-radius);border:1.5px solid transparent;line-height:1.15}
+.btn svg{width:18px;height:18px;flex:none}
+.btn-cta{background:var(--cta);color:var(--cta-ink)}
+.btn-ghost{border-color:rgba(255,255,255,.75);color:#FFFFFF}
+.btn-brand{background:var(--brand);color:var(--brand-ink)}
+.btn-line{border-color:var(--ink);color:var(--ink)}
+@keyframes settle{from{transform:scale(1.08)}to{transform:none}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion: reduce){ .hero-img img,.hero-body{animation:none} }
+@media (max-width:759px){ .top .call{display:none} .hero{min-height:540px;min-height:min(calc(100svh - 150px),740px)} .hero-body{padding-bottom:36px} .hero .ctas{display:none} .contact .ctas .btn{flex:1 1 100%} }
 
-.trust{background:#FFFFFF;border-bottom:1px solid var(--line)}
-.trust ul{list-style:none;margin:0;padding-block:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.trust li{display:flex;align-items:center;gap:10px;font-weight:600;font-size:.97rem}
-.trust li::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--brand)}
-@media (max-width:760px){ .trust ul{grid-template-columns:1fr} }
+/* Engagements */
+.trust{border-bottom:1px solid var(--line)}
+.trust ul{list-style:none;margin:0 auto;padding-block:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px}
+.trust li{display:flex;align-items:center;gap:12px;font-weight:600}
+.trust svg{flex:none;width:22px;height:22px;color:var(--brand-text)}
+@media (max-width:759px){ .trust ul{grid-template-columns:1fr;padding-block:20px} }
 
-section.s{padding-block:64px}
-.sh{display:flex;flex-direction:column;gap:8px;margin-bottom:28px;max-width:60ch}
-.sh .eb{font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;color:var(--brand)}
-.sh h2{font-size:clamp(1.9rem,4.4vw,2.7rem)}
-.sh p{color:var(--muted)}
+/* Sections */
+.s{padding-block:clamp(56px,9vw,96px)}
+.s-soft{background:var(--soft)}
+h2{font-size:clamp(1.95rem,4.8vw,2.9rem)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:56ch;margin-top:14px}
 
-.services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-.card{background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.card .dot{width:28px;height:3px;background:var(--brand);border-radius:2px;margin-bottom:6px}
-.card h3{font-size:1.3rem}
-.card p{color:var(--muted);font-size:.96rem}
-@media (max-width:860px){ .services{grid-template-columns:repeat(2,minmax(0,1fr))} }
-@media (max-width:540px){ .services{grid-template-columns:1fr} }
+.about .wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px 64px;align-items:start}
+.about p{font-size:clamp(1.08rem,2.2vw,1.25rem);line-height:1.65;color:var(--ink);max-width:58ch}
+@media (max-width:759px){ .about .wrap{grid-template-columns:1fr} }
 
-.special{background:var(--soft)}
-.special .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px;align-items:start}
-.list{list-style:none;margin:0;padding:0;display:grid;gap:12px;counter-reset:n}
-.list li{display:grid;grid-template-columns:38px 1fr;gap:14px;align-items:start;padding:16px;background:#FFFFFF;border-radius:var(--radius);border:1px solid var(--line);counter-increment:n}
-.list li::before{content:"";width:38px;height:38px;border-radius:50%;background:var(--brand);display:block}
-.list.steps li::before{content:counter(n);color:var(--on-brand);font-weight:700;display:grid;place-items:center;font-family:var(--f-body)}
-.list.points li::before{width:12px;height:12px;margin:8px 13px 0}
-.list b{display:block;font-size:1.05rem}
-.list span{color:var(--muted);font-size:.96rem}
-@media (max-width:760px){ .special .wrap{grid-template-columns:1fr} }
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 56px;margin-top:40px}
+.svc{padding-block:22px;border-top:1px solid var(--line);display:grid;gap:6px;min-width:0}
+.svc h3{font-size:1.32rem;display:flex;align-items:baseline;gap:12px}
+.svc h3::before{content:"";flex:none;width:10px;height:10px;border-radius:2px;background:var(--brand);transform:translateY(-2px)}
+.svc p{color:var(--muted);padding-left:22px}
+@media (max-width:759px){ .services{grid-template-columns:1fr;margin-top:28px} }
 
-.info .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
-.box{background:#FFFFFF;border:1px solid var(--line);border-radius:var(--radius);padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
-.box h3{font-size:1.45rem}
-.box p{color:var(--muted)}
+.special .wrap{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:36px 64px;align-items:start}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:4px;counter-reset:n}
+.list li{display:grid;grid-template-columns:44px 1fr;gap:16px;align-items:start;padding:18px 0;border-top:1px solid var(--line);counter-increment:n}
+.list li:first-child{border-top:0}
+.list.steps li::before{content:counter(n);width:40px;height:40px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center;font-weight:700;font-family:var(--f-body)}
+.list.points li::before{content:"";width:12px;height:12px;margin:8px 0 0 14px;background:var(--brand);transform:rotate(45deg)}
+.list b{display:block;font-size:1.08rem;margin-bottom:2px}
+.list span{color:var(--muted)}
+@media (max-width:759px){ .special .wrap{grid-template-columns:1fr} }
+
+.gallery{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;margin-top:36px;height:clamp(420px,52vw,600px)}
+.gallery figure{margin:0;overflow:hidden;border-radius:var(--radius);background:var(--soft);min-height:0}
+.gallery figure:first-child{grid-row:span 2}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.note{font-size:.88rem;color:var(--muted);margin-top:14px}
+@media (max-width:759px){
+  .gallery{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;height:auto}
+  .gallery figure:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:4/3}
+  .gallery figure{aspect-ratio:1}
+}
+
+.reviews{display:grid;grid-template-columns:auto 1fr;gap:12px 36px;align-items:center;padding:clamp(24px,4vw,40px);border:1px solid var(--line);border-radius:var(--radius)}
+.reviews .big{font-family:var(--f-head);font-weight:var(--head-weight);font-size:clamp(3.6rem,10vw,5.4rem);line-height:1}
+.reviews .stars{font-size:1.5rem;color:#DED9D2}
+.reviews p{color:var(--muted);margin-top:6px}
+.reviews a{display:inline-block;margin-top:14px;font-weight:600;color:var(--brand-text);text-decoration:none;border-bottom:1.5px solid currentColor}
+@media (max-width:540px){ .reviews{grid-template-columns:1fr} }
+
+.info{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 48px}
+.info h3{font-size:1.45rem;margin-bottom:10px}
+.info p{color:var(--muted)}
 .hours{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;margin:0;font-variant-numeric:tabular-nums}
 .hours dt{font-weight:600}
 .hours dd{margin:0;color:var(--muted)}
-@media (max-width:760px){ .info .wrap{grid-template-columns:1fr} }
+.info a{color:var(--brand-text);font-weight:600}
+@media (max-width:860px){ .info{grid-template-columns:1fr} }
 
-.contact{background:var(--brand-deep);color:#FFFFFF}
-.contact .wrap{padding-block:64px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
-.contact h2{font-size:clamp(2rem,5vw,3rem)}
-.contact p{color:rgba(255,255,255,.78);max-width:54ch}
-.bigtel{font-family:var(--f-head);font-weight:600;font-size:clamp(2.1rem,8vw,3.2rem);color:#FFFFFF;text-decoration:none;letter-spacing:.02em}
-.contact .btn-main{background:#FFFFFF;color:var(--brand-deep)}
-.contact .btn-ghost{border-color:#FFFFFF;color:#FFFFFF}
-footer{padding-block:22px 36px;font-size:.85rem;color:var(--muted)}
-footer .wrap{display:flex;flex-wrap:wrap;gap:6px 18px;justify-content:space-between}
+.faq{margin-top:28px;max-width:820px;border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:18px;padding:20px 0;font-weight:600;font-size:1.06rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";flex:none;font-size:1.4rem;line-height:1;color:var(--brand-text);font-weight:400}
+.faq details[open] summary::after{content:"–"}
+.faq p{color:var(--muted);padding:0 0 22px;max-width:66ch}
+
+.contact{background:var(--deep);color:#FFFFFF}
+.contact .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:18px}
+.contact p{color:rgba(255,255,255,.78);max-width:52ch}
+.bigtel{font-family:var(--f-head);font-weight:var(--name-weight);font-size:clamp(2.3rem,9vw,3.8rem);letter-spacing:.01em;text-decoration:none;color:#FFFFFF;line-height:1}
+.contact .btn-ghost{border-color:rgba(255,255,255,.7)}
+.contact .ctas{margin-top:6px}
+
+footer{padding-block:26px 30px;font-size:.86rem;color:var(--muted)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px}
 footer a{color:var(--muted)}
+
+/* Barre d'appel sur téléphone */
+.mobile-bar{display:none}
+@media (max-width:759px){
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+  .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
+  .mobile-bar .btn{padding:13px 8px;font-size:.95rem;white-space:nowrap}
+}
 </style>
 </head>
 <body>
 
-<div class="preview"><div class="wrap"><span id="preview-text">Modèle de démonstration réalisé par PYLOMAE · entreprise fictive</span><a href="https://pylomae.fr">pylomae.fr</a></div></div>
+<div class="preview"><div class="wrap"><span id="preview-text">Modèle de démonstration réalisé par PYLOMAE, entreprise fictive</span><a href="https://pylomae.fr">pylomae.fr</a></div></div>
 
-<header>
-  <div class="wrap">
-    <a class="logo" href="#"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.2 8.2L20 20"/><path d="M8.2 15.8L20 4"/></svg></span><span data-f="nom"></span></a>
-    <a class="call" data-tel href="tel:0639981240">Appeler</a>
+<section class="hero">
+  <picture class="hero-img">
+    <source media="(min-width: 760px)" srcset="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=1400&h=875&crop=entropy 1400w, https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=2000&h=1250&crop=entropy 2000w, https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=2600&h=1625&crop=entropy 2600w" sizes="100vw">
+    <img src="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy" srcset="https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=600&h=900&crop=entropy 600w, https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy 900w, https://images.unsplash.com/photo-1633681926022-84c23e8cb2d6?auto=format&fit=crop&q=70&w=1200&h=1800&crop=entropy 1200w" sizes="100vw" alt="Salon de coiffure aux miroirs ronds" fetchpriority="high">
+  </picture>
+  <header class="top wrap">
+    <a class="brand" href="#"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.2 8.2L20 20"/><path d="M8.2 15.8L20 4"/></svg></span><span data-f="nom"></span></a>
+    <a class="call" data-tel href="tel:0639981240"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-f="tel"></span></a>
+  </header>
+  <div class="hero-body wrap">
+    <p class="kicker">Salon de coiffure à <span data-f="ville"></span></p>
+    <h1 data-f="nom"></h1>
+    <p class="tagline">Une coiffure qui vous ressemble, au cœur de <span data-f="ville"></span>.</p>
+    <a class="rating" data-rating hidden target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span><b data-note></b><span class="n"><span data-avis></span> avis Google</span></a>
+    <div class="ctas">
+      <a class="btn btn-cta" data-tel href="tel:0639981240"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
+      <a class="btn btn-ghost" href="#contact">Prendre rendez-vous</a>
+    </div>
   </div>
-</header>
+</section>
+
+<div class="trust">
+  <ul class="wrap">
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Sur rendez-vous</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Produits professionnels</li>
+    <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Conseils personnalisés</li>
+  </ul>
+</div>
 
 <main>
-  <section class="hero">
+  <section class="s about">
     <div class="wrap">
-      <div>
-        <span class="kicker">Salon de coiffure · <span data-f="ville"></span></span>
-        <h1>Une coiffure qui vous ressemble, au cœur de <span data-f="ville"></span>.</h1>
-        <p class="lead"><span data-f="nom"></span> vous accueille pour la coupe, la couleur et le coiffage, femmes, hommes et enfants. Prenez rendez-vous en un message.</p>
-        <div class="ctas">
-          <a class="btn btn-main" data-tel href="tel:0639981240">Appeler le <span data-f="tel"></span></a>
-          <a class="btn btn-ghost" href="#contact">Prendre rendez-vous</a>
-        </div>
-      </div>
-      <div class="disc" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.2 8.2L20 20"/><path d="M8.2 15.8L20 4"/></svg></div>
+      <h2>Le salon</h2>
+      <p><span data-f="nom"></span> vous accueille pour la coupe, la couleur et le coiffage, femmes, hommes et enfants. Chaque rendez-vous commence par un temps d’écoute pour comprendre ce que vous voulez vraiment.</p>
     </div>
   </section>
 
-  <div class="trust">
-    <ul class="wrap">
-      <li>Sur rendez-vous</li>
-      <li>Produits professionnels</li>
-      <li>Conseils personnalisés</li>
-    </ul>
-  </div>
-
-  <section class="s" id="services">
+  <section class="s s-soft" id="services">
     <div class="wrap">
-      <div class="sh"><span class="eb">Prestations</span><h2>Nos prestations</h2></div>
+      <h2>Nos prestations</h2>
       <div class="services">
-        <article class="card"><span class="dot" aria-hidden="true"></span><h3>Coupe femme</h3><p>Shampoing, coupe et coiffage adaptés à votre visage.</p></article>
-        <article class="card"><span class="dot" aria-hidden="true"></span><h3>Coupe homme et barbe</h3><p>Coupe aux ciseaux ou à la tondeuse, taille de barbe.</p></article>
-        <article class="card"><span class="dot" aria-hidden="true"></span><h3>Couleur</h3><p>Couleur, racines et patine pour un résultat naturel.</p></article>
-        <article class="card"><span class="dot" aria-hidden="true"></span><h3>Mèches et balayage</h3><p>Lumière et relief, sur mesure.</p></article>
-        <article class="card"><span class="dot" aria-hidden="true"></span><h3>Brushing et chignon</h3><p>Pour le quotidien comme pour les grandes occasions.</p></article>
-        <article class="card"><span class="dot" aria-hidden="true"></span><h3>Soins du cheveu</h3><p>Soins profonds pour cheveux secs, fins ou abîmés.</p></article>
+        <div class="svc"><h3>Coupe femme</h3><p>Shampoing, coupe et coiffage adaptés à votre visage.</p></div>
+        <div class="svc"><h3>Coupe homme et barbe</h3><p>Coupe aux ciseaux ou à la tondeuse, taille de barbe.</p></div>
+        <div class="svc"><h3>Couleur</h3><p>Couleur, racines et patine pour un résultat naturel.</p></div>
+        <div class="svc"><h3>Mèches et balayage</h3><p>Lumière et relief, sur mesure.</p></div>
+        <div class="svc"><h3>Brushing et chignon</h3><p>Pour le quotidien comme pour les grandes occasions.</p></div>
+        <div class="svc"><h3>Soins du cheveu</h3><p>Soins profonds pour cheveux secs, fins ou abîmés.</p></div>
       </div>
     </div>
   </section>
 
   <section class="s special">
     <div class="wrap">
-      <div class="sh" style="margin-bottom:0"><span class="eb">L’esprit du salon</span><h2>Prendre le temps de bien faire</h2><p>Chaque rendez-vous commence par une vraie discussion.</p></div>
+      <div><h2>Prendre le temps de bien faire</h2><p class="lead">Chaque rendez-vous commence par une vraie discussion.</p></div>
       <ul class="list points">
         <li><div><b>Écoute</b><span>Nous prenons le temps de comprendre ce que vous voulez.</span></div></li>
         <li><div><b>Diagnostic</b><span>Votre cheveu, votre visage et votre quotidien.</span></div></li>
@@ -166,20 +227,57 @@ footer a{color:var(--muted)}
     </div>
   </section>
 
-  <section class="s info">
+  <section class="s s-soft">
     <div class="wrap">
-      <div class="box"><h3>Le salon</h3><p>Au cœur de <span data-f="ville"></span>, sur rendez-vous.</p></div>
-      <div class="box"><h3>Horaires</h3><dl class="hours"><dt>Mardi au vendredi</dt><dd>9 h – 19 h</dd><dt>Samedi</dt><dd>8 h 30 – 17 h</dd><dt>Dimanche et lundi</dt><dd>Fermé</dd></dl></div>
+      <h2>L’ambiance du salon</h2>
+      <div class="gallery">
+        <figure><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=70&w=800&h=900&crop=entropy" srcset="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=70&w=800&h=900&crop=entropy 800w, https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&q=70&w=1200&h=1350&crop=entropy 1200w" sizes="(min-width: 760px) 60vw, 100vw" alt="Brushing au sèche-cheveux et à la brosse ronde" loading="lazy"></figure>
+        <figure><img src="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy" srcset="https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy 600w, https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?auto=format&fit=crop&q=70&w=900&h=900&crop=entropy 900w" sizes="(min-width: 760px) 35vw, 50vw" alt="Coupe de cheveux au salon" loading="lazy"></figure>
+        <figure><img src="https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy" srcset="https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy 600w, https://images.unsplash.com/photo-1595475884562-073c30d45670?auto=format&fit=crop&q=70&w=900&h=900&crop=entropy 900w" sizes="(min-width: 760px) 35vw, 50vw" alt="Ciseaux, brosses et pinceau de coloration" loading="lazy"></figure>
+      </div>
+      <p class="note">Photos d’illustration : vos propres photos du salon et de vos réalisations les remplaceront.</p>
     </div>
   </section>
 
-  <section class="contact" id="contact">
+  <section class="s" data-rating hidden>
+    <div class="wrap">
+      <div class="reviews">
+        <span class="big" data-note></span>
+        <div>
+          <span class="stars" aria-hidden="true">★★★★★</span>
+          <p>Note moyenne sur <span data-avis></span> avis Google.</p>
+          <a data-maps target="_blank" rel="noopener">Lire les avis sur Google</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s s-soft">
+    <div class="wrap info">
+      <div><h3>Le salon</h3><p>Au cœur de <span data-f="ville"></span>, sur rendez-vous.</p></div>
+      <div><h3>Horaires</h3><dl class="hours"><dt>Mardi au vendredi</dt><dd>9 h – 19 h</dd><dt>Samedi</dt><dd>8 h 30 – 17 h</dd><dt>Dimanche et lundi</dt><dd>Fermé</dd></dl></div>
+      <div><h3>Contact</h3><p><a data-tel href="tel:0639981240" data-f="tel"></a></p><p>Par téléphone ou par SMS.</p></div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2>Questions fréquentes</h2>
+      <div class="faq">
+        <details><summary>Prenez-vous sans rendez-vous ?</summary><p>Selon les disponibilités du jour. Pour être sûr d’être reçu, prenez rendez-vous par téléphone ou par message.</p></details>
+        <details><summary>Combien de temps dure une couleur ?</summary><p>Comptez environ 1 h 30 à 2 h, selon la longueur de vos cheveux et la technique choisie.</p></details>
+        <details><summary>Coiffez-vous les enfants ?</summary><p>Oui, nous accueillons les enfants pour la coupe.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="s contact" id="contact">
     <div class="wrap">
       <h2>Prenez rendez-vous</h2>
       <p>Appelez ou envoyez un message avec la prestation souhaitée et vos disponibilités.</p>
       <a class="bigtel" data-tel href="tel:0639981240" data-f="tel"></a>
-      <div class="ctas" style="margin-top:0">
-        <a class="btn btn-main" data-tel href="tel:0639981240">Appeler</a>
+      <div class="ctas">
+        <a class="btn btn-cta" data-tel href="tel:0639981240">Appeler</a>
         <a class="btn btn-ghost" data-sms href="sms:0639981240">Envoyer un message</a>
       </div>
     </div>
@@ -188,10 +286,15 @@ footer a{color:var(--muted)}
 
 <footer>
   <div class="wrap">
-    <span>© <span data-f="nom"></span> · Coiffeur à <span data-f="ville"></span></span>
+    <span>© <span data-f="nom"></span>, coiffeur à <span data-f="ville"></span></span>
     <span>Mentions légales · Site réalisé par <a href="https://pylomae.fr">PYLOMAE</a></span>
   </div>
 </footer>
+
+<nav class="mobile-bar" aria-label="Contact rapide">
+  <a class="btn btn-brand" data-tel href="tel:0639981240">Appeler</a>
+  <a class="btn btn-line" data-sms href="sms:0639981240">Envoyer un SMS</a>
+</nav>
 
 <script>
 (function(){
@@ -205,8 +308,20 @@ footer a{color:var(--muted)}
   document.querySelectorAll("[data-tel]").forEach(function(a){ a.href = "tel:" + digits; });
   document.querySelectorAll("[data-sms]").forEach(function(a){ a.href = "sms:" + digits; });
   document.title = D.nom + " · " + D.metier + " à " + D.ville;
+
+  var note = parseFloat(String(P.get("note") || "").replace(",", "."));
+  var avis = parseInt(P.get("avis") || "", 10);
+  if (note >= 1 && note <= 5 && avis > 0){
+    var label = note.toFixed(1).replace(".", ",");
+    var maps = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(D.nom + " " + D.ville);
+    document.querySelectorAll("[data-note]").forEach(function(el){ el.textContent = label; });
+    document.querySelectorAll("[data-avis]").forEach(function(el){ el.textContent = avis.toLocaleString("fr-FR"); });
+    document.querySelectorAll(".stars").forEach(function(el){ el.style.setProperty("--p", (note / 5 * 100) + "%"); el.setAttribute("aria-label", label + " sur 5"); });
+    document.querySelectorAll("[data-maps], a[data-rating]").forEach(function(a){ a.href = maps; });
+    document.querySelectorAll("[data-rating]").forEach(function(el){ el.hidden = false; });
+  }
   if (clean(P.get("nom"))){
-    document.getElementById("preview-text").textContent = "Aperçu préparé pour " + D.nom + " par PYLOMAE · ce site n’est pas encore en ligne";
+    document.getElementById("preview-text").textContent = "Aperçu préparé pour " + D.nom + " par PYLOMAE. Ce site n’est pas encore en ligne.";
   }
 })();
 </script>

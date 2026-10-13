@@ -86,6 +86,14 @@ textarea{min-height:210px;resize:vertical;line-height:1.5}
         <input id="tel" inputmode="tel" placeholder="06 12 34 56 78">
       </label>
     </div>
+    <div class="row">
+      <label for="note">Note Google <small>facultatif, affichée si 4 ou plus</small>
+        <input id="note" inputmode="decimal" placeholder="4,8">
+      </label>
+      <label for="avis">Nombre d’avis <small>facultatif, 5 au minimum</small>
+        <input id="avis" inputmode="numeric" placeholder="37">
+      </label>
+    </div>
   </form>
 
   <section class="out" aria-live="polite">
@@ -123,6 +131,8 @@ textarea{min-height:210px;resize:vertical;line-height:1.5}
     if (nom) p.set("nom", nom);
     if (ville) p.set("ville", ville);
     if (tel) p.set("tel", tel.replace(/[^0-9+]/g,""));
+    var note = parseFloat($("note").value.replace(",", ".")), avis = parseInt($("avis").value, 10);
+    if (note >= 4 && note <= 5 && avis >= 5){ p.set("note", String(Math.round(note * 10) / 10)); p.set("avis", String(avis)); }
     var qs = p.toString();
     var url = "https://pylomae.fr/modeles/" + m + "/" + (qs ? "?" + qs : "");
     $("link").textContent = url;
@@ -139,7 +149,7 @@ textarea{min-height:210px;resize:vertical;line-height:1.5}
     var n = intl($("tel").value);
     $("wa").href = "https://wa.me/" + n + "?text=" + encodeURIComponent($("msg").value);
   }
-  ["metier","nom","ville","tel"].forEach(function(id){ $(id).addEventListener("input", build); });
+  ["metier","nom","ville","tel","note","avis"].forEach(function(id){ $(id).addEventListener("input", build); });
   $("msg").addEventListener("input", function(){ edited = true; updateWa(); });
   $("f").addEventListener("submit", function(e){ e.preventDefault(); });
   $("copy").addEventListener("click", function(){
