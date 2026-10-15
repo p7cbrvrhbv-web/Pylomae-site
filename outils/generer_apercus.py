@@ -820,6 +820,20 @@ def build(m):
     os.makedirs(d, exist_ok=True)
     with open(os.path.join(d, "index.html"), "w", encoding="utf-8") as f:
         f.write(out)
+    # Textes par défaut du métier, repris par l'outil de mise en ligne de Filon ({nom} et {ville} à remplacer).
+    t = TARIFS.get(m["slug"])
+    contenu = {
+        "slug": m["slug"], "label": m["label"], "kicker": m.get("kicker", m["label"]),
+        "tagline": m["tagline"], "about_title": m["about_title"], "about": m["about"], "trust": m["trust"],
+        "services_h2": m["services_h2"], "services": m["services"],
+        "tarifs": {"title": t["title"], "note": "", "groups": t["groups"], "highlight": t.get("highlight")} if t else None,
+        "special_h2": m["special_h2"], "special_p": m["special_p"], "special": m["special"], "special_style": m["special_style"],
+        "gallery_title": m["gallery_title"], "place_title": m["place_title"], "place_text": m["place_text"], "hours": m["hours"],
+        "faq": m["faq"], "contact_h2": m["contact_h2"], "contact_p": m["contact_p"], "cta": m["cta"], "sms": m["sms"],
+        "tarifs_class": cls.get("tarifs", ""), "demo_tel": digits,
+    }
+    with open(os.path.join(d, "contenu.json"), "w", encoding="utf-8") as f:
+        json.dump(contenu, f, ensure_ascii=False, indent=1)
 
 
 if __name__ == "__main__":

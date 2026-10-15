@@ -55,6 +55,27 @@ img{display:block;max-width:100%}
 .offer small{color:#8C8C87;font-size:.82rem}
 .offer small a{color:#C9C9C4}
 
+/* Choix WhatsApp / SMS après « Ce site me plaît » */
+.sheet{position:fixed;inset:0;z-index:60;background:rgba(10,10,10,.55);display:flex;align-items:flex-end;justify-content:center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.sheet-card{width:100%;max-width:420px;background:#FFFFFF;color:#111111;border-radius:18px;padding:22px 20px 14px;display:flex;flex-direction:column;gap:10px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.sheet-title{font-size:1.15rem;font-weight:700}
+.sheet-text{color:#55554F;font-size:.95rem;margin-bottom:4px}
+.sheet .btn{width:100%;justify-content:center;font-family:inherit}
+.sheet-wa{background:#25D366;color:#0B1F17;border-color:#25D366}
+.sheet-sms{background:#111111;color:#FFFFFF;border-color:#111111}
+.sheet-close{border:0;background:none;color:#55554F;font:inherit;font-size:.95rem;padding:10px;cursor:pointer}
+@media (min-width:760px){.sheet{align-items:center}}
+
+/* Avis Google réels */
+.greviews{margin-top:28px;display:grid;gap:14px}
+.greviews h3{font-size:1.15rem}
+.gr-list{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.gr{margin:0;background:var(--soft);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.gr-stars{color:#F5B301;letter-spacing:2px;font-size:.9rem}
+.gr p{font-size:.97rem}
+.gr small{color:var(--muted);font-size:.82rem}
+.gr-src{font-size:.8rem;color:var(--muted)}
+
 /* Héros */
 .hero{position:relative;isolation:isolate;color:#FFFFFF;display:flex;flex-direction:column;min-height:640px;min-height:min(92svh,820px);overflow:hidden;background:var(--deep)}
 .hero-img,.hero-img img{position:absolute;inset:0;width:100%;height:100%}
@@ -224,7 +245,7 @@ textarea.bk-input{min-height:96px;resize:vertical}
 </head>
 <body>
 
-<div class="preview"><div class="wrap"><p id="preview-text">Modèle de démonstration par <b>PYLOMAE</b>, entreprise fictive</p><a class="like" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>Ce site me plaît</a></div></div>
+<!--P--><div class="preview"><div class="wrap"><p id="preview-text">Modèle de démonstration par <b>PYLOMAE</b>, entreprise fictive</p><a class="like" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>Ce site me plaît</a></div></div><!--/P-->
 
 <section class="hero">
   <picture class="hero-img">
@@ -238,29 +259,29 @@ textarea.bk-input{min-height:96px;resize:vertical}
   <div class="hero-body wrap">
     <p class="kicker">Plombier à <span data-f="ville"></span></p>
     <h1 data-f="nom"></h1>
-    <p class="tagline">Une fuite, une panne ? On intervient vite, avec un prix annoncé avant les travaux.</p>
+    <p class="tagline"><!--R:tagline-->Une fuite, une panne ? On intervient vite, avec un prix annoncé avant les travaux.<!--/R:tagline--></p>
     <a class="rating" data-rating hidden target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span><b data-note></b><span class="n"><span data-avis></span> avis Google</span></a>
     <div class="ctas">
       <a class="btn btn-cta" data-tel href="tel:0639981234"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
-      <a class="btn btn-ghost" href="#reserver">Demander un devis</a>
+      <!--R:herocta--><a class="btn btn-ghost" href="#reserver">Demander un devis</a><!--/R:herocta-->
     </div>
   </div>
 </section>
 
 <div class="trust">
-  <ul class="wrap">
+  <ul class="wrap"><!--R:trust-->
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Intervention rapide</li>
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Devis gratuit et détaillé</li>
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Prix annoncé avant travaux</li>
-  </ul>
+  <!--/R:trust--></ul>
 </div>
 
 <main>
   <section class="s about">
     <div class="wrap">
-      <h2>Votre plombier à <span data-f="ville"></span></h2>
+      <h2><!--R:about_title-->Votre plombier à <span data-f="ville"></span><!--/R:about_title--></h2>
       <div class="about-body">
-        <p><span data-f="nom"></span> intervient chez les particuliers et les professionnels de <span data-f="ville"></span> et des communes voisines. Dépannage, chauffe-eau, salle de bain : chaque intervention commence par un diagnostic clair et un prix annoncé avant de commencer.</p>
+        <p><!--R:about--><span data-f="nom"></span> intervient chez les particuliers et les professionnels de <span data-f="ville"></span> et des communes voisines. Dépannage, chauffe-eau, salle de bain : chaque intervention commence par un diagnostic clair et un prix annoncé avant de commencer.<!--/R:about--></p>
         <div class="reviews" data-rating hidden>
           <span class="big" data-note></span>
           <div>
@@ -270,24 +291,29 @@ textarea.bk-input{min-height:96px;resize:vertical}
           </div>
         </div>
       </div>
+      <div class="greviews" id="greviews" hidden>
+        <h3>Ce que disent nos clients</h3>
+        <div class="gr-list" id="gr-list"></div>
+        <p class="gr-src">Avis publiés sur Google</p>
+      </div>
     </div>
   </section>
 
   <section class="s s-soft" id="services">
     <div class="wrap">
-      <h2>Tout ce qui touche à l’eau</h2>
-      <div class="services">
+      <h2><!--R:services_h2-->Tout ce qui touche à l’eau<!--/R:services_h2--></h2>
+      <div class="services"><!--R:services-->
         <div class="svc"><h3>Recherche de fuite</h3><p>Fuite visible ou cachée, tuyau percé, joint usé : on localise et on répare.</p></div>
         <div class="svc"><h3>Débouchage</h3><p>Évier, WC, douche ou canalisation bouchée, avec le matériel adapté.</p></div>
         <div class="svc"><h3>Chauffe-eau</h3><p>Panne, entretien ou remplacement de votre ballon d’eau chaude.</p></div>
         <div class="svc"><h3>Salle de bain</h3><p>Rénovation complète ou remplacement de douche, baignoire et meuble vasque.</p></div>
         <div class="svc"><h3>Robinetterie</h3><p>Robinet qui goutte, mitigeur à changer, chasse d’eau qui coule en continu.</p></div>
         <div class="svc"><h3>Chauffage</h3><p>Radiateurs, circuit de chauffage et raccordements, en neuf comme en rénovation.</p></div>
-      </div>
+      <!--/R:services--></div>
     </div>
   </section>
-
-  <section class="s booking " id="reserver">
+<!--S:tarifs--><!--/S:tarifs-->
+  <!--S:booking--><section class="s booking " id="reserver">
     <div class="wrap bk">
       <div class="bk-intro">
         <h2>Demander une intervention</h2>
@@ -300,55 +326,55 @@ textarea.bk-input{min-height:96px;resize:vertical}
         <button class="btn btn-brand bk-go" type="submit" id="bk-go">Envoyer la demande par SMS</button>
       </form>
     </div>
-  </section>
+  </section><!--/S:booking-->
 
-  <section class="s special s-soft">
+  <!--S:special--><section class="s special s-soft">
     <div class="wrap">
-      <div><h2>En cas de fuite, les bons réflexes</h2><p class="lead">Quelques gestes simples limitent les dégâts en attendant notre arrivée.</p></div>
-      <ol class="list steps">
+      <div><h2><!--R:special_h2-->En cas de fuite, les bons réflexes<!--/R:special_h2--></h2><p class="lead"><!--R:special_p-->Quelques gestes simples limitent les dégâts en attendant notre arrivée.<!--/R:special_p--></p></div>
+      <ol class="list steps"><!--R:special-->
         <li><div><b>Coupez l’arrivée d’eau générale</b><span>Le robinet se trouve souvent près du compteur, sous l’évier ou à la cave.</span></div></li>
         <li><div><b>Coupez l’électricité si l’eau approche des prises</b><span>Au tableau électrique, par sécurité.</span></div></li>
         <li><div><b>Photographiez les dégâts</b><span>Ces photos serviront pour votre déclaration à l’assurance.</span></div></li>
         <li><div><b>Appelez-nous</b><span>Nous vous indiquons le délai et le prix avant de nous déplacer.</span></div></li>
-      </ol>
+      <!--/R:special--></ol>
     </div>
-  </section>
+  </section><!--/S:special-->
 
-  <section class="s ">
+  <!--S:gallery--><section class="s ">
     <div class="wrap">
-      <h2>Nos interventions en images</h2>
+      <h2><!--R:gallery_title-->Nos interventions en images<!--/R:gallery_title--></h2>
       <div class="gallery">
         <figure><img src="https://images.unsplash.com/photo-1676210134190-3f2c0d5cf58d?auto=format&fit=crop&q=70&w=800&h=900&crop=entropy" srcset="https://images.unsplash.com/photo-1676210134190-3f2c0d5cf58d?auto=format&fit=crop&q=70&w=800&h=900&crop=entropy 800w, https://images.unsplash.com/photo-1676210134190-3f2c0d5cf58d?auto=format&fit=crop&q=70&w=1200&h=1350&crop=entropy 1200w" sizes="(min-width: 760px) 60vw, 100vw" alt="Intervention sur un chauffe-eau" loading="lazy"></figure>
         <figure><img src="https://images.unsplash.com/photo-1676210133055-eab6ef033ce3?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy" srcset="https://images.unsplash.com/photo-1676210133055-eab6ef033ce3?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy 600w, https://images.unsplash.com/photo-1676210133055-eab6ef033ce3?auto=format&fit=crop&q=70&w=900&h=900&crop=entropy 900w" sizes="(min-width: 760px) 35vw, 50vw" alt="Réparation d’une canalisation sous un évier" loading="lazy"></figure>
         <figure><img src="https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy" srcset="https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy 600w, https://images.unsplash.com/photo-1521207418485-99c705420785?auto=format&fit=crop&q=70&w=900&h=900&crop=entropy 900w" sizes="(min-width: 760px) 35vw, 50vw" alt="Robinet de cuisine" loading="lazy"></figure>
       </div>
-      <p class="note">Photos d’illustration : vos propres photos de chantier les remplaceront.</p>
+      <!--R:gallery_note--><p class="note">Photos d’illustration : vos propres photos de chantier les remplaceront.</p><!--/R:gallery_note-->
     </div>
-  </section>
+  </section><!--/S:gallery-->
 
   <section class="s s-soft">
     <div class="wrap info">
-      <div><h3>Zone d’intervention</h3><p><span data-f="ville"></span> et les communes alentour, dans un rayon d’environ 30 km.</p></div>
-      <div><h3>Horaires</h3><dl class="hours" id="hours"><dt>Lundi au vendredi</dt><dd>8 h – 19 h</dd><dt>Samedi</dt><dd>9 h – 12 h</dd><dt>Urgences</dt><dd>Sur appel</dd></dl></div>
+      <div><h3><!--R:place_title-->Zone d’intervention<!--/R:place_title--></h3><p><!--R:place_text--><span data-f="ville"></span> et les communes alentour, dans un rayon d’environ 30 km.<!--/R:place_text--></p></div>
+      <div><h3>Horaires</h3><dl class="hours" id="hours"><!--R:hours--><dt>Lundi au vendredi</dt><dd>8 h – 19 h</dd><dt>Samedi</dt><dd>9 h – 12 h</dd><dt>Urgences</dt><dd>Sur appel</dd><!--/R:hours--></dl></div>
       <div><h3>Contact</h3><p><a data-tel href="tel:0639981234" data-f="tel"></a></p><p>Par téléphone ou par SMS.</p><p data-adresse hidden><span data-adr></span><br><a data-route target="_blank" rel="noopener">Itinéraire</a></p></div>
     </div>
   </section>
 
-  <section class="s ">
+  <!--S:faq--><section class="s ">
     <div class="wrap">
       <h2>Questions fréquentes</h2>
-      <div class="faq">
+      <div class="faq"><!--R:faq-->
         <details><summary>Intervenez-vous en urgence ?</summary><p>Oui, pour les fuites et les pannes d’eau chaude, nous intervenons le jour même dans la mesure du possible. Appelez-nous pour connaître le délai.</p></details>
         <details><summary>Le devis est-il gratuit ?</summary><p>Oui. Pour des travaux, le devis est gratuit et détaillé. Pour un dépannage, le prix vous est annoncé avant toute intervention.</p></details>
         <details><summary>Quelles communes couvrez-vous ?</summary><p><span data-f="ville"></span> et les communes situées à environ 30 km autour.</p></details>
-      </div>
+      <!--/R:faq--></div>
     </div>
-  </section>
+  </section><!--/S:faq-->
 
   <section class="s contact" id="contact">
     <div class="wrap">
-      <h2>Un devis ? Une urgence ?</h2>
-      <p>Appelez-nous ou envoyez un SMS avec une photo du problème : nous vous répondons rapidement avec un délai et un prix.</p>
+      <h2><!--R:contact_h2-->Un devis ? Une urgence ?<!--/R:contact_h2--></h2>
+      <p><!--R:contact_p-->Appelez-nous ou envoyez un SMS avec une photo du problème : nous vous répondons rapidement avec un délai et un prix.<!--/R:contact_p--></p>
       <a class="bigtel" data-tel href="tel:0639981234" data-f="tel"></a>
       <div class="ctas">
         <a class="btn btn-cta" data-tel href="tel:0639981234">Appeler</a>
@@ -359,13 +385,13 @@ textarea.bk-input{min-height:96px;resize:vertical}
 </main>
 
 <footer>
-  <div class="wrap">
+  <div class="wrap"><!--R:footer-->
     <span>© <span data-f="nom"></span>, plombier à <span data-f="ville"></span></span>
     <span>Mentions légales · Site réalisé par <a href="https://pylomae.fr">PYLOMAE</a></span>
-  </div>
+  <!--/R:footer--></div>
 </footer>
 
-<section class="offer" aria-labelledby="offer-title">
+<!--P--><section class="offer" aria-labelledby="offer-title">
   <div class="wrap">
     <p class="offer-brand">PYLOMAE<i></i></p>
     <h2 id="offer-title">Ce site vous plaît ?</h2>
@@ -374,19 +400,30 @@ textarea.bk-input{min-height:96px;resize:vertical}
       <a class="btn btn-like" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener">Ce site me plaît</a>
       <a class="btn btn-ghost btn-change" data-change href="https://wa.me/33651603705" target="_blank" rel="noopener">Demander une modification</a>
     </div>
-    <small>Engagement 12 mois, puis sans engagement. <a href="https://pylomae.fr">pylomae.fr</a></small>
+    <small>Satisfait ou remboursé le premier mois. Engagement 12 mois, puis sans engagement. <a href="https://pylomae.fr/cgv/">Conditions</a> · <a href="https://pylomae.fr">pylomae.fr</a></small>
   </div>
 </section>
 
+<div class="sheet" id="sheet" hidden role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+  <div class="sheet-card">
+    <p class="sheet-title" id="sheet-title">Ce site vous plaît ?</p>
+    <p class="sheet-text" id="sheet-text">Dites-le-moi, je vous réponds vite.</p>
+    <a class="btn sheet-wa" id="sheet-wa" href="https://wa.me/33651603705" target="_blank" rel="noopener">Répondre sur WhatsApp</a>
+    <a class="btn sheet-sms" id="sheet-sms" href="sms:+33651603705">Répondre par SMS</a>
+    <button type="button" class="sheet-close" id="sheet-close">Fermer</button>
+  </div>
+</div><!--/P-->
+
 <nav class="mobile-bar" aria-label="Contact rapide">
   <a class="btn btn-brand" data-tel href="tel:0639981234">Appeler</a>
-  <a class="btn btn-line" href="#reserver">Demander</a>
+  <!--R:mbar--><a class="btn btn-line" href="#reserver">Demander</a><!--/R:mbar-->
 </nav>
 
 <script>
 (function(){
   var D = {"nom": "Martin Plomberie", "ville": "Villeneuve", "tel": "06 39 98 12 34", "metier": "Plombier"};
-  var P = new URLSearchParams(location.search);
+  // Sur un vrai site (mis en ligne par Filon), les informations arrivent dans window.SITE au lieu de l'adresse.
+  var P = new URLSearchParams(window.SITE ? window.SITE.params : location.search);
   function clean(v){ return (v || "").replace(/\s+/g," ").trim().slice(0,60); }
   ["nom","ville","tel"].forEach(function(k){ var v = clean(P.get(k)); if (v) D[k] = v; });
   var digits = D.tel.replace(/[^0-9+]/g,"");
@@ -407,8 +444,8 @@ textarea.bk-input{min-height:96px;resize:vertical}
     document.querySelectorAll("[data-maps], a[data-rating]").forEach(function(a){ a.href = maps; });
     document.querySelectorAll("[data-rating]").forEach(function(el){ el.hidden = false; });
   }
-  if (clean(P.get("nom"))){
-    var pt = document.getElementById("preview-text");
+  var pt = document.getElementById("preview-text");
+  if (pt && clean(P.get("nom"))){
     var de = /^(le|les)\s/i.test(D.nom) ? (/^les\s/i.test(D.nom) ? "des " : "du ") + D.nom.replace(/^(le|les)\s+/i, "")
            : (/^[aeiouyhàâäéèêëîïôöùûü]/i.test(D.nom) ? "d’" : "de ") + D.nom;
     pt.textContent = "Aperçu du site " + de + ", préparé par ";
@@ -421,6 +458,42 @@ textarea.bk-input{min-height:96px;resize:vertical}
                         : "Bonjour, j’ai vu le modèle " + D.metier.toLowerCase() + " sur pylomae.fr. Pour mon entreprise, j’aimerais : ";
   document.querySelectorAll("[data-like]").forEach(function(a){ a.href = "https://wa.me/33651603705?text=" + encodeURIComponent(waLike); });
   document.querySelectorAll("[data-change]").forEach(function(a){ a.href = "https://wa.me/33651603705?text=" + encodeURIComponent(waChange); });
+
+  // « Ce site me plaît » : le prospect choisit WhatsApp ou SMS, et Filon note le clic (code du lien court, paramètre c).
+  var CODE = /^[a-z0-9]{6,12}$/.test(P.get("c") || "") ? P.get("c") : "";
+  var sheet = document.getElementById("sheet");
+  function openSheet(kind){
+    var text = kind === "change" ? waChange : waLike;
+    document.getElementById("sheet-title").textContent = kind === "change" ? "Une modification ?" : "Ce site vous plaît ?";
+    document.getElementById("sheet-text").textContent = kind === "change" ? "Dites-moi ce que vous voulez changer, je m’en occupe." : "Dites-le-moi, je vous réponds vite.";
+    document.getElementById("sheet-wa").href = "https://wa.me/33651603705?text=" + encodeURIComponent(text);
+    document.getElementById("sheet-sms").href = "sms:+33651603705?&body=" + encodeURIComponent(text);
+    sheet.hidden = false;
+    document.getElementById("sheet-wa").focus();
+    if (CODE && navigator.sendBeacon) { try { navigator.sendBeacon("/a/" + CODE + "/like", kind); } catch (e) {} }
+  }
+  if (sheet){
+    document.querySelectorAll("[data-like]").forEach(function(a){ a.addEventListener("click", function(e){ e.preventDefault(); openSheet("like"); }); });
+    document.querySelectorAll("[data-change]").forEach(function(a){ a.addEventListener("click", function(e){ e.preventDefault(); openSheet("change"); }); });
+    sheet.addEventListener("click", function(e){ if (e.target === sheet || e.target.id === "sheet-close") sheet.hidden = true; });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape") sheet.hidden = true; });
+  }
+
+  // Vrais avis Google du commerce (récupérés par Filon au moment où l'aperçu est ouvert).
+  if (CODE && window.fetch){
+    fetch("/a/" + CODE + "/avis").then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+      var list = d && d.reviews, box = document.getElementById("gr-list");
+      if (!list || !list.length || !box) return;
+      list.slice(0, 3).forEach(function(rv){
+        var card = document.createElement("figure"); card.className = "gr";
+        var st = document.createElement("span"); st.className = "gr-stars"; st.textContent = "★★★★★".slice(0, Math.max(1, Math.min(5, rv.r))); st.setAttribute("aria-label", rv.r + " sur 5");
+        var tx = document.createElement("p"); tx.textContent = "« " + rv.t + " »";
+        var by = document.createElement("small"); by.textContent = rv.a + (rv.w ? ", " + rv.w : "");
+        card.appendChild(st); card.appendChild(tx); card.appendChild(by); box.appendChild(card);
+      });
+      document.getElementById("greviews").hidden = false;
+    }).catch(function(){});
+  }
 
   var adresse = clean(P.get("adresse")).slice(0, 160);
   if (adresse){
@@ -458,6 +531,7 @@ textarea.bk-input{min-height:96px;resize:vertical}
 
   /* Module de réservation, commande ou devis : la demande part par SMS au commerce, qui confirme. */
   var W = {"smsIntro": "Bonjour, j’ai besoin d’un plombier :", "fields": [{"id": "probleme", "label": "Problème", "type": "chips", "options": ["Fuite", "Canalisation bouchée", "Chauffe-eau", "Salle de bain", "Robinetterie", "Autre"]}, {"id": "delai", "label": "Délai souhaité", "type": "chips", "options": ["Urgent, aujourd’hui", "Cette semaine", "Pas pressé"]}, {"id": "commune", "label": "Commune", "type": "text", "placeholder": "Votre commune"}, {"id": "details", "label": "Précisions", "type": "textarea", "optional": true, "placeholder": "Ex. : fuite sous l’évier de la cuisine"}, {"id": "nom", "label": "Votre nom", "type": "text", "optional": true, "placeholder": "Votre nom"}], "schedule": {}};
+  if (W && window.SITE && !window.SITE.estimate) W.estimate = null; // prix d'exemple : pas d'estimation sur un vrai site
   var form = document.getElementById("bk");
   if (!W || !form) return;
   if (REAL && W.schedule && Object.keys(W.schedule).length){

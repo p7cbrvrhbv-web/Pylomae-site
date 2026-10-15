@@ -1,0 +1,95 @@
+{
+ "slug": "electricien",
+ "label": "Électricien",
+ "kicker": "Électricien",
+ "tagline": "Dépannage, mise aux normes et rénovation électrique, pour une installation sûre et conforme.",
+ "about_title": "Votre électricien à {ville}",
+ "about": "{nom} intervient chez les particuliers et les professionnels de {ville} et des environs. Panne, tableau électrique, rénovation : nous expliquons ce qui doit être fait, pourquoi, et combien cela coûte, avant de commencer.",
+ "trust": [
+  "Devis gratuit et détaillé",
+  "Travail propre et soigné",
+  "Installation aux normes"
+ ],
+ "services_h2": "Votre installation, du tableau à la prise",
+ "services": [
+  [
+   "Dépannage électrique",
+   "Panne de courant, disjoncteur qui saute, prise ou éclairage qui ne fonctionne plus."
+  ],
+  [
+   "Mise aux normes",
+   "Remise en conformité selon la norme NF C 15-100, avant une vente ou une location."
+  ],
+  [
+   "Tableau électrique",
+   "Remplacement d’un ancien tableau à fusibles par un tableau moderne et protégé."
+  ],
+  [
+   "Rénovation complète",
+   "Refaire l’électricité d’une maison ou d’un appartement, pièce par pièce."
+  ],
+  [
+   "Éclairage",
+   "Éclairage intérieur, extérieur et spots LED pour réduire votre consommation."
+  ],
+  [
+   "Interphone et motorisation",
+   "Interphone, visiophone, volets roulants et portails motorisés."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "Les signes qui doivent vous alerter",
+ "special_p": "Si vous reconnaissez l’un de ces cas, faites vérifier votre installation.",
+ "special": [
+  [
+   "Le disjoncteur saute souvent",
+   "Un circuit surchargé ou un défaut d’isolement est souvent en cause."
+  ],
+  [
+   "Une prise ou un interrupteur chauffe",
+   "Traces noires, odeur de brûlé ou grésillement : coupez le circuit et appelez."
+  ],
+  [
+   "Votre tableau a encore des fusibles",
+   "Il n’a probablement pas de protection différentielle 30 mA."
+  ],
+  [
+   "L’installation a plus de 15 ans",
+   "Un diagnostic électrique est alors obligatoire pour vendre ou louer."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "Nos chantiers en images",
+ "place_title": "Zone d’intervention",
+ "place_text": "{ville} et les environs, dans un rayon d’environ 30 km.",
+ "hours": [
+  [
+   "Lundi au vendredi",
+   "8 h – 18 h"
+  ],
+  [
+   "Samedi",
+   "Sur rendez-vous"
+  ]
+ ],
+ "faq": [
+  [
+   "Faut-il tout refaire pour être aux normes ?",
+   "Pas forcément. Après un diagnostic, nous vous indiquons ce qui est vraiment nécessaire pour votre sécurité, et ce qui peut attendre."
+  ],
+  [
+   "Intervenez-vous pour une simple panne ?",
+   "Oui, du disjoncteur qui saute à la prise qui ne fonctionne plus. Le prix est annoncé avant l’intervention."
+  ],
+  [
+   "Le devis est-il gratuit ?",
+   "Oui, le devis est gratuit et chaque poste y est détaillé."
+  ]
+ ],
+ "contact_h2": "Parlons de votre projet",
+ "contact_p": "Appelez ou envoyez un SMS avec une photo de votre tableau électrique : vous recevez une première estimation rapidement.",
+ "cta": "Demander un devis",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981235"
+}

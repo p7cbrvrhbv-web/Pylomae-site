@@ -1,0 +1,180 @@
+{
+ "slug": "institut",
+ "label": "Institut de beauté",
+ "kicker": "Institut de beauté",
+ "tagline": "Prendre soin de vous, en toute sérénité.",
+ "about_title": "L’institut",
+ "about": "{nom} vous accueille à {ville} pour vos soins du visage, épilations, manucure et massages bien-être. Des cabines au calme, des produits professionnels et des conseils pour prolonger les effets à la maison.",
+ "trust": [
+  "Sur rendez-vous",
+  "Produits professionnels",
+  "Cabines au calme"
+ ],
+ "services_h2": "Nos soins",
+ "services": [
+  [
+   "Soins du visage",
+   "Nettoyage, hydratation et éclat, selon votre peau."
+  ],
+  [
+   "Épilations",
+   "Cire ou méthode adaptée, pour toutes les zones."
+  ],
+  [
+   "Manucure",
+   "Soin des mains, vernis classique ou semi-permanent."
+  ],
+  [
+   "Beauté des pieds",
+   "Soin complet et pose de vernis."
+  ],
+  [
+   "Massages bien-être",
+   "Un moment de détente, du dos au corps entier."
+  ],
+  [
+   "Maquillage",
+   "Pour un événement, un mariage ou une séance photo."
+  ]
+ ],
+ "tarifs": {
+  "title": "Tarifs",
+  "note": "",
+  "groups": [
+   [
+    "Visage",
+    [
+     [
+      "Soin éclat",
+      "1 h",
+      "55 €"
+     ],
+     [
+      "Soin express",
+      "30 min",
+      "35 €"
+     ],
+     [
+      "Restructuration des sourcils",
+      "15 min",
+      "12 €"
+     ]
+    ]
+   ],
+   [
+    "Épilations",
+    [
+     [
+      "Sourcils",
+      "10 min",
+      "10 €"
+     ],
+     [
+      "Demi-jambes",
+      "20 min",
+      "20 €"
+     ],
+     [
+      "Jambes entières",
+      "40 min",
+      "32 €"
+     ]
+    ]
+   ],
+   [
+    "Mains et pieds",
+    [
+     [
+      "Manucure",
+      "30 min",
+      "25 €"
+     ],
+     [
+      "Vernis semi-permanent",
+      "45 min",
+      "35 €"
+     ],
+     [
+      "Beauté des pieds",
+      "45 min",
+      "35 €"
+     ]
+    ]
+   ],
+   [
+    "Massages",
+    [
+     [
+      "Massage du dos",
+      "30 min",
+      "35 €"
+     ],
+     [
+      "Massage du corps",
+      "1 h",
+      "65 €"
+     ]
+    ]
+   ]
+  ],
+  "highlight": null
+ },
+ "special_h2": "Un moment rien que pour vous",
+ "special_p": "Dès votre arrivée, tout est pensé pour votre confort.",
+ "special": [
+  [
+   "Accueil",
+   "Nous faisons le point sur vos attentes avant chaque soin."
+  ],
+  [
+   "Hygiène",
+   "Matériel désinfecté et linge changé à chaque cliente."
+  ],
+  [
+   "Produits",
+   "Des gammes professionnelles choisies avec soin."
+  ],
+  [
+   "Conseils",
+   "Les bons gestes pour prolonger les effets à la maison."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "L’institut en images",
+ "place_title": "L’institut",
+ "place_text": "À {ville}, sur rendez-vous.",
+ "hours": [
+  [
+   "Mardi au vendredi",
+   "9 h 30 – 19 h"
+  ],
+  [
+   "Samedi",
+   "9 h – 17 h"
+  ],
+  [
+   "Dimanche et lundi",
+   "Fermé"
+  ]
+ ],
+ "faq": [
+  [
+   "Faut-il prendre rendez-vous ?",
+   "Oui, tous les soins se font sur rendez-vous, par téléphone ou par message."
+  ],
+  [
+   "Quels produits utilisez-vous ?",
+   "Des gammes professionnelles choisies pour leur efficacité et leur tolérance, adaptées à chaque type de peau."
+  ],
+  [
+   "Combien de temps dure un soin du visage ?",
+   "Entre 45 minutes et 1 h 15 selon le soin choisi."
+  ]
+ ],
+ "contact_h2": "Prenez rendez-vous",
+ "contact_p": "Appelez ou envoyez un message avec le soin souhaité et vos disponibilités.",
+ "cta": "Prendre rendez-vous",
+ "sms": "Envoyer un message",
+ "tarifs_class": "",
+ "demo_tel": "0639981244"
+}

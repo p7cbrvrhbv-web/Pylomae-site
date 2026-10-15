@@ -1,0 +1,95 @@
+{
+ "slug": "paysagiste",
+ "label": "Paysagiste",
+ "kicker": "Paysagiste",
+ "tagline": "Création et entretien de jardins, pour profiter d’un extérieur soigné toute l’année.",
+ "about_title": "Votre paysagiste à {ville}",
+ "about": "{nom} crée et entretient les jardins des particuliers et des copropriétés autour de {ville}. Tonte, taille, plantations ou aménagement complet : nous choisissons des végétaux adaptés à votre sol et au climat local.",
+ "trust": [
+  "Devis sur photo",
+  "Entretien à l’année",
+  "Déchets verts évacués"
+ ],
+ "services_h2": "De la création à l’entretien",
+ "services": [
+  [
+   "Création de jardin",
+   "Plan, choix des végétaux adaptés à votre sol et plantation."
+  ],
+  [
+   "Entretien régulier",
+   "Passage à la fréquence de votre choix pour un jardin toujours net."
+  ],
+  [
+   "Taille de haies",
+   "Taille de formation et d’entretien, évacuation des déchets verts."
+  ],
+  [
+   "Tonte et pelouse",
+   "Tonte, scarification, regarnissage et création de gazon."
+  ],
+  [
+   "Élagage",
+   "Taille des arbres et arbustes, en toute sécurité."
+  ],
+  [
+   "Terrasses et allées",
+   "Pavage, gravier, bordures et petits aménagements extérieurs."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "Votre jardin au fil des saisons",
+ "special_p": "Chaque saison a ses travaux. Nous les planifions pour vous.",
+ "special": [
+  [
+   "Printemps",
+   "Reprise de la tonte, plantations et scarification du gazon."
+  ],
+  [
+   "Été",
+   "Tonte régulière, taille des haies et arrosage raisonné."
+  ],
+  [
+   "Automne",
+   "Ramassage des feuilles, plantation des arbres et dernière tonte."
+  ],
+  [
+   "Hiver",
+   "Élagage, taille des fruitiers et préparation des massifs."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "Nos jardins en images",
+ "place_title": "Zone d’intervention",
+ "place_text": "{ville} et les communes voisines, dans un rayon d’environ 25 km.",
+ "hours": [
+  [
+   "Lundi au vendredi",
+   "8 h – 18 h"
+  ],
+  [
+   "Samedi",
+   "8 h – 12 h"
+  ]
+ ],
+ "faq": [
+  [
+   "Faut-il un contrat d’entretien ?",
+   "Non. Nous intervenons aussi ponctuellement, par exemple pour une taille de haie ou un nettoyage de printemps."
+  ],
+  [
+   "Comment obtenir un devis ?",
+   "Envoyez quelques photos de votre jardin par SMS : vous recevez une première estimation sans déplacement."
+  ],
+  [
+   "Les déchets verts sont-ils évacués ?",
+   "Oui, nous repartons avec les déchets verts après chaque intervention."
+  ]
+ ],
+ "contact_h2": "Parlons de votre jardin",
+ "contact_p": "Création, entretien ou simple coup de propre avant l’été : décrivez votre projet, nous vous répondons rapidement.",
+ "cta": "Demander un devis",
+ "sms": "Envoyer des photos",
+ "tarifs_class": "",
+ "demo_tel": "0639981236"
+}

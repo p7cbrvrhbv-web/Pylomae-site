@@ -1,0 +1,95 @@
+{
+ "slug": "nettoyage",
+ "label": "Entreprise de nettoyage",
+ "kicker": "Nettoyage professionnel",
+ "tagline": "Des locaux impeccables, sans que vous ayez à y penser.",
+ "about_title": "Le nettoyage de vos locaux à {ville}",
+ "about": "{nom} assure le nettoyage des bureaux, commerces, copropriétés et logements de {ville} et des alentours. En contrat régulier ou en intervention ponctuelle, nous nous adaptons à vos horaires pour ne pas gêner votre activité.",
+ "trust": [
+  "Devis gratuit",
+  "Produits adaptés à chaque surface",
+  "Planning sur mesure"
+ ],
+ "services_h2": "Nos interventions",
+ "services": [
+  [
+   "Bureaux et commerces",
+   "Entretien régulier, avant ou après vos horaires d’ouverture."
+  ],
+  [
+   "Parties communes",
+   "Halls, escaliers et ascenseurs de copropriétés."
+  ],
+  [
+   "Fin de chantier",
+   "Remise au propre après travaux, prête à l’emploi."
+  ],
+  [
+   "Vitres",
+   "Vitres, baies et vitrines, à l’intérieur comme à l’extérieur."
+  ],
+  [
+   "Remise en état",
+   "Nettoyage complet avant un état des lieux."
+  ],
+  [
+   "Interventions ponctuelles",
+   "Grand ménage, événement ou besoin urgent."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "Du devis au suivi, un service simple",
+ "special_p": "Vous avez un interlocuteur unique du début à la fin.",
+ "special": [
+  [
+   "Photos ou visite",
+   "Vous nous montrez les locaux et vos attentes."
+  ],
+  [
+   "Devis détaillé",
+   "Surface, fréquence et prestations chiffrées."
+  ],
+  [
+   "Planning fixé ensemble",
+   "Aux horaires qui ne gênent pas votre activité."
+  ],
+  [
+   "Contrôle régulier",
+   "Nous vérifions la qualité et ajustons si besoin."
+  ]
+ ],
+ "special_style": "steps",
+ "gallery_title": "Nos interventions en images",
+ "place_title": "Zone d’intervention",
+ "place_text": "{ville} et les communes alentour, dans un rayon d’environ 30 km.",
+ "hours": [
+  [
+   "Bureau",
+   "Lundi au vendredi, 8 h – 18 h"
+  ],
+  [
+   "Interventions",
+   "Selon votre planning"
+  ]
+ ],
+ "faq": [
+  [
+   "Intervenez-vous en dehors des heures d’ouverture ?",
+   "Oui, tôt le matin, en soirée ou le week-end, selon ce qui gêne le moins votre activité."
+  ],
+  [
+   "Fournissez-vous les produits et le matériel ?",
+   "Oui, nous venons avec nos produits et notre matériel, adaptés à chaque surface."
+  ],
+  [
+   "Peut-on faire un essai avant un contrat ?",
+   "Oui, une première intervention ponctuelle permet de vérifier que la prestation vous convient."
+  ]
+ ],
+ "contact_h2": "Parlons de vos locaux",
+ "contact_p": "Indiquez la surface et la fréquence souhaitée : vous recevez un devis rapidement.",
+ "cta": "Demander un devis",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981238"
+}

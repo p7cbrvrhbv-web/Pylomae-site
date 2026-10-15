@@ -1,0 +1,174 @@
+{
+ "slug": "restaurant",
+ "label": "Restaurant",
+ "kicker": "Restaurant",
+ "tagline": "Une cuisine de saison, faite maison, à deux pas de chez vous.",
+ "about_title": "La maison",
+ "about": "{nom} vous accueille à {ville} midi et soir. Une carte courte qui change au fil des saisons, des produits frais travaillés en cuisine et une formule du midi en semaine.",
+ "trust": [
+  "Fait maison",
+  "Produits frais",
+  "Formule du midi"
+ ],
+ "services_h2": "Ce que nous servons",
+ "services": [
+  [
+   "Entrées du moment",
+   "Selon le marché et la saison."
+  ],
+  [
+   "Plat du jour",
+   "Une recette différente chaque jour, en semaine."
+  ],
+  [
+   "Viandes et poissons",
+   "Cuisinés simplement, servis généreusement."
+  ],
+  [
+   "Assiettes végétariennes",
+   "Des légumes de saison mis en valeur."
+  ],
+  [
+   "Desserts maison",
+   "Préparés chaque matin en cuisine."
+  ],
+  [
+   "Vins et boissons",
+   "Une sélection courte et choisie."
+  ]
+ ],
+ "tarifs": {
+  "title": "La carte",
+  "note": "",
+  "groups": [
+   [
+    "Entrées",
+    [
+     [
+      "Velouté de saison",
+      "",
+      "7 €"
+     ],
+     [
+      "Œuf parfait, crème de champignons",
+      "",
+      "9 €"
+     ],
+     [
+      "Terrine maison et pickles",
+      "",
+      "8 €"
+     ]
+    ]
+   ],
+   [
+    "Plats",
+    [
+     [
+      "Plat du jour",
+      "En semaine",
+      "14 €"
+     ],
+     [
+      "Suprême de volaille, purée maison",
+      "",
+      "18 €"
+     ],
+     [
+      "Poisson du marché, légumes de saison",
+      "",
+      "19 €"
+     ],
+     [
+      "Assiette végétarienne de saison",
+      "",
+      "15 €"
+     ]
+    ]
+   ],
+   [
+    "Desserts",
+    [
+     [
+      "Dessert du jour",
+      "",
+      "6 €"
+     ],
+     [
+      "Mousse au chocolat",
+      "",
+      "7 €"
+     ],
+     [
+      "Tarte fine aux pommes",
+      "",
+      "7 €"
+     ]
+    ]
+   ]
+  ],
+  "highlight": [
+   "Formule du midi",
+   "Entrée et plat, ou plat et dessert, du mardi au samedi midi.",
+   "18 €"
+  ]
+ },
+ "special_h2": "Avant de venir",
+ "special_p": "Tout ce qu’il faut savoir pour votre visite.",
+ "special": [
+  [
+   "Réservation",
+   "Conseillée le week-end, par téléphone ou par message."
+  ],
+  [
+   "Formule du midi",
+   "Entrée et plat, ou plat et dessert, en semaine."
+  ],
+  [
+   "Groupes",
+   "Menus sur demande pour vos repas de groupe et anniversaires."
+  ],
+  [
+   "Allergies",
+   "Signalez-les à la réservation : nous adaptons les plats."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "La salle et l’assiette",
+ "place_title": "Nous trouver",
+ "place_text": "Au centre de {ville}.",
+ "hours": [
+  [
+   "Mardi au samedi",
+   "12 h – 14 h, 19 h – 22 h"
+  ],
+  [
+   "Dimanche",
+   "12 h – 14 h"
+  ],
+  [
+   "Lundi",
+   "Fermé"
+  ]
+ ],
+ "faq": [
+  [
+   "Faut-il réserver ?",
+   "C’est conseillé le week-end. En semaine, vous pouvez aussi venir sans réservation, selon les places disponibles."
+  ],
+  [
+   "Proposez-vous des plats végétariens ?",
+   "Oui, la carte propose toujours au moins une assiette végétarienne."
+  ],
+  [
+   "Peut-on privatiser la salle ?",
+   "Oui, pour vos repas de groupe et vos fêtes de famille, sur demande."
+  ]
+ ],
+ "contact_h2": "Réservez votre table",
+ "contact_p": "Appelez ou envoyez un SMS avec le jour, l’heure et le nombre de couverts.",
+ "cta": "Réserver une table",
+ "sms": "Réserver par SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981241"
+}

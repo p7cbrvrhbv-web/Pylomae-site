@@ -1,0 +1,165 @@
+{
+ "slug": "coiffeur",
+ "label": "Coiffeur",
+ "kicker": "Salon de coiffure",
+ "tagline": "Une coiffure qui vous ressemble, au cœur de {ville}.",
+ "about_title": "Le salon",
+ "about": "{nom} vous accueille pour la coupe, la couleur et le coiffage, femmes, hommes et enfants. Chaque rendez-vous commence par un temps d’écoute pour comprendre ce que vous voulez vraiment.",
+ "trust": [
+  "Sur rendez-vous",
+  "Produits professionnels",
+  "Conseils personnalisés"
+ ],
+ "services_h2": "Nos prestations",
+ "services": [
+  [
+   "Coupe femme",
+   "Shampoing, coupe et coiffage adaptés à votre visage."
+  ],
+  [
+   "Coupe homme et barbe",
+   "Coupe aux ciseaux ou à la tondeuse, taille de barbe."
+  ],
+  [
+   "Couleur",
+   "Couleur, racines et patine pour un résultat naturel."
+  ],
+  [
+   "Mèches et balayage",
+   "Lumière et relief, sur mesure."
+  ],
+  [
+   "Brushing et chignon",
+   "Pour le quotidien comme pour les grandes occasions."
+  ],
+  [
+   "Soins du cheveu",
+   "Soins profonds pour cheveux secs, fins ou abîmés."
+  ]
+ ],
+ "tarifs": {
+  "title": "Tarifs",
+  "note": "",
+  "groups": [
+   [
+    "Femmes",
+    [
+     [
+      "Coupe, shampoing et brushing",
+      "45 min",
+      "38 €"
+     ],
+     [
+      "Brushing",
+      "30 min",
+      "25 €"
+     ],
+     [
+      "Chignon",
+      "45 min",
+      "dès 45 €"
+     ]
+    ]
+   ],
+   [
+    "Hommes et enfants",
+    [
+     [
+      "Coupe homme",
+      "30 min",
+      "22 €"
+     ],
+     [
+      "Coupe et barbe",
+      "45 min",
+      "30 €"
+     ],
+     [
+      "Coupe enfant, moins de 12 ans",
+      "20 min",
+      "15 €"
+     ]
+    ]
+   ],
+   [
+    "Couleur et soins",
+    [
+     [
+      "Couleur racines",
+      "1 h 15",
+      "35 €"
+     ],
+     [
+      "Balayage",
+      "2 h",
+      "dès 65 €"
+     ],
+     [
+      "Soin profond",
+      "15 min",
+      "12 €"
+     ]
+    ]
+   ]
+  ],
+  "highlight": null
+ },
+ "special_h2": "Prendre le temps de bien faire",
+ "special_p": "Chaque rendez-vous commence par une vraie discussion.",
+ "special": [
+  [
+   "Écoute",
+   "Nous prenons le temps de comprendre ce que vous voulez."
+  ],
+  [
+   "Diagnostic",
+   "Votre cheveu, votre visage et votre quotidien."
+  ],
+  [
+   "Savoir-faire",
+   "Des techniques actuelles et des gestes précis."
+  ],
+  [
+   "Suivi",
+   "Des conseils pour entretenir votre coiffure à la maison."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "L’ambiance du salon",
+ "place_title": "Le salon",
+ "place_text": "Au cœur de {ville}, sur rendez-vous.",
+ "hours": [
+  [
+   "Mardi au vendredi",
+   "9 h – 19 h"
+  ],
+  [
+   "Samedi",
+   "8 h 30 – 17 h"
+  ],
+  [
+   "Dimanche et lundi",
+   "Fermé"
+  ]
+ ],
+ "faq": [
+  [
+   "Prenez-vous sans rendez-vous ?",
+   "Selon les disponibilités du jour. Pour être sûr d’être reçu, prenez rendez-vous par téléphone ou par message."
+  ],
+  [
+   "Combien de temps dure une couleur ?",
+   "Comptez environ 1 h 30 à 2 h, selon la longueur de vos cheveux et la technique choisie."
+  ],
+  [
+   "Coiffez-vous les enfants ?",
+   "Oui, nous accueillons les enfants pour la coupe."
+  ]
+ ],
+ "contact_h2": "Prenez rendez-vous",
+ "contact_p": "Appelez ou envoyez un message avec la prestation souhaitée et vos disponibilités.",
+ "cta": "Prendre rendez-vous",
+ "sms": "Envoyer un message",
+ "tarifs_class": "",
+ "demo_tel": "0639981240"
+}

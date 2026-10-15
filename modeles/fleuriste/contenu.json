@@ -1,0 +1,99 @@
+{
+ "slug": "fleuriste",
+ "label": "Fleuriste",
+ "kicker": "Artisan fleuriste",
+ "tagline": "Des fleurs fraîches pour chaque moment de la vie.",
+ "about_title": "La boutique",
+ "about": "{nom} compose des bouquets et des créations florales à {ville}, avec des fleurs choisies chaque semaine. Anniversaire, mariage, deuil ou simple envie de fleurs : nous imaginons la composition avec vous.",
+ "trust": [
+  "Fleurs fraîches",
+  "Compositions sur mesure",
+  "Livraison locale"
+ ],
+ "services_h2": "Pour toutes les occasions",
+ "services": [
+  [
+   "Bouquets du jour",
+   "Composés chaque matin avec les fleurs de saison."
+  ],
+  [
+   "Mariages",
+   "Bouquet de mariée, boutonnières et décoration."
+  ],
+  [
+   "Deuil",
+   "Gerbes, couronnes et compositions, avec délicatesse."
+  ],
+  [
+   "Plantes",
+   "Plantes vertes et fleuries, conseils d’entretien."
+  ],
+  [
+   "Entreprises et événements",
+   "Décoration florale pour vos espaces et réceptions."
+  ],
+  [
+   "Livraison",
+   "À {ville} et dans les communes voisines."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "Commander un bouquet",
+ "special_p": "Dites-nous l’occasion, nous imaginons la composition.",
+ "special": [
+  [
+   "L’occasion",
+   "Anniversaire, remerciement, naissance, deuil…"
+  ],
+  [
+   "Votre budget",
+   "Nous composons avec ce que vous souhaitez dépenser."
+  ],
+  [
+   "La date",
+   "Retrait en boutique ou livraison."
+  ],
+  [
+   "La confirmation",
+   "Nous vous envoyons la proposition avant de préparer."
+  ]
+ ],
+ "special_style": "steps",
+ "gallery_title": "Nos créations",
+ "place_title": "La boutique",
+ "place_text": "À {ville}, retrait sur place ou livraison.",
+ "hours": [
+  [
+   "Mardi au samedi",
+   "9 h – 19 h"
+  ],
+  [
+   "Dimanche",
+   "9 h – 13 h"
+  ],
+  [
+   "Lundi",
+   "Fermé"
+  ]
+ ],
+ "faq": [
+  [
+   "Livrez-vous ?",
+   "Oui, à {ville} et dans les communes voisines. Indiquez l’adresse et la date à la commande."
+  ],
+  [
+   "Peut-on commander sans se déplacer ?",
+   "Oui, par téléphone ou par message : nous vous envoyons une proposition avant de préparer."
+  ],
+  [
+   "Faites-vous les fleurs de mariage ?",
+   "Oui, du bouquet de la mariée à la décoration de la salle. Contactez-nous quelques mois avant la date."
+  ]
+ ],
+ "contact_h2": "Commandez votre bouquet",
+ "contact_p": "Indiquez l’occasion, votre budget et la date : nous vous proposons une composition.",
+ "cta": "Commander un bouquet",
+ "sms": "Envoyer un message",
+ "tarifs_class": "",
+ "demo_tel": "0639981243"
+}

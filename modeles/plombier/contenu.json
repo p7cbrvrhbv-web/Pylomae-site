@@ -1,0 +1,99 @@
+{
+ "slug": "plombier",
+ "label": "Plombier",
+ "kicker": "Plombier",
+ "tagline": "Une fuite, une panne ? On intervient vite, avec un prix annoncé avant les travaux.",
+ "about_title": "Votre plombier à {ville}",
+ "about": "{nom} intervient chez les particuliers et les professionnels de {ville} et des communes voisines. Dépannage, chauffe-eau, salle de bain : chaque intervention commence par un diagnostic clair et un prix annoncé avant de commencer.",
+ "trust": [
+  "Intervention rapide",
+  "Devis gratuit et détaillé",
+  "Prix annoncé avant travaux"
+ ],
+ "services_h2": "Tout ce qui touche à l’eau",
+ "services": [
+  [
+   "Recherche de fuite",
+   "Fuite visible ou cachée, tuyau percé, joint usé : on localise et on répare."
+  ],
+  [
+   "Débouchage",
+   "Évier, WC, douche ou canalisation bouchée, avec le matériel adapté."
+  ],
+  [
+   "Chauffe-eau",
+   "Panne, entretien ou remplacement de votre ballon d’eau chaude."
+  ],
+  [
+   "Salle de bain",
+   "Rénovation complète ou remplacement de douche, baignoire et meuble vasque."
+  ],
+  [
+   "Robinetterie",
+   "Robinet qui goutte, mitigeur à changer, chasse d’eau qui coule en continu."
+  ],
+  [
+   "Chauffage",
+   "Radiateurs, circuit de chauffage et raccordements, en neuf comme en rénovation."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "En cas de fuite, les bons réflexes",
+ "special_p": "Quelques gestes simples limitent les dégâts en attendant notre arrivée.",
+ "special": [
+  [
+   "Coupez l’arrivée d’eau générale",
+   "Le robinet se trouve souvent près du compteur, sous l’évier ou à la cave."
+  ],
+  [
+   "Coupez l’électricité si l’eau approche des prises",
+   "Au tableau électrique, par sécurité."
+  ],
+  [
+   "Photographiez les dégâts",
+   "Ces photos serviront pour votre déclaration à l’assurance."
+  ],
+  [
+   "Appelez-nous",
+   "Nous vous indiquons le délai et le prix avant de nous déplacer."
+  ]
+ ],
+ "special_style": "steps",
+ "gallery_title": "Nos interventions en images",
+ "place_title": "Zone d’intervention",
+ "place_text": "{ville} et les communes alentour, dans un rayon d’environ 30 km.",
+ "hours": [
+  [
+   "Lundi au vendredi",
+   "8 h – 19 h"
+  ],
+  [
+   "Samedi",
+   "9 h – 12 h"
+  ],
+  [
+   "Urgences",
+   "Sur appel"
+  ]
+ ],
+ "faq": [
+  [
+   "Intervenez-vous en urgence ?",
+   "Oui, pour les fuites et les pannes d’eau chaude, nous intervenons le jour même dans la mesure du possible. Appelez-nous pour connaître le délai."
+  ],
+  [
+   "Le devis est-il gratuit ?",
+   "Oui. Pour des travaux, le devis est gratuit et détaillé. Pour un dépannage, le prix vous est annoncé avant toute intervention."
+  ],
+  [
+   "Quelles communes couvrez-vous ?",
+   "{ville} et les communes situées à environ 30 km autour."
+  ]
+ ],
+ "contact_h2": "Un devis ? Une urgence ?",
+ "contact_p": "Appelez-nous ou envoyez un SMS avec une photo du problème : nous vous répondons rapidement avec un délai et un prix.",
+ "cta": "Demander un devis",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981234"
+}

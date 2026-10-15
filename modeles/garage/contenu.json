@@ -1,0 +1,141 @@
+{
+ "slug": "garage",
+ "label": "Garagiste",
+ "kicker": "Garage automobile",
+ "tagline": "Entretien et réparation toutes marques, avec un devis clair avant chaque intervention.",
+ "about_title": "Votre garage à {ville}",
+ "about": "{nom} entretient et répare les voitures de toutes marques à {ville}. Vidange, freins, pneus ou diagnostic : vous savez ce qui va être fait et combien cela coûte avant que nous commencions.",
+ "trust": [
+  "Toutes marques",
+  "Devis avant travaux",
+  "Pièces de qualité"
+ ],
+ "services_h2": "Tout pour votre voiture",
+ "services": [
+  [
+   "Révision et vidange",
+   "Entretien en respectant les préconisations du constructeur."
+  ],
+  [
+   "Freinage",
+   "Plaquettes, disques et liquide de frein contrôlés et remplacés."
+  ],
+  [
+   "Pneus",
+   "Montage, équilibrage et parallélisme."
+  ],
+  [
+   "Diagnostic électronique",
+   "Lecture des codes défaut et recherche de panne."
+  ],
+  [
+   "Climatisation",
+   "Recharge et entretien de votre climatisation."
+  ],
+  [
+   "Avant le contrôle technique",
+   "Vérification des points contrôlés avant votre passage."
+  ]
+ ],
+ "tarifs": {
+  "title": "Tarifs indicatifs",
+  "note": "",
+  "groups": [
+   [
+    "Entretien",
+    [
+     [
+      "Vidange et filtre à huile",
+      "Selon le véhicule",
+      "dès 89 €"
+     ],
+     [
+      "Révision constructeur",
+      "Selon le carnet d’entretien",
+      "dès 149 €"
+     ],
+     [
+      "Recharge de climatisation",
+      "",
+      "79 €"
+     ]
+    ]
+   ],
+   [
+    "Réparation",
+    [
+     [
+      "Plaquettes de frein avant",
+      "Pièces et main-d’œuvre",
+      "dès 129 €"
+     ],
+     [
+      "Montage et équilibrage de 4 pneus",
+      "Hors pneus",
+      "50 €"
+     ],
+     [
+      "Diagnostic électronique",
+      "",
+      "49 €"
+     ]
+    ]
+   ]
+  ],
+  "highlight": null
+ },
+ "special_h2": "Les voyants à ne pas ignorer",
+ "special_p": "Si l’un d’eux s’allume, faites vérifier votre véhicule sans attendre.",
+ "special": [
+  [
+   "Voyant moteur",
+   "Un défaut a été détecté : faites établir un diagnostic rapidement."
+  ],
+  [
+   "Voyant de freinage rouge",
+   "Arrêtez-vous et faites contrôler avant de reprendre la route."
+  ],
+  [
+   "Voyant de batterie",
+   "Le circuit de charge ne fonctionne plus correctement."
+  ],
+  [
+   "Voyant de température",
+   "Arrêtez le moteur pour éviter une casse."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "L’atelier en images",
+ "place_title": "L’atelier",
+ "place_text": "Accueil sur rendez-vous à {ville}. Véhicule de prêt selon disponibilité.",
+ "hours": [
+  [
+   "Lundi au vendredi",
+   "8 h – 12 h, 14 h – 18 h 30"
+  ],
+  [
+   "Samedi",
+   "8 h – 12 h"
+  ]
+ ],
+ "faq": [
+  [
+   "Est-ce que je garde la garantie constructeur ?",
+   "Oui. L’entretien chez un garage indépendant ne fait pas perdre la garantie, à condition de suivre le carnet d’entretien du constructeur."
+  ],
+  [
+   "Faut-il prendre rendez-vous ?",
+   "C’est préférable pour que votre véhicule soit pris en charge rapidement. Envoyez-nous un SMS avec le modèle et le problème constaté."
+  ],
+  [
+   "Le devis est-il gratuit ?",
+   "Oui, le devis est gratuit et aucune réparation n’est faite sans votre accord."
+  ]
+ ],
+ "contact_h2": "Un devis, un rendez-vous ?",
+ "contact_p": "Envoyez par SMS le modèle de votre voiture et le problème constaté : nous vous répondons avec un devis.",
+ "cta": "Prendre rendez-vous",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981237"
+}

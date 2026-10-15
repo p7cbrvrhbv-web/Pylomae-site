@@ -1,0 +1,145 @@
+{
+ "slug": "boulangerie",
+ "label": "Boulangerie",
+ "kicker": "Boulangerie pâtisserie",
+ "tagline": "Du bon pain, cuit chaque matin à {ville}.",
+ "about_title": "La boulangerie",
+ "about": "{nom} pétrit et cuit sur place pains, viennoiseries et pâtisseries, chaque matin. Pour vos fêtes et vos anniversaires, nous préparons des gâteaux sur commande.",
+ "trust": [
+  "Fait sur place",
+  "Cuit chaque matin",
+  "Gâteaux sur commande"
+ ],
+ "services_h2": "Nos fabrications",
+ "services": [
+  [
+   "Pains de tradition",
+   "Baguettes et pains au levain, longue fermentation."
+  ],
+  [
+   "Pains spéciaux",
+   "Céréales, seigle, complet, campagne."
+  ],
+  [
+   "Viennoiseries",
+   "Croissants et pains au chocolat pur beurre."
+  ],
+  [
+   "Pâtisseries",
+   "Tartes, éclairs et entremets du moment."
+  ],
+  [
+   "Gâteaux sur commande",
+   "Anniversaires, baptêmes et fêtes de famille."
+  ],
+  [
+   "Le midi",
+   "Sandwichs, quiches et formules à emporter."
+  ]
+ ],
+ "tarifs": {
+  "title": "Nos gâteaux",
+  "note": "",
+  "groups": [
+   [
+    "Gâteaux",
+    [
+     [
+      "Fraisier",
+      "La part",
+      "4,80 €"
+     ],
+     [
+      "Forêt-noire",
+      "La part",
+      "4,50 €"
+     ],
+     [
+      "Tarte aux fruits",
+      "La part",
+      "3,90 €"
+     ]
+    ]
+   ],
+   [
+    "Entremets",
+    [
+     [
+      "Entremets chocolat",
+      "La part",
+      "4,50 €"
+     ],
+     [
+      "Paris-brest",
+      "La part",
+      "4,60 €"
+     ],
+     [
+      "Pièce montée",
+      "Pour vos fêtes",
+      "Sur devis"
+     ]
+    ]
+   ]
+  ],
+  "highlight": null
+ },
+ "special_h2": "Commander un gâteau",
+ "special_p": "Simple et rapide, sans vous déplacer deux fois.",
+ "special": [
+  [
+   "Choisissez",
+   "Le gâteau, le parfum et le nombre de parts."
+  ],
+  [
+   "Envoyez votre commande",
+   "Par SMS, idéalement 48 h à l’avance."
+  ],
+  [
+   "Nous confirmons",
+   "Le prix et l’heure de retrait."
+  ],
+  [
+   "Retirez en boutique",
+   "Votre gâteau est prêt à l’heure prévue."
+  ]
+ ],
+ "special_style": "steps",
+ "gallery_title": "Nos fabrications en images",
+ "place_title": "La boutique",
+ "place_text": "Au cœur de {ville}.",
+ "hours": [
+  [
+   "Mardi au samedi",
+   "6 h 30 – 19 h 30"
+  ],
+  [
+   "Dimanche",
+   "7 h – 13 h"
+  ],
+  [
+   "Lundi",
+   "Fermé"
+  ]
+ ],
+ "faq": [
+  [
+   "Peut-on commander à l’avance ?",
+   "Oui, pains, viennoiseries et gâteaux se commandent par téléphone ou par SMS, idéalement 48 h avant."
+  ],
+  [
+   "Faites-vous des gâteaux personnalisés ?",
+   "Oui, pour les anniversaires et les fêtes de famille : dites-nous le parfum, le nombre de parts et le message à écrire."
+  ],
+  [
+   "Êtes-vous ouverts le dimanche ?",
+   "Oui, le dimanche matin."
+  ]
+ ],
+ "contact_h2": "Une commande, une question ?",
+ "contact_p": "Envoyez un SMS avec votre commande et la date souhaitée, nous vous confirmons rapidement.",
+ "cta": "Commander",
+ "sms": "Commander par SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981242"
+}

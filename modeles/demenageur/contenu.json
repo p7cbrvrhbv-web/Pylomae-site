@@ -1,0 +1,95 @@
+{
+ "slug": "demenageur",
+ "label": "Déménageur",
+ "kicker": "Déménageur",
+ "tagline": "Votre déménagement organisé de A à Z, de l’emballage à l’installation.",
+ "about_title": "Votre déménageur à {ville}",
+ "about": "{nom} déménage les particuliers et les professionnels depuis {ville}, partout en France. Nous estimons le volume, protégeons votre mobilier et l’installons pièce par pièce à l’arrivée.",
+ "trust": [
+  "Devis gratuit",
+  "Mobilier protégé",
+  "Équipe expérimentée"
+ ],
+ "services_h2": "Une formule pour chaque déménagement",
+ "services": [
+  [
+   "Déménagement local",
+   "Dans {ville} et les communes voisines."
+  ],
+  [
+   "Longue distance",
+   "Partout en France, avec un suivi de bout en bout."
+  ],
+  [
+   "Emballage",
+   "Cartons, protection des objets fragiles et étiquetage."
+  ],
+  [
+   "Démontage et remontage",
+   "Meubles démontés au départ, remontés à l’arrivée."
+  ],
+  [
+   "Garde-meubles",
+   "Stockage sécurisé entre deux logements."
+  ],
+  [
+   "Monte-meubles",
+   "Pour les étages sans ascenseur adapté."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "Votre déménagement en 4 étapes",
+ "special_p": "Vous savez à l’avance ce qui se passe et combien cela coûte.",
+ "special": [
+  [
+   "Estimation du volume",
+   "Par visite ou par vidéo de votre logement."
+  ],
+  [
+   "Devis détaillé",
+   "Volume, distance, options : tout est chiffré."
+  ],
+  [
+   "Emballage et chargement",
+   "Votre mobilier est protégé et chargé avec soin."
+  ],
+  [
+   "Livraison et installation",
+   "Chaque meuble est posé dans la bonne pièce."
+  ]
+ ],
+ "special_style": "steps",
+ "gallery_title": "Nos déménagements en images",
+ "place_title": "Destinations",
+ "place_text": "Départs de {ville} et alentour, vers toute la France.",
+ "hours": [
+  [
+   "Lundi au samedi",
+   "8 h – 19 h"
+  ],
+  [
+   "Devis",
+   "Réponse sous 24 h"
+  ]
+ ],
+ "faq": [
+  [
+   "Combien de temps à l’avance faut-il réserver ?",
+   "Idéalement un mois avant, surtout en fin de mois et en été. Pour une date proche, contactez-nous : nous faisons notre possible."
+  ],
+  [
+   "Pouvez-vous emballer mes affaires ?",
+   "Oui, nous fournissons les cartons et pouvons tout emballer, ou seulement les objets fragiles."
+  ],
+  [
+   "Comment le prix est-il calculé ?",
+   "Il dépend du volume, de la distance, des étages et des options choisies. Le devis détaille chaque poste."
+  ]
+ ],
+ "contact_h2": "Estimez votre déménagement",
+ "contact_p": "Envoyez par SMS vos adresses de départ et d’arrivée, la date souhaitée et le nombre de pièces.",
+ "cta": "Demander un devis",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981239"
+}
