@@ -751,6 +751,51 @@ def fill(text):
     return t.replace("{nom}", '<span data-f="nom"></span>').replace("{ville}", '<span data-f="ville"></span>')
 
 
+# Avis d'exemple affichés dans l'aperçu seulement (signalés comme tels, jamais repris sur un vrai site).
+AVIS = {
+    "plombier": [["Camille R.", 5, "Fuite sous l’évier un samedi matin : rappel en dix minutes, intervention dans l’heure et prix annoncé avant de commencer.", "il y a 3 semaines"],
+                 ["Thomas L.", 5, "Remplacement du chauffe-eau rapide et propre. Explications claires, chantier laissé nickel.", "il y a 2 mois"],
+                 ["Nadia B.", 4, "Très bon contact et travail soigné pour la rénovation de notre salle de bain.", "il y a 4 mois"]],
+    "electricien": [["Julien M.", 5, "Panne générale un soir, dépannage le lendemain matin. Diagnostic clair et tarif raisonnable.", "il y a 2 semaines"],
+                    ["Sophie D.", 5, "Mise aux normes du tableau faite proprement, avec des explications à chaque étape.", "il y a 1 mois"],
+                    ["Marc T.", 4, "Ponctuel et efficace pour l’installation de nos luminaires extérieurs.", "il y a 3 mois"]],
+    "paysagiste": [["Hélène P.", 5, "Notre jardin a complètement changé de visage. À l’écoute, de bons conseils et un travail très soigné.", "il y a 1 mois"],
+                   ["Patrick G.", 5, "Entretien de la haie et de la pelouse, toujours à l’heure. On ne s’en occupe plus !", "il y a 2 mois"],
+                   ["Laura V.", 4, "Création d’une terrasse et de massifs, devis respecté et chantier propre.", "il y a 5 mois"]],
+    "garage": [["Kevin S.", 5, "Révision faite dans la journée, prix conforme au devis. Garage sérieux et honnête.", "il y a 2 semaines"],
+               ["Martine F.", 5, "On m’a expliqué ce qui était urgent et ce qui pouvait attendre. Ça change !", "il y a 1 mois"],
+               ["Yanis A.", 4, "Changement des pneus rapide, accueil sympathique. Je reviendrai.", "il y a 3 mois"]],
+    "nettoyage": [["Claire M.", 5, "Nos bureaux sont impeccables chaque lundi matin. Équipe discrète et très fiable.", "il y a 3 semaines"],
+                  ["David H.", 5, "Remise en état après travaux : un résultat bluffant, tout était prêt pour l’emménagement.", "il y a 2 mois"],
+                  ["Isabelle K.", 4, "Ménage régulier à domicile, toujours la même personne, très consciencieuse.", "il y a 4 mois"]],
+    "demenageur": [["Antoine C.", 5, "Un 3e étage sans ascenseur bouclé dans la matinée. Équipe efficace et rien d’abîmé.", "il y a 1 mois"],
+                   ["Lucie B.", 5, "Devis clair, aucune mauvaise surprise le jour J. Je recommande les yeux fermés.", "il y a 2 mois"],
+                   ["Michel R.", 4, "Ponctuels et soigneux avec nos meubles anciens.", "il y a 5 mois"]],
+    "coiffeur": [["Sophie M.", 5, "Toujours un accueil chaleureux et une coupe exactement comme je la voulais.", "il y a 2 semaines"],
+                 ["Karim B.", 5, "Coupe et barbe impeccables, rendez-vous à l’heure. Mon nouveau salon.", "il y a 1 mois"],
+                 ["Julie R.", 4, "Super balayage et de bons conseils pour l’entretien à la maison.", "il y a 3 mois"]],
+    "institut": [["Émilie T.", 5, "Un vrai moment de détente, soin du visage au top et conseils personnalisés.", "il y a 3 semaines"],
+                 ["Sarah L.", 5, "Un semi-permanent qui tient parfaitement, travail minutieux. Je ne vais plus ailleurs.", "il y a 1 mois"],
+                 ["Nathalie P.", 4, "Accueil adorable et institut très propre. Épilation rapide.", "il y a 4 mois"]],
+    "restaurant": [["Pierre D.", 5, "Formule du midi excellente et généreuse, service rapide. On y retourne chaque semaine.", "il y a 2 semaines"],
+                   ["Amandine G.", 5, "Cuisine maison, produits frais et accueil adorable. Le dessert du jour vaut le détour !", "il y a 1 mois"],
+                   ["François M.", 4, "Belle découverte, ambiance chaleureuse et prix raisonnables.", "il y a 3 mois"]],
+    "boulangerie": [["Céline V.", 5, "Le meilleur pain du quartier, et les viennoiseries sont un régal le dimanche matin.", "il y a 3 semaines"],
+                    ["Olivier N.", 5, "Gâteau d’anniversaire commandé : magnifique et délicieux. Merci pour la jolie inscription !", "il y a 2 mois"],
+                    ["Mathilde S.", 4, "Toujours souriants, et la baguette tradition est parfaite.", "il y a 4 mois"]],
+    "fleuriste": [["Valérie C.", 5, "Bouquet magnifique pour l’anniversaire de ma mère, exactement dans les tons demandés.", "il y a 2 semaines"],
+                  ["Romain J.", 5, "Commandé le matin, livré l’après-midi. Des fleurs fraîches qui ont tenu longtemps.", "il y a 1 mois"],
+                  ["Anne-Sophie L.", 4, "De très bons conseils et un vrai sens des couleurs.", "il y a 3 mois"]],
+}
+
+
+def avis_html(slug):
+    return "\n".join(
+        f'          <figure class="gr"><span class="gr-stars" aria-label="{n} sur 5">{"★" * n}</span>'
+        f'<p>« {html.escape(t)} »</p><small>{html.escape(a)}, {html.escape(w)}</small></figure>'
+        for a, n, t, w in AVIS[slug])
+
+
 TEMPLATE = open(os.path.join(ROOT, "outils", "gabarit_apercu.html"), encoding="utf-8").read()
 
 
@@ -811,6 +856,7 @@ def build(m):
         "CLS_INFO": cls["info"], "CLS_FAQ": cls["faq"], "TARIFS": tarifs,
         "W_TITLE": html.escape(w["title"]), "W_INTRO": html.escape(w["intro"]), "W_NOTE": html.escape(w["note"]),
         "W_SUBMIT": html.escape(w["submit"]), "W_SHORT": html.escape(w["short"]), "WIDGET": widget_json, "WA_PYLOMAE": WA_PYLOMAE,
+        "AVIS": avis_html(m["slug"]),
     }
     out = TEMPLATE
     for k, v in rep.items():

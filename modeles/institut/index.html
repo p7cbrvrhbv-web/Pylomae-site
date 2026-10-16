@@ -291,11 +291,15 @@ textarea.bk-input{min-height:96px;resize:vertical}
           </div>
         </div>
       </div>
-      <div class="greviews" id="greviews" hidden>
+      <!--P--><div class="greviews">
         <h3>Ce que disent nos clients</h3>
-        <div class="gr-list" id="gr-list"></div>
-        <p class="gr-src">Avis publiés sur Google</p>
-      </div>
+        <div class="gr-list">
+          <figure class="gr"><span class="gr-stars" aria-label="5 sur 5">★★★★★</span><p>« Un vrai moment de détente, soin du visage au top et conseils personnalisés. »</p><small>Émilie T., il y a 3 semaines</small></figure>
+          <figure class="gr"><span class="gr-stars" aria-label="5 sur 5">★★★★★</span><p>« Un semi-permanent qui tient parfaitement, travail minutieux. Je ne vais plus ailleurs. »</p><small>Sarah L., il y a 1 mois</small></figure>
+          <figure class="gr"><span class="gr-stars" aria-label="4 sur 5">★★★★</span><p>« Accueil adorable et institut très propre. Épilation rapide. »</p><small>Nathalie P., il y a 4 mois</small></figure>
+        </div>
+        <p class="gr-src">Avis d’exemple : vos vrais avis Google pourront les remplacer.</p>
+      </div><!--/P-->
     </div>
   </section>
 
@@ -492,21 +496,6 @@ textarea.bk-input{min-height:96px;resize:vertical}
     document.addEventListener("keydown", function(e){ if (e.key === "Escape") sheet.hidden = true; });
   }
 
-  // Vrais avis Google du commerce (récupérés par Filon au moment où l'aperçu est ouvert).
-  if (CODE && window.fetch){
-    fetch("/a/" + CODE + "/avis").then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
-      var list = d && d.reviews, box = document.getElementById("gr-list");
-      if (!list || !list.length || !box) return;
-      list.slice(0, 3).forEach(function(rv){
-        var card = document.createElement("figure"); card.className = "gr";
-        var st = document.createElement("span"); st.className = "gr-stars"; st.textContent = "★★★★★".slice(0, Math.max(1, Math.min(5, rv.r))); st.setAttribute("aria-label", rv.r + " sur 5");
-        var tx = document.createElement("p"); tx.textContent = "« " + rv.t + " »";
-        var by = document.createElement("small"); by.textContent = rv.a + (rv.w ? ", " + rv.w : "");
-        card.appendChild(st); card.appendChild(tx); card.appendChild(by); box.appendChild(card);
-      });
-      document.getElementById("greviews").hidden = false;
-    }).catch(function(){});
-  }
 
   var adresse = clean(P.get("adresse")).slice(0, 160);
   if (adresse){
