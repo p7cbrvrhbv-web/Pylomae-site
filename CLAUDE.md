@@ -21,6 +21,8 @@ Adrien débute en code et travaille sous Windows : explications simples, en fran
 2. Relancer la génération : `py outils\generer_apercus.py` sous Windows, `python3 outils/generer_apercus.py` ailleurs.
 3. Envoyer ensemble le gabarit, le script et tous les fichiers régénérés.
 
+Un hook (`.claude/settings.json`, script `.claude/hooks/garde_modeles.py`) fait l'étape 2 tout seul après chaque modification du gabarit ou du script, et refuse les modifications à la main des fichiers générés.
+
 ## Lien avec Filon (dépôt `p7cbrvrhbv-web/Filon`)
 
 Filon, l'appli de prospection, dépend de ce site :
