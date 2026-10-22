@@ -5,7 +5,7 @@ Adrien débute en code et travaille sous Windows : explications simples, en fran
 
 ## Mise en ligne
 
-- Chaque envoi sur `main` est mis en ligne automatiquement sur https://pylomae.fr (Cloudflare Pages). Pas d'étape de build.
+- Chaque envoi sur `main` est mis en ligne automatiquement sur https://pylomae.fr par Cloudflare (Worker `pylomae-site`, « Workers Builds »). Pas d'étape de build.
 - Ne jamais pousser sur `main` sans l'accord d'Adrien : passer par une branche et une pull request.
 
 ## Organisation
