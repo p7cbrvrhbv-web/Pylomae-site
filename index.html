@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>PYLOMAE · Création de site internet pour artisans et commerçants</title>
-<meta name="description" content="Création de site internet pour artisans et commerçants, partout en France. En ligne sous 48 h, sans avance : 0 € à la commande puis 49 €/mois. Aperçu gratuit, tout se règle par message.">
+<meta name="description" content="Création de site internet pour artisans et commerçants, partout en France. En ligne sous 48 h, sans avance : 0 € à la commande puis 49 €/mois, ou 1000 € une fois. Aperçu gratuit, tout se règle par message.">
 <meta property="og:title" content="PYLOMAE · Sites internet pour artisans et commerçants">
 <meta property="og:description" content="Aperçu gratuit de votre site, mise en ligne sous 48 h, 49 €/mois sans avance. Tout se règle par message.">
 <meta property="og:type" content="website">
@@ -14,7 +14,7 @@
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "PYLOMAE",
-  "description": "Création de site internet pour artisans et commerçants, en abonnement à 49 €/mois.",
+  "description": "Création de site internet pour artisans et commerçants, en abonnement à 49 €/mois ou à l’achat pour 1000 €.",
   "url": "https://pylomae.fr/",
   "telephone": "+33651603705",
   "email": "contact@pylomae.fr",
@@ -202,7 +202,11 @@ section.soft{background:var(--soft)}
 .quotes blockquote{margin:0;font-family:var(--f-display);font-size:1.15rem;line-height:1.45}
 .quotes figcaption{font-size:.9rem;color:var(--muted)}
 .quotes figcaption a{color:var(--accent)}
-.side{display:flex;flex-direction:column;gap:24px}
+.price-k{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin:0}
+.note{font-size:.92rem;color:var(--ink);background:var(--soft);border-left:3px solid var(--ink);padding:12px 14px;border-radius:0 10px 10px 0}
+.note b{font-weight:600}
+.price .btn{margin-top:auto}
+.side{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
 .launch{background:var(--dark);color:var(--on-dark);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:10px}
 .launch .eyebrow{color:var(--accent-on-dark)}
 .launch h3{font-size:1.5rem}
@@ -211,7 +215,7 @@ section.soft{background:var(--soft)}
 .terms div{display:grid;gap:2px}
 .terms dt{font-weight:500}
 .terms dd{margin:0;color:var(--muted);font-size:.93rem}
-@media (max-width:820px){ .price-wrap{grid-template-columns:1fr} }
+@media (max-width:820px){ .price-wrap,.side{grid-template-columns:1fr} }
 
 /* FAQ */
 .faq{display:grid;max-width:780px;border-top:1px solid var(--line)}
@@ -265,7 +269,7 @@ footer a{color:var(--muted)}
       <div>
         <p class="eyebrow">Sites internet pour artisans et commerçants</p>
         <h1>Votre site en ligne sous 48 h. <em>Tout se règle par message.</em></h1>
-        <p class="lead">Je prépare gratuitement un aperçu de votre site. Si le résultat vous plaît, il est en ligne sous 48&nbsp;h pour 49&nbsp;€ par mois, sans rien payer à la commande. Pas de rendez-vous, pas d’appel : vous répondez quand vous avez deux minutes, entre deux <span class="rot" aria-hidden="true"><span>chantiers.</span><span>clients.</span><span>services.</span><span>commandes.</span></span><span class="sr-only">clients.</span></p>
+        <p class="lead">Je prépare gratuitement un aperçu de votre site. Si le résultat vous plaît, il est en ligne sous 48&nbsp;h pour 49&nbsp;€ par mois, sans rien payer à la commande, ou 1000&nbsp;€ une fois si vous préférez l’acheter. Pas de rendez-vous, pas d’appel : vous répondez quand vous avez deux minutes, entre deux <span class="rot" aria-hidden="true"><span>chantiers.</span><span>clients.</span><span>services.</span><span>commandes.</span></span><span class="sr-only">clients.</span></p>
         <div class="cta">
           <a class="btn btn-dark" data-wa href="https://wa.me/33651603705">Demander mon aperçu sur WhatsApp</a>
           <a class="btn btn-line" data-mail href="mailto:contact@pylomae.fr">Par e-mail</a>
@@ -381,10 +385,11 @@ footer a{color:var(--muted)}
     <div class="wrap">
       <div class="head">
         <p class="eyebrow">Tarif</p>
-        <h2>Un seul prix, tout compris</h2>
+        <h2>Au mois ou en une fois, à vous de choisir</h2>
       </div>
       <div class="price-wrap">
         <div class="price">
+          <p class="price-k">Abonnement</p>
           <span class="zero">0 € à la commande</span>
           <div class="amount"><b>49 €</b><span>par mois</span></div>
           <p class="guarantee"><b>Satisfait ou remboursé.</b> Si le site ne vous convient pas dans les 30 jours après sa mise en ligne, je vous rembourse le premier mois et on s’arrête là.</p>
@@ -400,17 +405,33 @@ footer a{color:var(--muted)}
           <p class="fine">Engagement 12 mois, puis sans engagement. TVA non applicable, art. 293 B du CGI. <a href="/cgv/">Conditions générales de vente</a></p>
           <a class="btn btn-dark" href="#contact">Demander mon aperçu gratuit</a>
         </div>
+        <div class="price">
+          <p class="price-k">Achat</p>
+          <span class="zero">Payable en 3 ou 4 fois sans frais</span>
+          <div class="amount"><b>1000 €</b><span>une fois</span></div>
+          <p class="note"><b>Le site est à vous.</b> Je le mets en ligne à votre nom, puis vous êtes libre : plus rien à payer chaque mois.</p>
+          <ul class="incl">
+            <li>Site sur mesure jusqu’à 5 pages, adapté aux téléphones</li>
+            <li>Nom de domaine à votre nom, première année comprise</li>
+            <li>Hébergement gratuit installé sur votre propre compte</li>
+            <li>Optimisation de votre fiche Google, une fois à la livraison</li>
+            <li>Prise de rendez-vous, commande ou demande de devis adaptée à votre métier</li>
+            <li>Mentions légales de votre site rédigées</li>
+          </ul>
+          <p class="fine">Ensuite, le renouvellement du nom de domaine (environ 10 à 15 € par an) est à votre charge, et les modifications se font sur devis. Exemple en 4 fois : 4 × 250 €. TVA non applicable, art. 293 B du CGI. <a href="/cgv/">Conditions générales de vente</a></p>
+          <a class="btn btn-line" href="#contact">Demander mon aperçu gratuit</a>
+        </div>
         <div class="side">
           <div class="launch">
             <p class="eyebrow">Offre de lancement</p>
             <h3>39 € par mois pour les 3 premiers clients</h3>
-            <p>Pendant 12 mois, en échange de votre avis et de pouvoir montrer votre site en exemple sur cette page.</p>
+            <p>En abonnement, pendant 12 mois, en échange de votre avis et de pouvoir montrer votre site en exemple sur cette page.</p>
           </div>
           <dl class="terms">
-            <div><dt>Quand est-ce que je paie ?</dt><dd>Le premier mois, au moment de la mise en ligne. Ensuite, un prélèvement chaque mois.</dd></div>
+            <div><dt>Quand est-ce que je paie ?</dt><dd>Au moment de la mise en ligne. En abonnement, le premier mois puis un prélèvement chaque mois. À l’achat, en une fois ou en 3 ou 4 fois.</dd></div>
             <div><dt>Et si l’aperçu ne me plaît pas ?</dt><dd>Vous ne payez rien et je le supprime.</dd></div>
-            <div><dt>Et si le site ne me convient pas une fois en ligne ?</dt><dd>Dites-le-moi dans les 30 jours : je vous rembourse le premier mois et le contrat s’arrête, sans frais.</dd></div>
-            <div><dt>Après 12 mois ?</dt><dd>Vous continuez au mois, et vous arrêtez quand vous voulez.</dd></div>
+            <div><dt>Et si le site ne me convient pas une fois en ligne ?</dt><dd>En abonnement, dites-le-moi dans les 30 jours : je vous rembourse le premier mois et le contrat s’arrête, sans frais. À l’achat, on corrige tout sur l’aperçu avant que vous payiez.</dd></div>
+            <div><dt>Après 12 mois d’abonnement ?</dt><dd>Vous continuez au mois, et vous arrêtez quand vous voulez.</dd></div>
           </dl>
         </div>
       </div>
@@ -425,11 +446,12 @@ footer a{color:var(--muted)}
       </div>
       <div class="faq">
         <details><summary>Je dois fournir quoi ?</summary><p>Rien d’obligatoire. Vos photos (réalisations, boutique, plats…) et votre logo sont un plus. Sans eux, je prépare un site avec des images adaptées à votre métier.</p></details>
-        <details><summary>Le site m’appartient-il ?</summary><p>Vos textes et vos photos restent à vous. Si vous arrêtez l’abonnement, je vous transmets votre nom de domaine pour que vous gardiez votre adresse.</p></details>
+        <details><summary>Abonnement ou achat : que choisir ?</summary><p>L’abonnement, si vous voulez qu’on s’occupe de tout : hébergement, nom de domaine, fiche Google et petites modifications par message. L’achat, si vous préférez payer une fois et gérer ensuite vous-même : le site est à vous, mais les changements se font sur devis.</p></details>
+        <details><summary>Le site m’appartient-il ?</summary><p>À l’achat, oui : le site et le nom de domaine sont à votre nom. En abonnement, vos textes et vos photos restent à vous, et si vous arrêtez, je vous transmets votre nom de domaine pour que vous gardiez votre adresse.</p></details>
         <details><summary>Je pourrai demander des changements ?</summary><p>Oui. Un horaire, un tarif, une nouvelle photo : vous m’écrivez et c’est fait, sans surcoût pour les petites modifications.</p></details>
         <details><summary>Pourquoi pas d’appel ?</summary><p>Parce que vous avez mieux à faire que de rester au téléphone. Par écrit, vous répondez à votre rythme et chaque décision reste noir sur blanc.</p></details>
         <details><summary>Vous vous occupez aussi de ma fiche Google ?</summary><p>Oui, c’est compris. Je complète et j’optimise votre fiche : photos, horaires, catégories, description, lien vers le site, et je vous aide à répondre aux avis. Vous m’ajoutez comme gestionnaire en deux clics, vous restez propriétaire de la fiche.</p></details>
-        <details><summary>Et si je veux arrêter ?</summary><p>Dans les 30 jours après la mise en ligne, vous arrêtez quand vous voulez et je vous rembourse le premier mois. Ensuite, l’abonnement court jusqu’à la fin des 12 mois, puis vous continuez au mois et vous arrêtez quand vous voulez, sur simple message. Tout est détaillé dans les <a href="/cgv/">conditions générales de vente</a>.</p></details>
+        <details><summary>Et si je veux arrêter l’abonnement ?</summary><p>Dans les 30 jours après la mise en ligne, vous arrêtez quand vous voulez et je vous rembourse le premier mois. Ensuite, l’abonnement court jusqu’à la fin des 12 mois, puis vous continuez au mois et vous arrêtez quand vous voulez, sur simple message. Tout est détaillé dans les <a href="/cgv/">conditions générales de vente</a>.</p></details>
         <details><summary>Mon site sera-t-il trouvé sur Google ?</summary><p>Il est construit pour être rapide, lisible sur téléphone et relié à votre fiche Google, ce qui aide les clients de votre secteur à vous trouver. Personne ne peut garantir une position précise sur Google.</p></details>
       </div>
     </div>
