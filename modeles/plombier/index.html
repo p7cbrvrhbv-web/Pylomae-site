@@ -232,6 +232,8 @@ footer a{color:var(--muted)}
 textarea.bk-input{min-height:96px;resize:vertical}
 .bk-info{font-size:.92rem;font-weight:600;color:var(--brand-text)}
 .bk-hint{font-size:.92rem;color:var(--muted)}
+.bk-group{font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.chip small{font-size:.85em;opacity:.7;margin-left:6px}
 .bk-sum{font-size:.92rem;color:var(--muted);min-height:1.4em}
 .bk-go{width:100%;padding:16px 20px;font-size:1.02rem}
 .bk-go:disabled{opacity:.42;cursor:not-allowed}
@@ -564,7 +566,7 @@ textarea.bk-input{min-height:96px;resize:vertical}
   }
   function valueText(f){
     var v = V[f.id];
-    if (f.type === "multi") return v && v.length ? v.join(", ") : "";
+    if (f.type === "multi" || f.type === "sub") return v && v.length ? v.join(", ") : "";
     if (f.type === "stepper") return v != null ? v + (f.suffix || "") : "";
     if (f.type === "date") return v ? fmtDay.format(new Date(v + "T12:00")) : "";
     return v ? String(v).trim() : "";
@@ -584,12 +586,30 @@ textarea.bk-input{min-height:96px;resize:vertical}
           var b = button("chip", on, f.id + "|" + t, function(){
             if (f.type === "multi"){ var a = (V[f.id] || []).slice(), i = a.indexOf(t); if (i >= 0) a.splice(i, 1); else a.push(t); V[f.id] = a; }
             else V[f.id] = V[f.id] === t ? undefined : t;
+            W.fields.forEach(function(x){ if (x.from === f.id) V[x.id] = undefined; });
             render();
           });
           b.textContent = t; wrap.appendChild(b);
         });
         g.appendChild(wrap);
         f.options.forEach(function(o){ if (typeof o !== "string" && o.info && o.label === V[f.id]) g.appendChild(el("p", "bk-info", o.info)); });
+      } else if (f.type === "sub"){
+        // Choix qui dépendent d'un autre champ (ex. les prestations de la catégorie choisie) :
+        // groups = { valeur du champ « from » : [[sous-titre, [[prestation, prix], …]], …] }.
+        var list = subList(f);
+        if (!V[f.from]) g.appendChild(el("p", "bk-hint", f.hint || "Choisissez d’abord une catégorie."));
+        else (list || []).forEach(function(grp){
+          if (grp[0]) g.appendChild(el("p", "bk-group", grp[0]));
+          var wrap = el("div", "chips");
+          grp[1].forEach(function(o){
+            var t = o[0] + (grp[0] ? " (" + grp[0] + ")" : ""), on = (V[f.id] || []).indexOf(t) >= 0;
+            var b = button("chip", on, f.id + "|" + t, function(){ var a = (V[f.id] || []).slice(), i = a.indexOf(t); if (i >= 0) a.splice(i, 1); else a.push(t); V[f.id] = a; render(); });
+            b.textContent = o[0];
+            if (o[1]) b.appendChild(el("small", null, o[1]));
+            wrap.appendChild(b);
+          });
+          g.appendChild(wrap);
+        });
       } else if (f.type === "days"){
         var days = el("div", "days");
         openDays(f.ahead).forEach(function(d){
@@ -639,8 +659,9 @@ textarea.bk-input{min-height:96px;resize:vertical}
     var n = V[W.estimate.qty];
     return o && o.unit && n ? "Prix indicatif : " + (o.unit * n).toLocaleString("fr-FR", { style: "currency", currency: "EUR" }) + "." : "";
   }
+  function subList(f){ return V[f.from] && f.groups ? f.groups[V[f.from]] : null; }
   function update(){
-    var missing = W.fields.filter(function(f){ return !f.optional && !valueText(f); }).map(function(f){ return f.label.toLowerCase(); });
+    var missing = W.fields.filter(function(f){ return !f.optional && !valueText(f) && !(f.type === "sub" && V[f.from] && !subList(f)); }).map(function(f){ return f.label.toLowerCase(); });
     go.disabled = missing.length > 0;
     if (sent && !missing.length) return;
     sent = false;
