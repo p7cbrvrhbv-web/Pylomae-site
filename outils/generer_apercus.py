@@ -560,10 +560,10 @@ METIERS = [
         "contact_h2": "Parlons de votre projet", "contact_p": "Envoyez un SMS avec une photo et les dimensions approximatives : nous vous rappelons pour fixer une visite.",
         "cta": "Demander un devis", "sms": "Envoyer un SMS",
         "photos": [
-            ["1779031242515-205111711b23", "Menuisier travaillant le bois dans son atelier"],
             ["1659930087003-2d64e33181f7", "Traçage d’une coupe au crayon sur une planche"],
-            ["1561297331-a9c00b9c2c44", "Ponçage d’un plateau en bois"],
             ["1788296817269-8df0458ab799", "Outils de menuiserie sur l’établi"],
+            ["1561297331-a9c00b9c2c44", "Ponçage d’un plateau en bois"],
+            ["1779031242515-205111711b23", "Menuisier travaillant le bois dans son atelier"],
         ],
     },
     {
