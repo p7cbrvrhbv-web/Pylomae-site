@@ -55,6 +55,7 @@ img{display:block;max-width:100%}
 .offer .btn{font-family:inherit}
 .offer .btn-like{background:#34B98A;color:#0B1F17}
 .offer .btn-change{border-color:rgba(255,255,255,.6);color:#FFFFFF}
+.offer .btn-call{border-color:rgba(255,255,255,.6);color:#FFFFFF}
 .offer small{color:#8C8C87;font-size:.82rem}
 .offer small a{color:#C9C9C4}
 
@@ -422,6 +423,7 @@ textarea.bk-input{min-height:96px;resize:vertical}
     <div class="ctas">
       <a class="btn btn-like" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener">Ce site me plaît</a>
       <a class="btn btn-ghost btn-change" data-change href="https://wa.me/33651603705" target="_blank" rel="noopener">Demander une modification</a>
+      <a class="btn btn-ghost btn-call" data-call href="https://pylomae.fr" hidden>Programmer un appel</a>
     </div>
     <small>Abonnement : satisfait ou remboursé le premier mois, engagement 12 mois puis sans engagement. Achat : payable en 3 ou 4 fois sans frais. <a href="https://pylomae.fr/cgv/">Conditions</a> · <a href="https://pylomae.fr">pylomae.fr</a></small>
   </div>
@@ -495,6 +497,8 @@ textarea.bk-input{min-height:96px;resize:vertical}
     document.getElementById("sheet-wa").focus();
     if (CODE && navigator.sendBeacon) { try { navigator.sendBeacon("/a/" + CODE + "/like", kind); } catch (e) {} }
   }
+  // « Programmer un appel » : page de réservation de ce commerce, servie par Filon (pylomae.fr/a/rdv/<code>). Caché sans code.
+  if (CODE) document.querySelectorAll("[data-call]").forEach(function(a){ a.href = "/a/rdv/" + CODE; a.hidden = false; });
   if (sheet){
     document.querySelectorAll("[data-like]").forEach(function(a){ a.addEventListener("click", function(e){ e.preventDefault(); openSheet("like"); }); });
     document.querySelectorAll("[data-change]").forEach(function(a){ a.addEventListener("click", function(e){ e.preventDefault(); openSheet("change"); }); });
