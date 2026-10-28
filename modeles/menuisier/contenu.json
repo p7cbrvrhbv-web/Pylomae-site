@@ -1,0 +1,95 @@
+{
+ "slug": "menuisier",
+ "label": "Menuisier",
+ "kicker": "Menuiserie sur mesure",
+ "tagline": "Placards, escaliers, fenêtres et agencements en bois, fabriqués et posés sur mesure.",
+ "about_title": "Votre menuisier à {ville}",
+ "about": "{nom} fabrique et pose des menuiseries sur mesure chez les particuliers de {ville} et des environs. Nous prenons les mesures chez vous, vous montrons le projet avant de le fabriquer, puis nous le posons proprement.",
+ "trust": [
+  "Fabrication sur mesure",
+  "Devis gratuit et détaillé",
+  "Pose soignée"
+ ],
+ "services_h2": "Le bois, du dessin à la pose",
+ "services": [
+  [
+   "Placards et dressings",
+   "Des rangements sur mesure qui utilisent chaque recoin, même sous les combles."
+  ],
+  [
+   "Escaliers",
+   "Création, rénovation ou habillage d’un escalier existant."
+  ],
+  [
+   "Fenêtres et portes",
+   "Fenêtres, portes d’entrée et portes intérieures, en bois, PVC ou aluminium."
+  ],
+  [
+   "Cuisines et agencement",
+   "Plans de travail, meubles et aménagements adaptés à votre pièce."
+  ],
+  [
+   "Parquet et terrasses",
+   "Pose de parquet à l’intérieur et de terrasses en bois à l’extérieur."
+  ],
+  [
+   "Réparations",
+   "Porte qui frotte, fenêtre qui ferme mal, volet abîmé : on répare au lieu de tout changer."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "Votre projet en 4 étapes",
+ "special_p": "Vous savez ce qui sera fabriqué et combien cela coûte avant de commencer.",
+ "special": [
+  [
+   "Visite et prise de mesures",
+   "Nous venons voir la pièce et écouter ce que vous voulez."
+  ],
+  [
+   "Plan et devis",
+   "Vous recevez un dessin du projet et un devis détaillé."
+  ],
+  [
+   "Fabrication à l’atelier",
+   "Le bois est choisi, découpé et assemblé dans notre atelier."
+  ],
+  [
+   "Pose et finitions",
+   "Nous posons, ajustons et laissons la pièce propre."
+  ]
+ ],
+ "special_style": "steps",
+ "gallery_title": "Nos réalisations en images",
+ "place_title": "Zone d’intervention",
+ "place_text": "{ville} et les communes alentour, dans un rayon d’environ 30 km.",
+ "hours": [
+  [
+   "Lundi au vendredi",
+   "8 h – 18 h"
+  ],
+  [
+   "Samedi",
+   "Sur rendez-vous"
+  ]
+ ],
+ "faq": [
+  [
+   "Travaillez-vous uniquement le bois ?",
+   "Le bois est notre spécialité, mais nous posons aussi des fenêtres et des portes en PVC ou en aluminium."
+  ],
+  [
+   "Combien de temps faut-il pour un placard sur mesure ?",
+   "Comptez en général quelques semaines entre la prise de mesures et la pose. Le délai exact est indiqué sur le devis."
+  ],
+  [
+   "Le devis est-il gratuit ?",
+   "Oui, la visite et le devis sont gratuits."
+  ]
+ ],
+ "contact_h2": "Parlons de votre projet",
+ "contact_p": "Envoyez un SMS avec une photo et les dimensions approximatives : nous vous rappelons pour fixer une visite.",
+ "cta": "Demander un devis",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981244"
+}

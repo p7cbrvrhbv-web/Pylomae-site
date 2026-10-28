@@ -11,8 +11,8 @@ Adrien débute en code et travaille sous Windows : explications simples, en fran
 ## Organisation
 
 - `index.html` : page d'accueil. Les coordonnées et les témoignages sont dans le bloc `CONFIG` en haut du fichier ; la section « Ils m'ont fait confiance » reste cachée tant que `temoignages` est vide.
-- `cgv/` : conditions générales de vente. `apercu/` : outil d'aperçu manuel.
-- `modeles/<métier>/index.html` et `modeles/<métier>/contenu.json` : les 11 modèles par métier. **Fichiers générés : ne jamais les modifier à la main.**
+- `cgv/` : conditions générales de vente. `apercu/` : outil d'aperçu manuel. `realisations/` : captures des vrais sites clients (section « Réalisation » de l'accueil et lien dans le bloc offre des modèles).
+- `modeles/<métier>/index.html` et `modeles/<métier>/contenu.json` : les 15 modèles par métier. **Fichiers générés : ne jamais les modifier à la main.**
 - `outils/generer_apercus.py` (thèmes, métiers, textes), `outils/gabarit_apercu.html` (gabarit commun), `outils/metiers.json` (généré lui aussi).
 
 ## Modifier un modèle ou ajouter un métier
@@ -36,5 +36,5 @@ Filon, l'appli de prospection, dépend de ce site :
 - Photos : Unsplash uniquement (licence libre). Jamais de photos Google des commerces.
 - Identité : noir, blanc et vert émeraude (#0E6B4E, #34B98A sur fond noir), titres Lora, texte Poppins.
 - Textes en français, simples et directs, sans ton « écrit par une IA ».
-- Les prix, l'offre et les conditions (49 €/mois, offre de lancement à 39 €, engagement 12 mois, garantie 30 jours) doivent rester identiques entre `index.html`, `cgv/` et les modèles.
+- Les prix, l'offre et les conditions (abonnement 29 €/mois les 3 premiers mois puis 49 €/mois, achat 790 € payable en 3 ou 4 fois, engagement 12 mois, garantie 30 jours) doivent rester identiques entre `index.html`, `cgv/` et les modèles.
 - Aucune clé ni secret dans ce dépôt : il est public.

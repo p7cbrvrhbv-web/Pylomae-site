@@ -1,0 +1,140 @@
+{
+ "slug": "auto-ecole",
+ "label": "Auto-école",
+ "kicker": "Auto-école",
+ "tagline": "Le permis B en confiance, avec des moniteurs patients et un suivi à chaque leçon.",
+ "about_title": "Votre auto-école à {ville}",
+ "about": "{nom} accompagne les élèves de {ville} et des environs, du code jusqu’à l’examen. Évaluation de départ, planning adapté à vos disponibilités et moniteurs diplômés : vous savez où vous en êtes à chaque étape.",
+ "trust": [
+  "Moniteurs diplômés",
+  "Évaluation de départ",
+  "Paiement en plusieurs fois"
+ ],
+ "services_h2": "Une formule pour chaque élève",
+ "services": [
+  [
+   "Code de la route",
+   "Cours en salle et entraînement en ligne, à votre rythme."
+  ],
+  [
+   "Permis B",
+   "Leçons de conduite en boîte manuelle, avec un moniteur qui vous suit."
+  ],
+  [
+   "Boîte automatique",
+   "Un permis plus rapide à obtenir, idéal en ville."
+  ],
+  [
+   "Conduite accompagnée",
+   "Dès 15 ans, pour gagner en expérience avant l’examen."
+  ],
+  [
+   "Stage accéléré",
+   "Pour passer votre permis en quelques semaines."
+  ],
+  [
+   "Remise à niveau",
+   "Quelques heures pour reprendre confiance au volant."
+  ]
+ ],
+ "tarifs": {
+  "title": "Tarifs",
+  "note": "",
+  "groups": [
+   [
+    "Code",
+    [
+     [
+      "Code en ligne",
+      "Accès 6 mois",
+      "39 €"
+     ],
+     [
+      "Cours de code en salle",
+      "Illimités pendant 6 mois",
+      "149 €"
+     ]
+    ]
+   ],
+   [
+    "Conduite",
+    [
+     [
+      "Évaluation de départ",
+      "1 h",
+      "45 €"
+     ],
+     [
+      "Leçon de conduite",
+      "1 h",
+      "52 €"
+     ],
+     [
+      "Accompagnement à l’examen",
+      "",
+      "52 €"
+     ]
+    ]
+   ]
+  ],
+  "highlight": [
+   "Forfait permis B",
+   "Code en ligne, évaluation de départ et 20 heures de conduite.",
+   "dès 1 290 €"
+  ]
+ },
+ "special_h2": "Votre permis en 4 étapes",
+ "special_p": "Vous savez à chaque étape ce qu’il reste à faire.",
+ "special": [
+  [
+   "L’évaluation de départ",
+   "Une heure au volant pour estimer le nombre de leçons dont vous aurez besoin."
+  ],
+  [
+   "Le code",
+   "En salle ou en ligne, avec des examens blancs jusqu’à ce que vous soyez prêt."
+  ],
+  [
+   "Les leçons de conduite",
+   "En ville, sur route et sur voie rapide, avec un livret de suivi."
+  ],
+  [
+   "L’examen",
+   "Nous vous présentons quand vous êtes prêt, avec une leçon juste avant."
+  ]
+ ],
+ "special_style": "steps",
+ "gallery_title": "L’auto-école en images",
+ "place_title": "L’agence",
+ "place_text": "À {ville}. Les leçons partent de l’agence, ou de votre lycée selon le planning.",
+ "hours": [
+  [
+   "Lundi au vendredi",
+   "9 h – 12 h, 14 h – 19 h"
+  ],
+  [
+   "Samedi",
+   "9 h – 12 h"
+  ]
+ ],
+ "faq": [
+  [
+   "Combien de leçons faut-il ?",
+   "Cela dépend de chacun : l’évaluation de départ donne une estimation, souvent entre 20 et 30 heures pour le permis B."
+  ],
+  [
+   "Peut-on payer en plusieurs fois ?",
+   "Oui, le forfait peut être réglé en plusieurs fois. Le permis B peut aussi être financé avec votre CPF."
+  ],
+  [
+   "Venez-vous me chercher pour les leçons ?",
+   "Les leçons partent de l’agence. Selon le planning, le moniteur peut aussi vous prendre devant votre lycée ou votre travail."
+  ]
+ ],
+ "contact_h2": "Prêt à passer votre permis ?",
+ "contact_p": "Envoyez-nous un SMS pour réserver votre évaluation de départ ou poser vos questions.",
+ "cta": "Réserver une évaluation",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981246"
+}
