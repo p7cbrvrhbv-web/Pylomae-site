@@ -1,0 +1,145 @@
+{
+ "slug": "toiletteur",
+ "label": "Toiletteur",
+ "kicker": "Toilettage chiens et chats",
+ "tagline": "Bain, coupe et soins pour votre chien ou votre chat, dans le calme et à son rythme.",
+ "about_title": "Le salon",
+ "about": "{nom} accueille chiens et chats à {ville} pour leur toilettage. Chaque animal est pris en charge seul, à son rythme, avec des produits doux adaptés à son pelage. Le prix est annoncé à l’avance et vous savez à quelle heure le récupérer.",
+ "trust": [
+  "Toutes races",
+  "Produits doux",
+  "Un animal à la fois"
+ ],
+ "services_h2": "Des soins pour chaque pelage",
+ "services": [
+  [
+   "Bain et séchage",
+   "Shampoing adapté au pelage, séchage et brossage."
+  ],
+  [
+   "Coupe et tonte",
+   "Coupe aux ciseaux ou à la tondeuse, selon la race et vos envies."
+  ],
+  [
+   "Épilation",
+   "Pour les terriers et les races à poil dur."
+  ],
+  [
+   "Démêlage",
+   "Les nœuds sont retirés en douceur, sans abîmer le poil."
+  ],
+  [
+   "Griffes, oreilles et yeux",
+   "Coupe des griffes et nettoyage, en complément ou seul."
+  ],
+  [
+   "Toilettage des chats",
+   "Bain, démêlage ou tonte, avec patience."
+  ]
+ ],
+ "tarifs": {
+  "title": "Tarifs",
+  "note": "",
+  "groups": [
+   [
+    "Chiens",
+    [
+     [
+      "Bain et séchage, petit chien",
+      "1 h",
+      "dès 30 €"
+     ],
+     [
+      "Toilettage complet, petit chien",
+      "1 h 30",
+      "dès 45 €"
+     ],
+     [
+      "Toilettage complet, grand chien",
+      "2 h 30",
+      "dès 70 €"
+     ]
+    ]
+   ],
+   [
+    "Chats et soins",
+    [
+     [
+      "Toilettage d’un chat",
+      "1 h 30",
+      "dès 55 €"
+     ],
+     [
+      "Coupe des griffes",
+      "10 min",
+      "8 €"
+     ],
+     [
+      "Nettoyage des oreilles",
+      "10 min",
+      "6 €"
+     ]
+    ]
+   ]
+  ],
+  "highlight": null
+ },
+ "special_h2": "Avant le rendez-vous",
+ "special_p": "Quelques conseils pour que tout se passe bien.",
+ "special": [
+  [
+   "Promenez votre chien avant de venir",
+   "Il sera plus détendu pendant le toilettage."
+  ],
+  [
+   "Prévenez-nous s’il est sensible",
+   "Peur du séchoir, pattes sensibles : nous adaptons notre façon de faire."
+  ],
+  [
+   "Pensez au carnet de vaccination",
+   "Il vous est demandé au premier rendez-vous."
+  ],
+  [
+   "Brossez-le entre deux visites",
+   "Un pelage entretenu évite les nœuds et la tonte."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "Nos petits clients",
+ "place_title": "Le salon",
+ "place_text": "À {ville}, sur rendez-vous.",
+ "hours": [
+  [
+   "Mardi au vendredi",
+   "9 h – 18 h"
+  ],
+  [
+   "Samedi",
+   "9 h – 16 h"
+  ],
+  [
+   "Dimanche et lundi",
+   "Fermé"
+  ]
+ ],
+ "faq": [
+  [
+   "Combien de temps dure un toilettage ?",
+   "Entre une et trois heures selon la taille et le pelage. Nous vous prévenons par SMS quand votre animal est prêt."
+  ],
+  [
+   "Mon chien est âgé ou anxieux, est-ce possible ?",
+   "Oui. Nous prenons le temps qu’il faut et faisons des pauses si besoin."
+  ],
+  [
+   "Toilettez-vous les chats ?",
+   "Oui, sur rendez-vous, sur un créneau plus calme réservé pour eux."
+  ]
+ ],
+ "contact_h2": "Prenez rendez-vous",
+ "contact_p": "Indiquez la race et la prestation souhaitée : nous vous proposons un créneau par SMS.",
+ "cta": "Prendre rendez-vous",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981247"
+}

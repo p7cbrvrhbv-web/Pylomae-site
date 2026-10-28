@@ -1,0 +1,95 @@
+{
+ "slug": "peintre",
+ "label": "Peintre en bâtiment",
+ "kicker": "Peinture et décoration",
+ "tagline": "Peinture intérieure et ravalement de façade, avec un chantier protégé et laissé propre.",
+ "about_title": "Votre peintre à {ville}",
+ "about": "{nom} rénove les intérieurs et les façades des particuliers et des professionnels de {ville} et des environs. Avant de commencer, nous protégeons vos meubles et vos sols. À la fin, nous laissons les pièces propres.",
+ "trust": [
+  "Devis gratuit et détaillé",
+  "Meubles et sols protégés",
+  "Chantier laissé propre"
+ ],
+ "services_h2": "Des murs aux façades",
+ "services": [
+  [
+   "Peinture intérieure",
+   "Murs, plafonds, boiseries et portes, dans la teinte de votre choix."
+  ],
+  [
+   "Ravalement de façade",
+   "Nettoyage, réparation des fissures et peinture de la façade."
+  ],
+  [
+   "Papier peint et revêtements",
+   "Pose de papier peint, de toile de verre et de revêtements muraux."
+  ],
+  [
+   "Préparation des murs",
+   "Rebouchage, enduit et ponçage pour un résultat bien lisse."
+  ],
+  [
+   "Volets et boiseries",
+   "Décapage et peinture des volets, portails et menuiseries extérieures."
+  ],
+  [
+   "Conseil couleurs",
+   "Aide au choix des teintes et des finitions selon la pièce et la lumière."
+  ]
+ ],
+ "tarifs": null,
+ "special_h2": "Avant de repeindre, les bonnes questions",
+ "special_p": "Les réponses que nous donnons le plus souvent avant un chantier.",
+ "special": [
+  [
+   "Quelle finition choisir ?",
+   "Mate pour les plafonds, satinée pour les pièces de vie, lessivable pour la cuisine et la salle de bain."
+  ],
+  [
+   "Faut-il vider la pièce ?",
+   "Non. Nous rassemblons les meubles au centre de la pièce et nous les protégeons."
+  ],
+  [
+   "Combien de temps dure le chantier ?",
+   "Une chambre se repeint souvent en deux ou trois jours, séchage compris."
+  ],
+  [
+   "Et l’odeur ?",
+   "Nous utilisons des peintures peu odorantes, adaptées aux pièces habitées."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "Nos chantiers en images",
+ "place_title": "Zone d’intervention",
+ "place_text": "{ville} et les communes alentour, dans un rayon d’environ 30 km.",
+ "hours": [
+  [
+   "Lundi au vendredi",
+   "8 h – 18 h"
+  ],
+  [
+   "Samedi",
+   "Sur rendez-vous"
+  ]
+ ],
+ "faq": [
+  [
+   "Le devis est-il gratuit ?",
+   "Oui. Nous passons voir les pièces ou la façade, puis vous recevez un devis détaillé, pièce par pièce."
+  ],
+  [
+   "Fournissez-vous la peinture ?",
+   "Oui, la peinture et le matériel sont compris dans le devis. Vous pouvez aussi choisir une marque ou une teinte précise."
+  ],
+  [
+   "Peut-on rester chez soi pendant les travaux ?",
+   "Oui, nous avançons pièce par pièce pour que vous puissiez continuer à vivre chez vous."
+  ]
+ ],
+ "contact_h2": "Un projet de peinture ?",
+ "contact_p": "Envoyez un SMS avec une photo des pièces ou de la façade : nous vous proposons une visite pour le devis.",
+ "cta": "Demander un devis",
+ "sms": "Envoyer un SMS",
+ "tarifs_class": "",
+ "demo_tel": "0639981245"
+}

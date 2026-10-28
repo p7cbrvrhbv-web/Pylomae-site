@@ -75,5 +75,33 @@
     "phrase": "un fleuriste",
     "hero": "https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
     "nom": "Fleurs d’Iris"
+  },
+  {
+    "slug": "menuisier",
+    "label": "Menuisier",
+    "phrase": "un menuisier",
+    "hero": "https://images.unsplash.com/photo-1659930087003-2d64e33181f7?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Menuiserie Girard"
+  },
+  {
+    "slug": "peintre",
+    "label": "Peintre en bâtiment",
+    "phrase": "un peintre en bâtiment",
+    "hero": "https://images.unsplash.com/photo-1717281234297-3def5ae3eee1?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Durand Peinture"
+  },
+  {
+    "slug": "auto-ecole",
+    "label": "Auto-école",
+    "phrase": "une auto-école",
+    "hero": "https://images.unsplash.com/photo-1630406144797-821be1f35d75?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Mercier Conduite"
+  },
+  {
+    "slug": "toiletteur",
+    "label": "Toiletteur",
+    "phrase": "un toiletteur",
+    "hero": "https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Patte Douce"
   }
 ]
