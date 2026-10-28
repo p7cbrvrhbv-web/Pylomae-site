@@ -11,13 +11,13 @@ import html, json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 THEMES = {
-    # Bâtiment, auto, déménagement : capitales condensées, franches.
+    # Bâtiment, auto, déménagement : grotesque large et franche, très grasse pour le nom.
     "robuste": {
-        "fonts": "family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800",
-        "head": '"Barlow Condensed","Arial Narrow",system-ui,sans-serif',
-        "body": '"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif',
-        "head_weight": "700", "name_weight": "800", "name_case": "uppercase", "name_track": "0",
-        "name_size": "clamp(3rem,12.5vw,6.6rem)", "radius": "6px", "btn_radius": "6px",
+        "fonts": "family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700",
+        "head": '"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif',
+        "body": '"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif',
+        "head_weight": "700", "name_weight": "800", "name_case": "none", "name_track": "-.03em",
+        "name_size": "clamp(2.7rem,10.5vw,5.6rem)", "radius": "8px", "btn_radius": "12px",
         "muted": "#55595F", "line": "rgba(0,0,0,.12)",
     },
     # Services techniques : grotesque nette et dense.
@@ -29,13 +29,13 @@ THEMES = {
         "name_size": "clamp(2.8rem,11vw,6rem)", "radius": "10px", "btn_radius": "10px",
         "muted": "#525A5C", "line": "rgba(0,0,0,.11)",
     },
-    # Beauté, fleurs : serif fine et lumineuse.
+    # Beauté, fleurs : serif contrastée et lumineuse, texte rond et net.
     "elegant": {
-        "fonts": "family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600",
-        "head": '"Cormorant Garamond",Georgia,"Times New Roman",serif',
-        "body": '"Jost",system-ui,-apple-system,"Segoe UI",sans-serif',
-        "head_weight": "600", "name_weight": "600", "name_case": "none", "name_track": "-.01em",
-        "name_size": "clamp(3.1rem,12.5vw,6.8rem)", "radius": "2px", "btn_radius": "999px",
+        "fonts": "family=Gloock&family=Manrope:wght@400;500;600;700;800",
+        "head": '"Gloock",Georgia,"Times New Roman",serif',
+        "body": '"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif',
+        "head_weight": "400", "name_weight": "400", "name_case": "none", "name_track": "-.015em",
+        "name_size": "clamp(2.7rem,10.5vw,5.6rem)", "radius": "10px", "btn_radius": "999px",
         "muted": "#5E5860", "line": "rgba(0,0,0,.1)",
     },
     # Bouche, jardin : serif ronde et chaleureuse.
