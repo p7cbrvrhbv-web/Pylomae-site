@@ -1034,6 +1034,30 @@ def avis_html(slug):
         for a, n, t, w in AVIS[slug])
 
 
+# Métiers où un avant / après parle de lui-même. L'aperçu montre le curseur avec une photo d'exemple
+# (« avant » = la même photo, ternie) ; il est retiré des vrais sites tant que le client n'a pas ses photos.
+AVANT_APRES = {"peintre", "paysagiste", "nettoyage", "menuisier", "coiffeur", "institut", "toiletteur"}
+
+ARROWS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>'
+
+
+def avant_apres_html(m):
+    if m["slug"] not in AVANT_APRES:
+        return ""
+    pid, alt = m["photos"][1]
+    src, sizes = img(pid, 900, 675), srcset(pid, [(600, 450), (900, 675), (1400, 1050)])
+    pic = f'src="{src}" srcset="{sizes}" sizes="(min-width: 860px) 820px, 100vw" loading="lazy"'
+    return (f'      <!--P--><div class="ba-block">\n        <h3>Avant, après : glissez pour comparer</h3>\n'
+            f'        <div class="ba" id="ba" style="--pos:50%">\n'
+            f'          <img class="ba-before" {pic} alt="">\n'
+            f'          <img class="ba-after" {pic} alt="{html.escape(alt)}">\n'
+            f'          <span class="ba-tag l">Avant</span><span class="ba-tag r">Après</span><span class="ba-bar"></span>\n'
+            f'          <input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après">\n'
+            f'          <span class="ba-knob">{ARROWS}</span>\n        </div>\n'
+            f'        <p class="note">Exemple de présentation : vos propres photos avant et après les travaux la remplaceront.</p>\n'
+            f'      </div><!--/P-->')
+
+
 TEMPLATE = open(os.path.join(ROOT, "outils", "gabarit_apercu.html"), encoding="utf-8").read()
 
 
@@ -1094,7 +1118,7 @@ def build(m):
         "CLS_INFO": cls["info"], "CLS_FAQ": cls["faq"], "TARIFS": tarifs,
         "W_TITLE": html.escape(w["title"]), "W_INTRO": html.escape(w["intro"]), "W_NOTE": html.escape(w["note"]),
         "W_SUBMIT": html.escape(w["submit"]), "W_SHORT": html.escape(w["short"]), "WIDGET": widget_json, "WA_PYLOMAE": WA_PYLOMAE,
-        "AVIS": avis_html(m["slug"]),
+        "AVIS": avis_html(m["slug"]), "AVANT_APRES": avant_apres_html(m),
     }
     out = TEMPLATE
     for k, v in rep.items():
