@@ -76,33 +76,44 @@ img{display:block;max-width:100%}
 .greviews{margin-top:28px;display:grid;gap:14px}
 .greviews h3{font-size:1.15rem}
 .gr-list{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.gr{margin:0;background:var(--soft);border-radius:var(--radius);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.gr{margin:0;background:var(--soft);border-radius:calc(var(--radius) + 8px);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
 .gr-stars{color:#F5B301;letter-spacing:2px;font-size:.9rem}
 .gr p{font-size:.97rem}
 .gr small{color:var(--muted);font-size:.82rem}
 .gr-src{font-size:.8rem;color:var(--muted)}
 
-/* Héros */
-.hero{position:relative;isolation:isolate;color:#FFFFFF;display:flex;flex-direction:column;min-height:640px;min-height:min(92svh,820px);overflow:hidden;background:var(--deep)}
-.hero-img,.hero-img img{position:absolute;inset:0;width:100%;height:100%}
-.hero-img{z-index:-2}
-.hero-img img{object-fit:cover;animation:settle 1.8s cubic-bezier(.2,.7,.2,1) both}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,var(--shade-strong) 0%,var(--shade-mid) 48%,rgba(0,0,0,.18) 100%)}
-.top{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:18px}
-.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;font-weight:600;font-size:1rem}
+/* En-tête qui reste en haut, sous le bandeau d'aperçu (--pv-h, calculé par le script) */
+html{scroll-padding-top:calc(var(--pv-h,0px) + 72px)}
+.top{position:sticky;top:var(--pv-h,0px);z-index:25;background:rgba(255,255,255,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:14px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none;font-weight:700;font-size:1rem;color:var(--ink)}
 .brand span:last-child{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.mark{flex:none;width:36px;height:36px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center}
-.mark svg{width:19px;height:19px}
-.top .call{flex:none;display:inline-flex;align-items:center;gap:8px;color:#FFFFFF;text-decoration:none;font-weight:600;font-size:.95rem;padding:9px 16px;border:1.5px solid rgba(255,255,255,.7);border-radius:var(--btn-radius)}
-.hero-body{margin-top:auto;padding-bottom:52px;max-width:1120px;animation:rise .9s .15s cubic-bezier(.2,.7,.2,1) both}
-.kicker{font-size:1rem;font-weight:500;color:rgba(255,255,255,.86)}
-.hero h1{font-weight:var(--name-weight);text-transform:var(--name-case);letter-spacing:var(--name-track);font-size:var(--name-size);line-height:.98;margin-top:10px;max-width:14ch;overflow-wrap:anywhere}
-.tagline{font-size:clamp(1.12rem,2.6vw,1.4rem);line-height:1.45;color:rgba(255,255,255,.9);max-width:34ch;margin-top:18px}
-.rating{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 14px;border-radius:999px;background:rgba(0,0,0,.32);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);text-decoration:none;font-size:.95rem}
+.mark{flex:none;width:34px;height:34px;border-radius:50%;background:var(--brand);color:var(--brand-ink);display:grid;place-items:center}
+.mark svg{width:18px;height:18px}
+.top-end{flex:none;display:flex;align-items:center;gap:16px}
+.top .call{flex:none;display:inline-flex;align-items:center;gap:8px;color:var(--ink);text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 15px;border:1.5px solid var(--ink);border-radius:var(--btn-radius)}
+.open-now{display:inline-flex;align-items:center;gap:7px;font-size:.84rem;font-weight:600;color:var(--muted);white-space:nowrap}
+.open-now i{flex:none;width:8px;height:8px;border-radius:50%;background:#B9B9B4}
+.open-now.on i{background:#2FA36B;box-shadow:0 0 0 4px rgba(47,163,107,.18);animation:pulse 2.4s ease-in-out infinite}
+.open-now b{font-weight:700;color:var(--ink)}
+.open-now.on b{color:#1E7A4F}
+@keyframes pulse{50%{box-shadow:0 0 0 7px rgba(47,163,107,0)}}
+
+/* Haut de page : grand titre, photo dans un cadre arrondi */
+.hero{background:var(--soft);color:var(--ink);padding-block:clamp(28px,5vw,64px) clamp(36px,6vw,72px)}
+.hero-in{display:grid;gap:28px;align-items:center}
+.hero-body{min-width:0;animation:rise .9s .1s cubic-bezier(.2,.7,.2,1) both}
+.kicker{font-size:1rem;font-weight:500;color:var(--muted)}
+.hero h1{font-weight:var(--name-weight);text-transform:var(--name-case);letter-spacing:var(--name-track);font-size:var(--name-size);line-height:.98;margin-top:10px;max-width:14ch;overflow-wrap:anywhere;color:var(--ink)}
+.tagline{font-size:clamp(1.1rem,2.4vw,1.32rem);line-height:1.5;color:var(--muted);max-width:38ch;margin-top:18px}
+.rating{display:inline-flex;align-items:center;gap:10px;margin-top:22px;padding:8px 14px;border-radius:999px;background:#FFFFFF;box-shadow:0 0 0 1px var(--line);text-decoration:none;font-size:.95rem;color:var(--ink)}
 .rating b{font-weight:700}
-.rating span.n{color:rgba(255,255,255,.82)}
-.stars{position:relative;display:inline-block;font-size:1rem;letter-spacing:1px;color:rgba(255,255,255,.32);line-height:1}
+.rating span.n{color:var(--muted)}
+.stars{position:relative;display:inline-block;font-size:1rem;letter-spacing:1px;color:#DED9D2;line-height:1}
 .stars::before{content:"★★★★★";position:absolute;inset:0;width:var(--p,100%);overflow:hidden;white-space:nowrap;color:#F5B301}
+.hero-img{display:block;border-radius:calc(var(--radius) + 14px);overflow:hidden;aspect-ratio:4/3;background:var(--deep);box-shadow:0 30px 60px -42px rgba(0,0,0,.6)}
+.hero-img img{width:100%;height:100%;object-fit:cover;animation:settle 1.8s cubic-bezier(.2,.7,.2,1) both}
+@media (min-width:860px){ .hero-in{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px} .hero-img{aspect-ratio:4/5;max-height:640px} }
 .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--f-body);font-weight:600;font-size:1rem;text-decoration:none;padding:15px 24px;border-radius:var(--btn-radius);border:1.5px solid transparent;line-height:1.15}
 .btn svg{width:18px;height:18px;flex:none}
@@ -110,16 +121,18 @@ img{display:block;max-width:100%}
 .btn-ghost{border-color:rgba(255,255,255,.75);color:#FFFFFF}
 .btn-brand{background:var(--brand);color:var(--brand-ink)}
 .btn-line{border-color:var(--ink);color:var(--ink)}
+.hero .btn-cta{background:var(--brand);color:var(--brand-ink)}
+.hero .btn-ghost{border-color:var(--ink);color:var(--ink)}
 @keyframes settle{from{transform:scale(1.08)}to{transform:none}}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion: reduce){ .hero-img img,.hero-body{animation:none} }
-@media (max-width:759px){ .top .call{display:none} .hero{min-height:540px;min-height:min(calc(100svh - 150px),740px)} .hero-body{padding-bottom:36px} .hero .ctas{display:none} .contact .ctas .btn{flex:1 1 100%} }
+@media (max-width:759px){ .top .call{display:none} .hero .ctas .btn{flex:1 1 140px;padding:14px 16px} .contact .ctas .btn{flex:1 1 100%} }
 
 /* Engagements */
-.trust{border-bottom:1px solid var(--line)}
+.trust{background:var(--deep);color:#FFFFFF}
 .trust ul{list-style:none;margin:0 auto;padding-block:22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 28px}
 .trust li{display:flex;align-items:center;gap:12px;font-weight:600}
-.trust svg{flex:none;width:22px;height:22px;color:var(--brand-text)}
+.trust svg{flex:none;width:22px;height:22px;color:var(--soft)}
 @media (max-width:759px){ .trust ul{grid-template-columns:1fr;padding-block:20px} }
 
 /* Sections */
@@ -150,7 +163,7 @@ h2{font-size:clamp(1.95rem,4.8vw,2.9rem)}
 @media (max-width:759px){ .special .wrap{grid-template-columns:1fr} }
 
 .gallery{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:12px;margin-top:36px;height:clamp(420px,52vw,600px)}
-.gallery figure{margin:0;overflow:hidden;border-radius:var(--radius);background:var(--soft);min-height:0}
+.gallery figure{margin:0;overflow:hidden;border-radius:calc(var(--radius) + 10px);background:var(--soft);min-height:0}
 .gallery figure:first-child{grid-row:span 2}
 .gallery img{width:100%;height:100%;object-fit:cover}
 .note{font-size:.88rem;color:var(--muted);margin-top:14px}
@@ -160,7 +173,7 @@ h2{font-size:clamp(1.95rem,4.8vw,2.9rem)}
   .gallery figure{aspect-ratio:1}
 }
 
-.reviews{display:grid;grid-template-columns:auto 1fr;gap:12px 36px;align-items:center;padding:clamp(24px,4vw,40px);border:1px solid var(--line);border-radius:var(--radius)}
+.reviews{display:grid;grid-template-columns:auto 1fr;gap:12px 36px;align-items:center;padding:clamp(24px,4vw,40px);border:1px solid var(--line);border-radius:calc(var(--radius) + 10px)}
 .reviews .big{font-family:var(--f-head);font-weight:var(--head-weight);font-size:clamp(3.6rem,10vw,5.4rem);line-height:1}
 .reviews .stars{font-size:1.5rem;color:#DED9D2}
 .reviews p{color:var(--muted);margin-top:6px}
@@ -205,14 +218,14 @@ footer a{color:var(--muted)}
 .pitem b{font-weight:600}
 .pitem .d{grid-column:1;color:var(--muted);font-size:.92rem}
 .pitem .p{grid-column:2;grid-row:1/span 2;align-self:center;font-family:var(--f-head);font-weight:var(--head-weight);font-size:1.3rem;font-variant-numeric:tabular-nums;white-space:nowrap}
-.formule{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;margin-top:32px;padding:24px 28px;background:var(--deep);color:#FFFFFF;border-radius:var(--radius)}
+.formule{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 28px;margin-top:32px;padding:24px 28px;background:var(--deep);color:#FFFFFF;border-radius:calc(var(--radius) + 10px)}
 .formule h3{font-size:1.6rem}
 .formule p{color:rgba(255,255,255,.8);margin-top:4px}
 .formule .p{font-family:var(--f-head);font-weight:var(--head-weight);font-size:2.4rem;line-height:1}
 
 /* Réservation, commande ou devis */
 .bk{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px 64px;align-items:start}
-.bk-panel{background:#FFFFFF;border:1px solid var(--line);border-radius:max(var(--radius),8px);padding:clamp(20px,3.4vw,34px);display:grid;gap:24px;box-shadow:0 24px 60px -36px rgba(0,0,0,.35);min-width:0}
+.bk-panel{background:#FFFFFF;border:1px solid var(--line);border-radius:calc(var(--radius) + 12px);padding:clamp(20px,3.4vw,34px);display:grid;gap:24px;box-shadow:0 24px 60px -36px rgba(0,0,0,.35);min-width:0}
 .bk-fields{display:grid;gap:22px;min-width:0}
 .bk-field{display:grid;gap:10px;min-width:0}
 .bk-label{font-weight:600}
@@ -249,31 +262,136 @@ textarea.bk-input{min-height:96px;resize:vertical}
   .mobile-bar{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.96);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line)}
   .mobile-bar .btn{padding:13px 8px;font-size:.95rem;white-space:nowrap}
 }
+
+/* Bandeau d'aperçu : future adresse du site et prix */
+.pv-txt{min-width:0;display:grid;gap:2px}
+.pv-dom{display:flex;align-items:center;gap:6px;color:#FFFFFF;font-weight:600;font-size:.88rem;overflow-wrap:anywhere}
+.pv-dom svg{flex:none;width:12px;height:12px;color:#34B98A}
+.pv-price{color:#A9A9A4;font-size:.75rem}
+.pv-price b{color:#34B98A;font-weight:600}
+
+/* « Pour vous » : ce que chaque partie apporte au commerçant (aperçu seulement) */
+.pourvous{display:flex;gap:12px;align-items:flex-start;max-width:600px;background:#E8F6F0;color:#0B3D2C;border:1px solid #BFE6D6;border-left:4px solid #0E6B4E;border-radius:10px;padding:12px 14px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:.92rem;line-height:1.45}
+.pourvous i{flex:none;width:24px;height:24px;border-radius:50%;background:#0E6B4E;color:#FFFFFF;display:grid;place-items:center;font-style:normal;font-weight:700;font-size:.8rem}
+.pourvous b{display:block;color:#0E6B4E;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2px}
+.bk-intro .pourvous{margin-top:22px}
+
+/* Offre courte, au milieu de l'aperçu */
+.midoffer{background:#111111;color:#FFFFFF;border-top:4px solid #34B98A;padding-block:30px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+.midoffer .wrap{display:grid;gap:12px}
+.midoffer h2{font-family:inherit;font-weight:700;font-size:1.35rem;letter-spacing:-.01em}
+.midoffer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px;color:#D9D9D4;font-size:.96rem}
+.midoffer li::before{content:"✓";color:#34B98A;font-weight:700;margin-right:9px}
+.midoffer .row{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin-top:4px}
+.midoffer .btn{background:#34B98A;color:#0B1F17;font-family:inherit;border-radius:999px;padding:12px 22px}
+.midoffer .p{color:#A9A9A4;font-size:.92rem}
+.midoffer .p b{color:#FFFFFF;font-size:1.08rem}
+@media (min-width:760px){ .midoffer .wrap{grid-template-columns:minmax(0,1fr) auto;align-items:center} .midoffer .row{margin-top:0} }
+
+/* Offre du bas : les deux prix, ce qui est compris, la garantie */
+.offer .prix{display:flex;flex-wrap:wrap;gap:10px;width:100%}
+.offer .prix div{flex:1 1 150px;max-width:260px;background:#1B1B1B;border:1px solid #333333;border-radius:12px;padding:12px 16px}
+.offer .prix small{display:block;color:#A9A9A4;font-size:.78rem}
+.offer .prix strong{font-size:1.5rem;color:#FFFFFF}
+.offer .incl{list-style:none;margin:0;padding:0;display:grid;gap:7px;color:#E4E4E0;font-size:.96rem}
+.offer .incl li::before{content:"✓";color:#34B98A;font-weight:700;margin-right:9px}
+.offer .incl-t{color:#A9A9A4;font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-top:6px}
+.offer p.roi{color:#34B98A;font-weight:600}
+.offer .gar{display:flex;gap:12px;align-items:center;max-width:54ch;background:#16241F;border:1px solid #2F5446;border-radius:12px;padding:12px 14px;color:#E8F6F0;font-size:.92rem}
+.offer .gar svg{flex:none;width:22px;height:22px;color:#34B98A}
+
+/* Jour du jour dans les horaires */
+.hours .today{color:var(--brand-text);font-weight:700}
+
+/* Prestations en cartes, infos en blocs */
+.services{gap:14px}
+.svc{padding:20px 22px;border:0;border-radius:calc(var(--radius) + 8px);background:var(--soft);box-shadow:0 0 0 1px var(--line);transition:transform .2s ease,box-shadow .2s ease}
+.s-soft .svc{background:#FFFFFF}
+@media (hover:hover){ .svc:hover{transform:translateY(-2px);box-shadow:0 0 0 1px var(--line),0 16px 32px -24px rgba(0,0,0,.5)} }
+.info > div{padding:22px;border-radius:calc(var(--radius) + 10px);background:var(--soft)}
+.s-soft .info > div{background:#FFFFFF}
+
+/* Tarifs en onglets sur téléphone */
+.ptabs{display:none}
+@media (max-width:759px){
+  .ptabs{display:flex;gap:8px;overflow-x:auto;margin-top:28px;padding:2px 2px 6px;scrollbar-width:none}
+  .ptabs::-webkit-scrollbar{display:none}
+  .ptab{flex:none;font:inherit;font-weight:600;font-size:.95rem;padding:9px 16px;border-radius:var(--btn-radius);border:1px solid rgba(0,0,0,.2);background:#FFFFFF;color:var(--ink);cursor:pointer}
+  .ptab[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#FFFFFF}
+  .prices.tabbed{margin-top:14px}
+  .prices.tabbed .pgroup{display:none}
+  .prices.tabbed .pgroup.on{display:block}
+  .prices.tabbed .pgroup h3{display:none}
+}
+
+/* Avis d'exemple : défilent sur le côté sur téléphone */
+@media (max-width:759px){
+  .greviews .gr-list{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .greviews .gr-list::-webkit-scrollbar{display:none}
+  .greviews .gr{flex:0 0 85%;scroll-snap-align:start}
+}
+
+/* Avant / après : on fait glisser le curseur (aperçu seulement) */
+.ba-block{margin-top:44px;display:grid;gap:14px}
+.ba-block h3{font-size:clamp(1.4rem,3.4vw,1.9rem)}
+.ba{position:relative;max-width:820px;border-radius:calc(var(--radius) + 12px);overflow:hidden;background:var(--soft);touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.ba img{width:100%;aspect-ratio:4/3;object-fit:cover}
+.ba .ba-before{filter:grayscale(.8) sepia(.25) brightness(.78) contrast(.92)}
+.ba .ba-after{position:absolute;inset:0;height:100%;clip-path:inset(0 0 0 var(--pos,50%))}
+.ba-bar{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;margin-left:-1.5px;background:#FFFFFF;pointer-events:none}
+.ba-knob{position:absolute;top:50%;left:var(--pos,50%);width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;background:#FFFFFF;color:#111111;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.25);pointer-events:none}
+.ba-knob svg{width:22px;height:22px}
+.ba-tag{position:absolute;top:12px;padding:5px 10px;border-radius:8px;background:rgba(17,17,17,.72);color:#FFFFFF;font-size:.8rem;font-weight:700;pointer-events:none}
+.ba-tag.l{left:12px}
+.ba-tag.r{right:12px}
+.ba input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize}
+.ba input:focus-visible ~ .ba-knob{outline:3px solid var(--brand);outline-offset:2px}
+
+/* Boutons et apparition douce au défilement (le contenu reste visible sur les navigateurs qui ne le gèrent pas) */
+.btn{transition:transform .15s ease,filter .15s ease}
+.btn:active{transform:scale(.97)}
+@media (hover:hover){ .btn:hover{filter:brightness(1.06)} }
+@keyframes reveal{from{opacity:.15;transform:translateY(26px)}to{opacity:1;transform:none}}
+@supports (animation-timeline: view()){
+  @media (prefers-reduced-motion: no-preference){
+    .svc,.pgroup,.formule,.gr,.list li,.gallery figure,.faq details,.info > div,.bk-panel,.ba{animation:reveal linear both;animation-timeline:view();animation-range:entry 0% entry 32%}
+  }
+}
+@media (prefers-reduced-motion: reduce){ .open-now.on i{animation:none} .btn,.svc{transition:none} }
 </style>
 </head>
 <body>
 
-<!--P--><div class="preview"><div class="wrap"><p id="preview-text">Modèle de démonstration par <b>PYLOMAE</b>, entreprise fictive</p><a class="like" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>Ce site me plaît</a></div></div><!--/P-->
+<!--P--><div class="preview"><div class="wrap"><div class="pv-txt"><p id="preview-text">Modèle de démonstration par <b>PYLOMAE</b>, entreprise fictive</p><p class="pv-price" id="pv-price">Un site comme celui-ci, <b>dès 29 €/mois</b></p></div><a class="like" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 4.3 2.4h2c.7-1.2 2.2-2.4 4.3-2.4 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg>Ce site me plaît</a></div></div><!--/P-->
 <!--P--><div class="demo-note"><div class="wrap"><p><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span><b>Bon à savoir :</b> les textes, les prestations, les prix et les photos sont des exemples. Je les remplace par les vôtres.</span></p></div></div><!--/P-->
 
-<section class="hero">
-  <picture class="hero-img">
-    <source media="(min-width: 760px)" srcset="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=1400&h=875&crop=entropy 1400w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=2000&h=1250&crop=entropy 2000w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=2600&h=1625&crop=entropy 2600w" sizes="100vw">
-    <img src="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy" srcset="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=600&h=900&crop=entropy 600w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy 900w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=1200&h=1800&crop=entropy 1200w" sizes="100vw" alt="Allée en briques bordée de massifs fleuris" fetchpriority="high">
-  </picture>
-  <header class="top wrap">
+<header class="top">
+  <div class="wrap top-in">
     <a class="brand" href="#"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 19c0-8 5-14 15-14 0 10-6 15-14 15"/><path d="M5 19c3-4 6-7 10-9"/></svg></span><span data-f="nom"></span></a>
-    <a class="call" data-tel href="tel:0639981236"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-f="tel"></span></a>
-  </header>
-  <div class="hero-body wrap">
-    <p class="kicker">Paysagiste à <span data-f="ville"></span></p>
-    <h1 data-f="nom"></h1>
-    <p class="tagline"><!--R:tagline-->Création et entretien de jardins, pour profiter d’un extérieur soigné toute l’année.<!--/R:tagline--></p>
-    <a class="rating" data-rating hidden target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span><b data-note></b><span class="n"><span data-avis></span> avis Google</span></a>
-    <div class="ctas">
-      <a class="btn btn-cta" data-tel href="tel:0639981236"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
-      <!--R:herocta--><a class="btn btn-ghost" href="#reserver">Demander un devis</a><!--/R:herocta-->
+    <div class="top-end">
+      <p class="open-now" data-open hidden><i></i><span></span></p>
+      <a class="call" data-tel href="tel:0639981236"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><span data-f="tel"></span></a>
     </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-in">
+    <div class="hero-body">
+      <p class="kicker">Paysagiste à <span data-f="ville"></span></p>
+      <h1 data-f="nom"></h1>
+      <p class="tagline"><!--R:tagline-->Création et entretien de jardins, pour profiter d’un extérieur soigné toute l’année.<!--/R:tagline--></p>
+      <div class="pills">
+        <a class="rating" data-rating hidden target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span><b data-note></b><span class="n"><span data-avis></span> avis Google</span></a>
+      </div>
+      <div class="ctas">
+        <a class="btn btn-cta" data-tel href="tel:0639981236"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>Appeler</a>
+        <!--R:herocta--><a class="btn btn-ghost" href="#reserver">Demander un devis</a><!--/R:herocta-->
+      </div>
+    </div>
+    <picture class="hero-img">
+      <img src="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy" srcset="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=600&h=900&crop=entropy 600w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy 900w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=1200&h=1800&crop=entropy 1200w" sizes="(min-width: 860px) 50vw, 100vw" alt="Allée en briques bordée de massifs fleuris" fetchpriority="high">
+    </picture>
   </div>
 </section>
 
@@ -299,6 +417,7 @@ textarea.bk-input{min-height:96px;resize:vertical}
             <a data-maps target="_blank" rel="noopener">Lire les avis sur Google</a>
           </div>
         </div>
+        <!--P--><p class="pourvous" data-rating hidden><i>i</i><span><b>Pour vous</b>Votre note Google est mise en avant dès l’arrivée sur le site : elle rassure ceux qui ne vous connaissent pas encore.</span></p><!--/P-->
       </div>
       <!--P--><div class="greviews">
         <h3>Ce que disent nos clients</h3>
@@ -325,6 +444,22 @@ textarea.bk-input{min-height:96px;resize:vertical}
       <!--/R:services--></div>
     </div>
   </section>
+  <!--P--><section class="midoffer" aria-label="Offre PYLOMAE">
+    <div class="wrap">
+      <div>
+        <h2>Ce site, à votre nom, en ligne sous 48 h</h2>
+        <ul>
+          <li data-dom-li>Votre propre adresse internet</li>
+          <li>Vos textes, vos photos, vos tarifs</li>
+          <li>Votre fiche Google optimisée</li>
+        </ul>
+      </div>
+      <div class="row">
+        <a class="btn" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener">Ce site me plaît</a>
+        <span class="p"><b>29 €</b> par mois les 3 premiers mois</span>
+      </div>
+    </div>
+  </section><!--/P-->
 <!--S:tarifs--><!--/S:tarifs-->
   <!--S:booking--><section class="s booking " id="reserver">
     <div class="wrap bk">
@@ -332,6 +467,7 @@ textarea.bk-input{min-height:96px;resize:vertical}
         <h2>Demander un devis</h2>
         <p class="lead">Choisissez les travaux et la taille du jardin : nous vous envoyons une première estimation.</p>
         <p class="note">Ajoutez quelques photos de votre jardin au SMS pour un chiffrage plus précis.</p>
+        <!--P--><p class="pourvous"><i>i</i><span><b>Pour vous</b>Vos clients font leur demande ici, même le soir ou le dimanche. Elle vous arrive par SMS, déjà remplie : vous n’avez plus qu’à confirmer.</span></p><!--/P-->
       </div>
       <form class="bk-panel" id="bk" novalidate>
         <div class="bk-fields" id="bk-fields"></div>
@@ -362,6 +498,17 @@ textarea.bk-input{min-height:96px;resize:vertical}
         <figure><img src="https://images.unsplash.com/photo-1617850687395-620757feb1f3?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy" srcset="https://images.unsplash.com/photo-1617850687395-620757feb1f3?auto=format&fit=crop&q=70&w=600&h=600&crop=entropy 600w, https://images.unsplash.com/photo-1617850687395-620757feb1f3?auto=format&fit=crop&q=70&w=900&h=900&crop=entropy 900w" sizes="(min-width: 760px) 35vw, 50vw" alt="Terrasse en bois entourée de plantes" loading="lazy"></figure>
       </div>
       <!--R:gallery_note--><p class="note">Photos d’illustration : vos propres photos de réalisations les remplaceront.</p><!--/R:gallery_note-->
+      <!--P--><div class="ba-block">
+        <h3>Avant, après : glissez pour comparer</h3>
+        <div class="ba" id="ba" style="--pos:50%">
+          <img class="ba-before" src="https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=900&h=675&crop=entropy" srcset="https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=600&h=450&crop=entropy 600w, https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=900&h=675&crop=entropy 900w, https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=1400&h=1050&crop=entropy 1400w" sizes="(min-width: 860px) 820px, 100vw" loading="lazy" alt="">
+          <img class="ba-after" src="https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=900&h=675&crop=entropy" srcset="https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=600&h=450&crop=entropy 600w, https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=900&h=675&crop=entropy 900w, https://images.unsplash.com/photo-1734303023491-db8037a21f09?auto=format&fit=crop&q=70&w=1400&h=1050&crop=entropy 1400w" sizes="(min-width: 860px) 820px, 100vw" loading="lazy" alt="Tonte d’une pelouse">
+          <span class="ba-tag l">Avant</span><span class="ba-tag r">Après</span><span class="ba-bar"></span>
+          <input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après">
+          <span class="ba-knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span>
+        </div>
+        <p class="note">Exemple de présentation : vos propres photos avant et après les travaux la remplaceront.</p>
+      </div><!--/P-->
     </div>
   </section><!--/S:gallery-->
 
@@ -408,14 +555,27 @@ textarea.bk-input{min-height:96px;resize:vertical}
   <div class="wrap">
     <p class="offer-brand">PYLOMAE<i></i></p>
     <h2 id="offer-title">Ce site vous plaît ?</h2>
-    <p id="offer-text">Il peut être en ligne sous 48 h, à votre nom, pour 29 € par mois les 3 premiers mois puis 49 €, sans rien payer à la commande, ou 790 € une fois si vous préférez l’acheter. Textes, photos, tarifs : on ajuste tout ensemble, par message.</p>
+    <p id="offer-text">Il peut être en ligne sous 48 h, à votre nom. Textes, photos, tarifs : on ajuste tout ensemble, par message.</p>
+    <div class="prix">
+      <div><small>Abonnement</small><strong>29 €</strong>/mois<small>les 3 premiers mois, puis 49 €. Rien à payer à la commande.</small></div>
+      <div><small>Ou achat</small><strong>790 €</strong><small>une fois, payable en 3 ou 4 fois sans frais</small></div>
+    </div>
+    <p class="incl-t">Compris dans l’abonnement</p>
+    <ul class="incl">
+      <li>Nom de domaine et adresse sécurisée (https)</li>
+      <li>Hébergement et sauvegardes</li>
+      <li>Optimisation de votre fiche Google</li>
+      <li>Petites modifications sur simple message</li>
+    </ul>
+    <p class="roi">Un client fidèle de plus par mois suffit à le rembourser.</p>
+    <p class="gar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg><span><b>Satisfait ou remboursé le premier mois</b> avec l’abonnement.</span></p>
     <p class="offer-ref">Un site que j’ai déjà créé : <a href="https://latelierdesfetes.fr" target="_blank" rel="noopener">L’Atelier des Fêtes</a>, décoratrice d’événements en Meuse.</p>
     <div class="ctas">
       <a class="btn btn-like" data-like href="https://wa.me/33651603705" target="_blank" rel="noopener">Ce site me plaît</a>
       <a class="btn btn-ghost btn-change" data-change href="https://wa.me/33651603705" target="_blank" rel="noopener">Demander une modification</a>
       <a class="btn btn-ghost btn-call" data-call href="https://pylomae.fr" hidden>Programmer un appel</a>
     </div>
-    <small>Abonnement : satisfait ou remboursé le premier mois, engagement 12 mois puis sans engagement. Achat : payable en 3 ou 4 fois sans frais. <a href="https://pylomae.fr/cgv/">Conditions</a> · <a href="https://pylomae.fr">pylomae.fr</a></small>
+    <small>Abonnement : engagement 12 mois, puis sans engagement. <a href="https://pylomae.fr/cgv/">Conditions</a> · <a href="https://pylomae.fr">pylomae.fr</a></small>
   </div>
 </section>
 
@@ -459,12 +619,17 @@ textarea.bk-input{min-height:96px;resize:vertical}
     document.querySelectorAll("[data-maps], a[data-rating]").forEach(function(a){ a.href = maps; });
     document.querySelectorAll("[data-rating]").forEach(function(el){ el.hidden = false; });
   }
+  // Aperçu personnalisé : le bandeau montre la future adresse du site (ex. salon-maelle.fr).
   var pt = document.getElementById("preview-text");
   if (pt && clean(P.get("nom"))){
-    var de = /^(le|les)\s/i.test(D.nom) ? (/^les\s/i.test(D.nom) ? "des " : "du ") + D.nom.replace(/^(le|les)\s+/i, "")
-           : (/^[aeiouyhàâäéèêëîïôöùûü]/i.test(D.nom) ? "d’" : "de ") + D.nom;
-    pt.textContent = "Aperçu du site " + de + ", préparé par ";
-    var b = document.createElement("b"); b.textContent = "PYLOMAE"; pt.appendChild(b);
+    var dom = (D.nom.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/&/g, " et ").replace(/['’]/g, "")
+      .replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40).replace(/-+$/, "") || "votre-commerce") + ".fr";
+    pt.className = "pv-dom";
+    pt.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>';
+    pt.appendChild(document.createTextNode(dom));
+    var pp = document.getElementById("pv-price");
+    if (pp) pp.innerHTML = "Votre futur site, préparé par PYLOMAE · <b>dès 29 €/mois</b>";
+    document.querySelectorAll("[data-dom-li]").forEach(function(el){ el.textContent = "Votre adresse " + dom; });
   }
   var custom = !!clean(P.get("nom"));
   var waLike = custom ? "Bonjour Adrien, j’ai vu l’aperçu du site pour " + D.nom + ", il me plaît ! On peut en parler ?"
@@ -530,6 +695,79 @@ textarea.bk-input{min-height:96px;resize:vertical}
       });
     }
   }
+
+  // « Ouvert maintenant » et jour du jour en gras : horaires de la fiche Google (h) ou, à défaut, ceux écrits dans la page.
+  (function(){
+    var DN = ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"];
+    function daysOf(t){
+      var found = [];
+      DN.forEach(function(n, i){ var at = t.indexOf(n); if (at >= 0) found.push([at, i]); });
+      found.sort(function(a, b){ return a[0] - b[0]; });
+      if (found.length === 2 && / au /.test(t)){ var out = [], d = found[0][1]; for (var k = 0; k < 7; k++){ out.push(d); if (d === found[1][1]) break; d = (d + 1) % 7; } return out; }
+      return found.map(function(f){ return f[1]; });
+    }
+    function toM(s){ var p = s.split(":"); return (+p[0]) * 60 + (+p[1]); }
+    function fmtM(m){ var h = Math.floor(m / 60), mm = m % 60; return h + " h" + (mm ? " " + (mm < 10 ? "0" : "") + mm : ""); }
+    var sched = {}, rows = [];
+    document.querySelectorAll("#hours dt").forEach(function(dt){
+      var dd = dt.nextElementSibling; if (!dd) return;
+      var label = dt.textContent.toLowerCase(), val = dd.textContent;
+      var lead = val.match(/^([^,\d]+),\s*(.*)$/); // « Bureau » : « Lundi au vendredi, 8 h – 18 h »
+      if (!daysOf(label).length && lead){ label = lead[1].toLowerCase(); val = lead[2]; }
+      var days = daysOf(label); if (!days.length) return;
+      rows.push([days, dt, dd]);
+      var ranges = [], re = /(\d{1,2}) h(?: (\d{2}))? – (\d{1,2}) h(?: (\d{2}))?/g, x;
+      while ((x = re.exec(val))) ranges.push([(+x[1]) * 60 + (+x[2] || 0), (+x[3]) * 60 + (+x[4] || 0)]);
+      if (ranges.length || /ferm/i.test(val)) days.forEach(function(d){ sched[d] = ranges; }); // « Sur rendez-vous » : inconnu
+    });
+    if (REAL){ sched = {}; for (var d = 0; d < 7; d++) sched[d] = (REAL[d] || []).map(function(r){ return [toM(r[0]), toM(r[1])]; }); }
+    var now = new Date(), day = now.getDay(), mins = now.getHours() * 60 + now.getMinutes();
+    rows.forEach(function(r){ if (r[0].indexOf(day) >= 0){ r[1].classList.add("today"); r[2].classList.add("today"); } });
+    var badge = document.querySelector("[data-open]");
+    if (!badge || !sched[day]) return;
+    var cur = sched[day].filter(function(r){ return mins >= r[0] && mins < r[1]; })[0], txt;
+    if (cur){ badge.classList.add("on"); txt = "<b>Ouvert</b> · ferme à " + fmtM(cur[1]); }
+    else {
+      var next = null;
+      for (var i = 0; i < 8 && !next; i++){
+        var dd = (day + i) % 7;
+        (sched[dd] || []).forEach(function(r){ if (!next && (i > 0 || r[0] > mins)) next = { i: i, d: dd, m: r[0] }; });
+      }
+      txt = "<b>Fermé</b>" + (next ? " · ouvre " + (next.i === 0 ? "à " : next.i === 1 ? "demain à " : DN[next.d] + " à ") + fmtM(next.m) : "");
+    }
+    badge.querySelector("span").innerHTML = txt;
+    badge.hidden = false;
+  })();
+
+  // Tarifs : sur téléphone, un onglet par groupe (Femmes, Hommes…) au lieu d'une longue liste.
+  document.querySelectorAll(".prices").forEach(function(box){
+    var groups = box.querySelectorAll(".pgroup");
+    if (groups.length < 2) return;
+    var bar = document.createElement("div"), tabs = [];
+    bar.className = "ptabs"; bar.setAttribute("role", "tablist");
+    groups.forEach(function(g, i){
+      var h = g.querySelector("h3"), b = document.createElement("button");
+      b.type = "button"; b.className = "ptab"; b.setAttribute("role", "tab"); b.textContent = h ? h.textContent : "Tarifs " + (i + 1);
+      b.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      b.addEventListener("click", function(){
+        groups.forEach(function(x, j){ x.classList.toggle("on", j === i); });
+        tabs.forEach(function(x, j){ x.setAttribute("aria-selected", j === i ? "true" : "false"); });
+      });
+      tabs.push(b); bar.appendChild(b);
+    });
+    groups[0].classList.add("on");
+    box.parentNode.insertBefore(bar, box);
+    box.classList.add("tabbed");
+  });
+
+  // Avant / après : le curseur découvre la photo « après ».
+  var ba = document.getElementById("ba");
+  if (ba){ var range = ba.querySelector("input"); range.addEventListener("input", function(){ ba.style.setProperty("--pos", range.value + "%"); }); }
+
+  // L'en-tête du commerce reste collé juste sous le bandeau d'aperçu (absent sur un vrai site).
+  var pvBar = document.querySelector(".preview");
+  function pvHeight(){ document.documentElement.style.setProperty("--pv-h", (pvBar ? pvBar.offsetHeight : 0) + "px"); }
+  pvHeight(); addEventListener("resize", pvHeight);
 
   /* Module de réservation, commande ou devis : la demande part par SMS au commerce, qui confirme. */
   var W = {"smsIntro": "Bonjour, je souhaite un devis pour mon jardin :", "fields": [{"id": "travaux", "label": "Travaux", "type": "multi", "options": ["Entretien régulier", "Tonte", "Taille de haies", "Élagage", "Création de jardin", "Terrasse ou allée"]}, {"id": "surface", "label": "Surface du jardin", "type": "chips", "options": ["Moins de 200 m²", "200 à 500 m²", "Plus de 500 m²"]}, {"id": "commune", "label": "Commune", "type": "text", "placeholder": "Votre commune"}, {"id": "details", "label": "Précisions", "type": "textarea", "optional": true, "placeholder": "Ex. : haie de 20 m à tailler avant l’été"}, {"id": "nom", "label": "Votre nom", "type": "text", "optional": true, "placeholder": "Votre nom"}], "schedule": {}};

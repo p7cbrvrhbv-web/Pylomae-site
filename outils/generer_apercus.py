@@ -11,13 +11,13 @@ import html, json, os
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 THEMES = {
-    # Bâtiment, auto, déménagement : capitales condensées, franches.
+    # Bâtiment, auto, déménagement : grotesque large et franche, très grasse pour le nom.
     "robuste": {
-        "fonts": "family=Barlow:wght@400;500;600;700&family=Barlow+Condensed:wght@600;700;800",
-        "head": '"Barlow Condensed","Arial Narrow",system-ui,sans-serif',
-        "body": '"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif',
-        "head_weight": "700", "name_weight": "800", "name_case": "uppercase", "name_track": "0",
-        "name_size": "clamp(3rem,12.5vw,6.6rem)", "radius": "6px", "btn_radius": "6px",
+        "fonts": "family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700",
+        "head": '"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif',
+        "body": '"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif',
+        "head_weight": "700", "name_weight": "800", "name_case": "none", "name_track": "-.03em",
+        "name_size": "clamp(2.7rem,10.5vw,5.6rem)", "radius": "8px", "btn_radius": "12px",
         "muted": "#55595F", "line": "rgba(0,0,0,.12)",
     },
     # Services techniques : grotesque nette et dense.
@@ -29,13 +29,13 @@ THEMES = {
         "name_size": "clamp(2.8rem,11vw,6rem)", "radius": "10px", "btn_radius": "10px",
         "muted": "#525A5C", "line": "rgba(0,0,0,.11)",
     },
-    # Beauté, fleurs : serif fine et lumineuse.
+    # Beauté, fleurs : serif contrastée et lumineuse, texte rond et net.
     "elegant": {
-        "fonts": "family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600",
-        "head": '"Cormorant Garamond",Georgia,"Times New Roman",serif',
-        "body": '"Jost",system-ui,-apple-system,"Segoe UI",sans-serif',
-        "head_weight": "600", "name_weight": "600", "name_case": "none", "name_track": "-.01em",
-        "name_size": "clamp(3.1rem,12.5vw,6.8rem)", "radius": "2px", "btn_radius": "999px",
+        "fonts": "family=Gloock&family=Manrope:wght@400;500;600;700;800",
+        "head": '"Gloock",Georgia,"Times New Roman",serif',
+        "body": '"Manrope",system-ui,-apple-system,"Segoe UI",sans-serif',
+        "head_weight": "400", "name_weight": "400", "name_case": "none", "name_track": "-.015em",
+        "name_size": "clamp(2.7rem,10.5vw,5.6rem)", "radius": "10px", "btn_radius": "999px",
         "muted": "#5E5860", "line": "rgba(0,0,0,.1)",
     },
     # Bouche, jardin : serif ronde et chaleureuse.
@@ -1034,6 +1034,30 @@ def avis_html(slug):
         for a, n, t, w in AVIS[slug])
 
 
+# Métiers où un avant / après parle de lui-même. L'aperçu montre le curseur avec une photo d'exemple
+# (« avant » = la même photo, ternie) ; il est retiré des vrais sites tant que le client n'a pas ses photos.
+AVANT_APRES = {"peintre", "paysagiste", "nettoyage", "menuisier", "coiffeur", "institut", "toiletteur"}
+
+ARROWS = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg>'
+
+
+def avant_apres_html(m):
+    if m["slug"] not in AVANT_APRES:
+        return ""
+    pid, alt = m["photos"][1]
+    src, sizes = img(pid, 900, 675), srcset(pid, [(600, 450), (900, 675), (1400, 1050)])
+    pic = f'src="{src}" srcset="{sizes}" sizes="(min-width: 860px) 820px, 100vw" loading="lazy"'
+    return (f'      <!--P--><div class="ba-block">\n        <h3>Avant, après : glissez pour comparer</h3>\n'
+            f'        <div class="ba" id="ba" style="--pos:50%">\n'
+            f'          <img class="ba-before" {pic} alt="">\n'
+            f'          <img class="ba-after" {pic} alt="{html.escape(alt)}">\n'
+            f'          <span class="ba-tag l">Avant</span><span class="ba-tag r">Après</span><span class="ba-bar"></span>\n'
+            f'          <input type="range" min="0" max="100" value="50" aria-label="Comparer avant et après">\n'
+            f'          <span class="ba-knob">{ARROWS}</span>\n        </div>\n'
+            f'        <p class="note">Exemple de présentation : vos propres photos avant et après les travaux la remplaceront.</p>\n'
+            f'      </div><!--/P-->')
+
+
 TEMPLATE = open(os.path.join(ROOT, "outils", "gabarit_apercu.html"), encoding="utf-8").read()
 
 
@@ -1094,7 +1118,7 @@ def build(m):
         "CLS_INFO": cls["info"], "CLS_FAQ": cls["faq"], "TARIFS": tarifs,
         "W_TITLE": html.escape(w["title"]), "W_INTRO": html.escape(w["intro"]), "W_NOTE": html.escape(w["note"]),
         "W_SUBMIT": html.escape(w["submit"]), "W_SHORT": html.escape(w["short"]), "WIDGET": widget_json, "WA_PYLOMAE": WA_PYLOMAE,
-        "AVIS": avis_html(m["slug"]),
+        "AVIS": avis_html(m["slug"]), "AVANT_APRES": avant_apres_html(m),
     }
     out = TEMPLATE
     for k, v in rep.items():
