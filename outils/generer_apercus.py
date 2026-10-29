@@ -1058,6 +1058,242 @@ def avant_apres_html(m):
             f'      </div><!--/P-->')
 
 
+# Étape 2 : un petit outil par métier (aperçu seulement), fourchette de prix d'exemple dans le devis,
+# zone d'intervention ou « Comment venir ». Tout est dans des blocs <!--P--> : Filon les retire des vrais sites.
+
+SVG_SALON = ('<svg viewBox="0 0 320 200" role="img" aria-label="Salon repeint avec la couleur choisie">'
+             '<rect width="320" height="150" style="fill:var(--paint)"/><rect y="150" width="320" height="50" fill="#B98B5E"/>'
+             '<rect y="146" width="320" height="6" fill="#FFFFFF" opacity=".9"/>'
+             '<rect x="30" y="28" width="70" height="80" rx="3" fill="#DDEBF2" stroke="#FFFFFF" stroke-width="6"/>'
+             '<path d="M65 28v80M30 68h70" stroke="#FFFFFF" stroke-width="4"/>'
+             '<rect x="200" y="34" width="56" height="42" fill="#FFFFFF"/><rect x="205" y="39" width="46" height="32" fill="#9DB4A0"/>'
+             '<rect x="150" y="104" width="140" height="40" rx="10" fill="#3A3F45"/><rect x="140" y="118" width="20" height="34" rx="6" fill="#30343A"/>'
+             '<rect x="280" y="118" width="20" height="34" rx="6" fill="#30343A"/><rect x="150" y="140" width="140" height="10" fill="#2A2E33"/>'
+             '<rect x="112" y="124" width="18" height="24" rx="3" fill="#C46B4B"/><path d="M121 124c-10-14-4-28 0-34 4 6 10 20 0 34z" fill="#5E7D4F"/>'
+             '<path d="M121 124c-14-6-20-18-18-26 8 2 16 12 18 26zM121 124c14-6 20-18 18-26-8 2-16 12-18 26z" fill="#6E8F5A"/></svg>')
+SVG_COIFFURE = ('<svg viewBox="0 0 320 200" role="img" aria-label="Silhouette avec la couleur de cheveux choisie">'
+                '<rect width="320" height="200" fill="#F4ECE6"/>'
+                '<path d="M100 112c-6-52 22-88 62-88s66 36 60 86c-2 22-6 40-4 58-18-8-26-22-28-36h-58c-2 14-10 28-28 36 2-18-2-34-4-56z" style="fill:var(--paint)"/>'
+                '<path d="M104 200c4-30 26-44 56-44s52 14 56 44z" fill="#2F3A3A"/>'
+                '<rect x="147" y="116" width="28" height="44" rx="12" fill="#DDB194"/>'
+                '<ellipse cx="161" cy="92" rx="36" ry="44" fill="#EBC4A6"/>'
+                '<path d="M124 84c4-36 26-52 50-48 20 4 32 22 34 44-14-14-34-20-54-14-12 4-22 10-30 18z" style="fill:var(--paint)"/>'
+                '<path d="M182 40c14 6 22 20 24 34-6-10-14-18-26-24z" fill="#FFFFFF" opacity=".18"/></svg>')
+SVG_DRESSING = ('<svg viewBox="0 0 320 200" role="img" aria-label="Dressing dans l’essence de bois choisie">'
+                '<rect width="320" height="200" fill="#EFEBE5"/><rect y="186" width="320" height="14" fill="#D8CFC3"/>'
+                '<rect x="60" y="18" width="200" height="168" rx="4" style="fill:var(--paint)"/>'
+                '<path d="M126.7 18v168M193.3 18v168M60 152h200" stroke="rgba(0,0,0,.22)" stroke-width="2"/>'
+                '<path d="M72 40c20 6 30-4 50 2M138 62c18 6 30-4 46 2M204 44c18 6 30-4 46 2M80 120c16 5 26-3 40 2M146 110c16 5 26-3 36 2M208 128c16 5 26-3 40 2" stroke="rgba(0,0,0,.09)" stroke-width="2" fill="none"/>'
+                '<rect x="118" y="78" width="3" height="28" rx="1.5" fill="#2E2A26"/><rect x="132" y="78" width="3" height="28" rx="1.5" fill="#2E2A26"/>'
+                '<rect x="185" y="78" width="3" height="28" rx="1.5" fill="#2E2A26"/><rect x="199" y="78" width="3" height="28" rx="1.5" fill="#2E2A26"/>'
+                '<rect x="80" y="167" width="26" height="3" rx="1.5" fill="#2E2A26"/><rect x="147" y="167" width="26" height="3" rx="1.5" fill="#2E2A26"/>'
+                '<rect x="214" y="167" width="26" height="3" rx="1.5" fill="#2E2A26"/></svg>')
+SVG_BOUQUET = ('<svg viewBox="0 0 320 200" role="img" aria-label="Bouquet dans les couleurs choisies">'
+               '<rect width="320" height="200" fill="#F6F1EC"/>'
+               '<path d="M160 128L138 66M160 128l2-64M160 128l26-54M160 128l-36-32M160 128l40-28" stroke="#6E8F5A" stroke-width="3" fill="none"/>'
+               '<ellipse cx="126" cy="100" rx="17" ry="7" transform="rotate(-30 126 100)" fill="#7FA36A"/>'
+               '<ellipse cx="196" cy="102" rx="17" ry="7" transform="rotate(30 196 102)" fill="#7FA36A"/>'
+               '<circle cx="122" cy="92" r="14" style="fill:var(--paint3)"/><circle cx="202" cy="94" r="13" style="fill:var(--paint3)"/>'
+               '<circle cx="138" cy="62" r="19" style="fill:var(--paint)"/><circle cx="187" cy="68" r="18" style="fill:var(--paint)"/>'
+               '<circle cx="162" cy="50" r="21" style="fill:var(--paint2)"/><circle cx="162" cy="84" r="14" style="fill:var(--paint3)"/>'
+               '<circle cx="138" cy="62" r="5" fill="rgba(0,0,0,.14)"/><circle cx="187" cy="68" r="5" fill="rgba(0,0,0,.14)"/><circle cx="162" cy="50" r="6" fill="rgba(0,0,0,.14)"/>'
+               '<path d="M138 122h44l-7 70h-30z" fill="#D9E4E8"/><path d="M138 122h44l-1 8h-42z" fill="#C5D4DA"/></svg>')
+
+SEASON = "season"
+GADGETS = {
+    "peintre": {"kind": "paint", "svg": SVG_SALON, "title": "Essayez une couleur sur ce salon",
+                "intro": "Touchez une teinte du nuancier : le mur change tout de suite.",
+                "note": "Nuancier d’exemple : le rendu réel dépend de la lumière de la pièce. Vos teintes préférées pourront le remplacer.",
+                "swatches": [["Blanc cassé", "#EFEAE0"], ["Vert sauge", "#A3B18A"], ["Bleu orage", "#4A6378"], ["Terracotta", "#C46B4B"], ["Ocre", "#D9A441"], ["Gris perle", "#C9CBC7"]]},
+    "coiffeur": {"kind": "paint", "svg": SVG_COIFFURE, "title": "Essayez une couleur",
+                 "intro": "Touchez une teinte pour voir l’effet. On en parle ensemble au salon.",
+                 "note": "Simulation d’exemple : la couleur réelle dépend de votre base et de vos cheveux.",
+                 "swatches": [["Châtain", "#6B4A2F"], ["Blond miel", "#C99A5B"], ["Cuivré", "#A6532B"], ["Brun", "#3B2A20"], ["Blond polaire", "#E3D5B8"], ["Prune", "#5E2B45"]]},
+    "menuisier": {"kind": "paint", "svg": SVG_DRESSING, "title": "Choisissez le bois de votre dressing",
+                  "intro": "Touchez une essence ou une finition pour voir le meuble changer.",
+                  "note": "Finitions d’exemple : vos essences et vos réalisations les remplaceront.",
+                  "swatches": [["Chêne clair", "#C8A27A"], ["Noyer", "#6E4B32"], ["Hêtre", "#D9B48F"], ["Frêne blanchi", "#E3D7C3"], ["Laqué vert", "#3F5B4C"], ["Laqué blanc", "#F3F1EC"]]},
+    "fleuriste": {"kind": "paint", "svg": SVG_BOUQUET, "title": "Composez votre bouquet",
+                  "intro": "Choisissez une harmonie de couleurs : le bouquet s’adapte.",
+                  "note": "Exemple de composition : les fleurs changent selon la saison et l’arrivage.",
+                  "swatches": [["Tendre", "#F4B6C2", "#FBE3E8", "#D6DFB4"], ["Vif", "#E4572E", "#F3A712", "#A8C256"], ["Blanc et vert", "#FFFFFF", "#F1F0E6", "#9DB98A"], ["Pourpre", "#7B2D5B", "#C46BAE", "#E8C1D9"]]},
+    "plombier": {"kind": "pick", "call": True, "title": "Un souci ? Les bons gestes en attendant",
+                 "intro": "Choisissez ce qui vous arrive : voici quoi faire avant notre arrivée.",
+                 "note": "Conseils d’exemple : vos propres conseils pourront les remplacer.",
+                 "options": [
+                     ["Fuite d’eau", "Coupez l’eau tout de suite", "Fermez le robinet d’arrivée, près du compteur ou sous l’évier. Épongez et coupez l’électricité de la pièce si l’eau approche des prises. Appelez-nous : nous venons dans la journée.", True],
+                     ["Plus d’eau chaude", "Vérifiez le chauffe-eau", "Regardez si le disjoncteur du chauffe-eau a sauté au tableau électrique. S’il est en place et que l’eau reste froide, appelez-nous.", False],
+                     ["WC bouché", "Ne tirez plus la chasse", "Essayez une ventouse, sans produit chimique. Si l’eau ne descend pas au bout de quelques essais, nous débouchons avec le bon matériel.", False],
+                     ["Odeur de gaz", "Sortez et appelez l’urgence gaz", "Ne touchez à aucun interrupteur, n’allumez rien. Ouvrez les fenêtres, fermez le robinet du gaz si possible, sortez et appelez Urgence sécurité gaz au 0 800 47 33 33.", True]]},
+    "electricien": {"kind": "pick", "call": True, "title": "Une panne ? Ce que vous pouvez vérifier",
+                    "intro": "Choisissez ce qui se passe : voici les premiers gestes, sans danger.",
+                    "note": "Conseils d’exemple : vos propres conseils pourront les remplacer.",
+                    "options": [
+                        ["Tout est coupé", "Regardez le disjoncteur général", "Relevez-le s’il est baissé. Si les voisins sont aussi dans le noir, c’est une coupure du réseau : appelez le dépannage Enedis.", False],
+                        ["Le disjoncteur saute", "Débranchez le dernier appareil", "Débranchez ce qui a été allumé juste avant, puis relevez le disjoncteur. S’il saute encore, laissez-le baissé et appelez-nous.", False],
+                        ["Une prise chauffe", "Coupez ce circuit", "Ne l’utilisez plus et baissez son disjoncteur au tableau. Une prise qui chauffe ou sent le brûlé doit être vue rapidement.", True],
+                        ["Une lumière ne marche plus", "Changez d’abord l’ampoule", "Essayez une ampoule neuve et vérifiez le disjoncteur de l’éclairage. Si rien ne change, l’interrupteur ou le fil est en cause.", False]]},
+    "garage": {"kind": "pick", "call": True, "title": "Un voyant s’allume ?",
+               "intro": "Choisissez le voyant : on vous dit s’il faut vous arrêter.",
+               "note": "Conseils d’exemple : en cas de doute, appelez-nous avant de reprendre la route.",
+               "options": [
+                   ["Huile (rouge)", "Arrêtez-vous dès que possible", "Coupez le moteur et vérifiez le niveau d’huile. Ne repartez pas si le voyant reste allumé : nous pouvons venir chercher le véhicule.", True],
+                   ["Température (rouge)", "Le moteur chauffe", "Arrêtez-vous et laissez refroidir. N’ouvrez pas le bouchon du radiateur à chaud. Appelez-nous avant de repartir.", True],
+                   ["Moteur (orange)", "Vous pouvez rouler prudemment", "Évitez les longs trajets et prenez rendez-vous rapidement pour un diagnostic.", False],
+                   ["Pneus (orange)", "Vérifiez la pression", "Contrôlez la pression dans une station dès que possible. Si un pneu se dégonfle à nouveau, passez à l’atelier.", False]]},
+    "institut": {"kind": "pick", "title": "Quel soin pour votre peau ?",
+                 "intro": "Choisissez ce qui vous ressemble : voici le soin que l’on vous conseillerait.",
+                 "note": "Conseils d’exemple : nous faisons toujours un point avec vous avant le soin.",
+                 "options": [
+                     ["Sèche", "Soin hydratant", "Un soin riche pour nourrir la peau et la rendre plus souple. Idéal en hiver.", False],
+                     ["Grasse", "Soin purifiant", "Nettoyage en profondeur et masque pour resserrer les pores, sans agresser la peau.", False],
+                     ["Mixte", "Soin équilibrant", "Purifie la zone du front et du nez, hydrate les joues.", False],
+                     ["Sensible", "Soin apaisant", "Des produits doux pour calmer les rougeurs et les tiraillements.", False],
+                     ["Teint terne", "Soin éclat", "Gommage doux et massage pour réveiller le teint.", False]]},
+    "paysagiste": {"kind": "pick", "auto": SEASON, "title": "Cette saison au jardin",
+                   "intro": "Ce qu’il est bon de faire en ce moment. Touchez une saison pour voir les autres.",
+                   "note": "Conseils d’exemple : vos propres conseils pourront les remplacer.",
+                   "options": [
+                       ["Printemps", "Le jardin redémarre", "Première tonte, désherbage des massifs, plantation des vivaces et taille des arbustes qui ont fleuri en hiver.", False],
+                       ["Été", "Arroser et entretenir", "Arrosage le soir, tonte un peu plus haute pour garder la pelouse verte, taille légère des haies.", False],
+                       ["Automne", "Préparer l’hiver", "Ramassage des feuilles, plantation des arbres et des haies, dernière tonte avant le froid.", False],
+                       ["Hiver", "Le bon moment pour tailler", "Élagage et taille des arbres fruitiers, hors période de gel. C’est aussi le moment de prévoir les travaux du printemps.", False]]},
+    "restaurant": {"kind": "pick", "auto": "weekday", "title": "Le plat du jour",
+                   "intro": "Chaque jour, un plat maison. Voici celui d’aujourd’hui.",
+                   "note": "Menu d’exemple : votre vraie carte la remplacera.",
+                   "options": [
+                       ["Mardi", "Blanquette de veau", "À l’ancienne, riz pilaf. Entrée + plat ou plat + dessert : 16 €.", False],
+                       ["Mercredi", "Filet de cabillaud", "Beurre blanc et légumes de saison. Entrée + plat ou plat + dessert : 16 €.", False],
+                       ["Jeudi", "Bœuf bourguignon", "Mijoté six heures, purée maison. Entrée + plat ou plat + dessert : 16 €.", False],
+                       ["Vendredi", "Poisson du marché", "Selon l’arrivage, sauce vierge. Entrée + plat ou plat + dessert : 17 €.", False],
+                       ["Samedi", "Suprême de volaille", "Crème aux morilles, gratin dauphinois. Entrée + plat ou plat + dessert : 17 €.", False],
+                       ["Dimanche", "Rôti du dimanche", "Servi avec ses légumes rôtis. Menu du dimanche midi : 24 €.", False]]},
+    "demenageur": {"kind": "calc", "title": "Estimez votre volume",
+                   "intro": "Deux questions pour savoir quel camion il vous faut.",
+                   "note": "Estimation d’exemple : le volume exact est vu ensemble avant le devis.",
+                   "inputs": [{"id": "log", "label": "Logement", "type": "chips", "value": 1, "options": [["Studio", 12], ["2 pièces", 22], ["3 pièces", 35], ["4 pièces", 48], ["Maison", 60]]},
+                              {"id": "aff", "label": "Vos affaires", "type": "chips", "value": 1, "options": [["Peu", 0.8], ["Normal", 1], ["Beaucoup", 1.25]]}],
+                   "outputs": [{"fmt": "n", "pre": "Environ ", "post": " m³"},
+                               {"steps": [[15, "Un utilitaire de 15 m³ et 2 déménageurs"], [23, "Un camion de 23 m³ et 2 déménageurs"], [36, "Un camion de 36 m³ et 3 déménageurs"], [9999, "Un poids lourd et 4 déménageurs"]]}]},
+    "toiletteur": {"kind": "calc", "title": "Combien de temps pour votre compagnon ?",
+                   "intro": "Choisissez sa taille et son poil : voici la durée du toilettage complet.",
+                   "note": "Durées et prix d’exemple : vos vrais tarifs les remplaceront.",
+                   "inputs": [{"id": "taille", "label": "Animal", "type": "chips", "value": 0, "options": [["Petit chien", 60], ["Chien moyen", 90], ["Grand chien", 120], ["Chat", 75]]},
+                              {"id": "poil", "label": "Poil", "type": "chips", "value": 0, "options": [["Court", 1], ["Mi-long", 1.2], ["Long ou bouclé", 1.4]]}],
+                   "outputs": [{"fmt": "min", "pre": "Environ "},
+                               {"steps": [[70, "À partir de 35 €"], [100, "À partir de 45 €"], [140, "À partir de 60 €"], [9999, "À partir de 75 €"]]}]},
+    "auto-ecole": {"kind": "calc", "title": "Votre budget permis",
+                   "intro": "Faites glisser le nombre d’heures de conduite : le budget se calcule tout seul.",
+                   "note": "Prix d’exemple : vos vrais tarifs les remplaceront. Le minimum légal est de 20 heures de conduite.",
+                   "add": 390, "k": 52,
+                   "inputs": [{"id": "h", "label": "Heures de conduite", "type": "range", "min": 20, "max": 40, "step": 1, "value": 25, "suffix": " h"}],
+                   "outputs": [{"fmt": "eur", "pre": "Environ ", "post": " au total"},
+                               {"fmt": "eur", "mul": 0.1, "pre": "Soit ", "post": " par mois en 10 fois"}]},
+    "boulangerie": {"kind": "calc", "title": "Quel gâteau pour combien de personnes ?",
+                    "intro": "Faites glisser le nombre d’invités : on vous dit quelle taille commander.",
+                    "note": "Tailles d’exemple : vos propres formats les remplaceront.",
+                    "inputs": [{"id": "p", "label": "Nombre de personnes", "type": "range", "min": 4, "max": 40, "step": 2, "value": 8, "suffix": " personnes"}],
+                    "outputs": [{"fmt": "n", "post": " parts"},
+                                {"steps": [[6, "Un gâteau rond de 18 cm"], [10, "Un gâteau rond de 22 cm"], [16, "Un gâteau rond de 26 cm"], [24, "Un grand gâteau rectangulaire"], [9999, "Deux gâteaux ou une pièce montée"]]}]},
+    "nettoyage": {"kind": "calc", "title": "Combien de temps par passage ?",
+                  "intro": "Indiquez la surface et le type de locaux : voici le temps de ménage à prévoir.",
+                  "note": "Estimation d’exemple : le temps exact est fixé après la visite des locaux.",
+                  "k": 0.4,
+                  "inputs": [{"id": "s", "label": "Surface", "type": "range", "min": 50, "max": 1000, "step": 50, "value": 200, "suffix": " m²"},
+                             {"id": "t", "label": "Locaux", "type": "chips", "value": 0, "options": [["Bureaux", 1], ["Commerce", 1.2], ["Parties communes", 0.8]]}],
+                  "outputs": [{"fmt": "min", "pre": "Environ ", "post": " par passage"},
+                              {"steps": [[90, "Un agent"], [180, "Deux agents"], [99999, "Une équipe de trois agents"]]}]},
+}
+
+# Fourchette d'exemple dans le devis : prix ajoutés par choix (add), multipliés par d'autres (mul).
+QUOTE = {
+    "plombier": {"add": {"probleme": {"Fuite": [90, 250], "Canalisation bouchée": [90, 200], "Chauffe-eau": [150, 1200], "Salle de bain": [2500, 9000], "Robinetterie": [80, 250]}},
+                 "mul": {"delai": {"Urgent, aujourd’hui": 1.3}}},
+    "electricien": {"add": {"besoin": {"Panne": [90, 250], "Mise aux normes": [1500, 6000], "Tableau électrique": [700, 1600], "Rénovation": [3000, 10000], "Éclairage": [100, 400]}},
+                    "mul": {"delai": {"Urgent": 1.2}}},
+    "paysagiste": {"add": {"travaux": {"Entretien régulier": [60, 150], "Tonte": [40, 80], "Taille de haies": [150, 400], "Élagage": [300, 900], "Création de jardin": [2000, 8000], "Terrasse ou allée": [1500, 6000]}},
+                   "mul": {"surface": {"200 à 500 m²": 1.6, "Plus de 500 m²": 2.5}}},
+    "nettoyage": {"add": {"locaux": {"Bureaux": [60, 120], "Commerce": [50, 100], "Copropriété": [40, 90], "Logement": [80, 160], "Fin de chantier": [250, 600]}},
+                  "mul": {"surface": {"100 à 300 m²": 2, "Plus de 300 m²": 3.5}, "frequence": {"Chaque semaine": 0.9, "Plusieurs fois par semaine": 0.8}},
+                  "suffix": " par passage"},
+    "demenageur": {"add": {"logement": {"Studio": [400, 800], "2 pièces": [700, 1300], "3 pièces": [1000, 1900], "4 pièces et plus": [1500, 3000]},
+                           "options": {"Emballage": [150, 400], "Démontage des meubles": [100, 250], "Garde-meubles": [80, 200], "Monte-meubles": [250, 450]}}},
+    "menuisier": {"add": {"travaux": {"Placard ou dressing": [800, 3000], "Escalier": [3000, 9000], "Fenêtres ou portes": [500, 2500], "Cuisine ou agencement": [4000, 15000], "Parquet ou terrasse": [1500, 6000], "Réparation": [80, 300]}}},
+    "peintre": {"add": {"travaux": {"Murs et plafonds": [600, 1500], "Façade": [3000, 9000], "Papier peint": [300, 900], "Volets et boiseries": [300, 1200]}},
+                "mul": {"surface": {"Plusieurs pièces": 2.2, "Toute la maison": 4}}},
+    "toiletteur": {"add": {"animal": {"Petit chien": [30, 45], "Chien moyen": [40, 60], "Grand chien": [55, 85], "Chat": [45, 70]}},
+                   "mul": {"presta": {"Bain et séchage": 0.7, "Coupe et tonte": 0.9, "Griffes et oreilles": 0.3}}},
+    "garage": {"add": {"presta": {"Révision": [120, 250], "Freins": [150, 350], "Pneus": [240, 600], "Diagnostic": [50, 90], "Climatisation": [70, 120], "Pré-contrôle technique": [30, 50]}}},
+}
+
+PIN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>'
+ZONE_KM = {"plombier": 25, "electricien": 25, "paysagiste": 30, "nettoyage": 30, "demenageur": 50, "menuisier": 40, "peintre": 30}
+VENIR = {
+    "garage": [["Stationnement", "Places devant l’atelier pour déposer votre véhicule."], ["En dehors des horaires", "Boîte à clés à l’entrée de l’atelier."], ["Pour repartir", "Arrêt de bus à 3 minutes à pied."]],
+    "coiffeur": [["Stationnement", "Places gratuites devant le salon pendant 30 minutes."], ["Accès", "Salon de plain-pied, poussettes et fauteuils bienvenus."], ["À pied", "À 2 minutes de la place du centre."]],
+    "institut": [["Stationnement", "Parking gratuit à 50 m."], ["Accès", "Institut de plain-pied, cabine accessible."], ["Avant votre soin", "Arrivez 5 minutes en avance pour vous installer."]],
+    "restaurant": [["Stationnement", "Parking public juste en face, gratuit le soir."], ["Accès", "Salle de plain-pied, terrasse aux beaux jours."], ["Groupes", "Jusqu’à 30 personnes sur réservation."]],
+    "boulangerie": [["Stationnement", "Arrêt minute devant la boutique."], ["Commandes", "Retrait au comptoir, sans attendre la file."], ["Le dimanche", "Ouvert le matin, pensez à réserver vos gâteaux."]],
+    "fleuriste": [["Stationnement", "Arrêt minute devant la boutique."], ["Livraison", "Livraison en ville et dans les communes voisines."], ["Accès", "Boutique de plain-pied."]],
+    "auto-ecole": [["Stationnement", "Places devant l’agence."], ["En bus", "Arrêt de bus à 2 minutes à pied."], ["Leçons", "Rendez-vous possible devant votre lycée ou votre travail."]],
+    "toiletteur": [["Stationnement", "Places devant le salon pour déposer votre animal."], ["Accès", "Salon de plain-pied, entrée côté rue."], ["Avant le rendez-vous", "Une petite promenade avant la séance aide votre chien à rester calme."]],
+}
+
+
+def gadget_html(m):
+    g = GADGETS.get(m["slug"])
+    if not g:
+        return ""
+    data = {k: v for k, v in g.items() if k not in ("svg", "title", "intro", "note")}
+    stage = (f'<figure class="gx-paint">{g["svg"]}<figcaption class="gx-out" aria-live="polite"></figcaption></figure>'
+             if g["kind"] == "paint" else '<div class="gx-out" aria-live="polite"></div>')
+    js = json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+    return (f'  <!--P--><section class="s gx-s{' gx-is-paint' if g['kind'] == 'paint' else ''}" id="gx" aria-labelledby="gx-t">\n'
+            f'    <div class="wrap gx">\n'
+            f'      <div class="gx-intro">\n'
+            f'        <p class="gx-new">Le petit plus de votre site</p>\n'
+            f'        <h2 id="gx-t">{html.escape(g["title"])}</h2>\n'
+            f'        <p class="lead">{html.escape(g["intro"])}</p>\n'
+            f'        <div class="gx-ctl"></div>\n'
+            f'        <p class="note">{html.escape(g["note"])}</p>\n'
+            f'      </div>\n'
+            f'      <div class="gx-stage">{stage}</div>\n'
+            f'      <p class="pourvous"><i>i</i><span><b>Pour vous</b>Un petit outil comme celui-ci donne envie de rester sur votre site et de vous contacter. Peu de sites du coin en proposent.</span></p>\n'
+            f'    </div>\n'
+            f'    <script type="application/json" id="gx-data">{js}</script>\n'
+            f'  </section><!--/P-->')
+
+
+def zone_html(m):
+    s = m["slug"]
+    if s in ZONE_KM:
+        rings = "".join(f'<circle cx="100" cy="100" r="{r}" fill="var(--brand)" opacity="{o}"/>' for r, o in ((92, .08), (64, .12), (36, .2)))
+        return (f'      <!--P--><div class="wrap zone">\n'
+                f'        <div class="zone-map" aria-hidden="true"><svg viewBox="0 0 200 200">{rings}<circle cx="100" cy="100" r="7" fill="var(--brand)"/></svg>'
+                f'<span class="zone-city" data-f="ville"></span><span class="zone-km">{ZONE_KM[s]} km</span></div>\n'
+                f'        <div class="zone-txt">\n'
+                f'          <h3>Zone d’intervention</h3>\n'
+                f'          <p>Nous intervenons à <b data-f="ville"></b> et dans un rayon d’environ {ZONE_KM[s]} km.</p>\n'
+                f'          <label class="bk-label" for="zone-in">Vous êtes ailleurs ? Demandez-nous</label>\n'
+                f'          <div class="zone-ask"><input class="bk-input" id="zone-in" type="text" placeholder="Votre commune" autocomplete="address-level2">'
+                f'<a class="btn btn-brand" id="zone-go" href="sms:">Demander par SMS</a></div>\n'
+                f'          <p class="note">Zone d’exemple : votre vraie zone d’intervention la remplacera.</p>\n'
+                f'        </div>\n'
+                f'      </div><!--/P-->')
+    tips = "".join(f"<li><b>{html.escape(a)}</b><span>{html.escape(b)}</span></li>" for a, b in VENIR.get(s, []))
+    if not tips:
+        return ""
+    return (f'      <!--P--><div class="wrap zone">\n'
+            f'        <div class="zone-map venir" aria-hidden="true">{PIN}<span class="zone-city" data-f="ville"></span></div>\n'
+            f'        <div class="zone-txt">\n'
+            f'          <h3>Comment venir</h3>\n'
+            f'          <ul class="venir-list">{tips}</ul>\n'
+            f'          <a class="btn btn-brand" id="zone-route" target="_blank" rel="noopener">Itinéraire</a>\n'
+            f'          <p class="note">Infos d’exemple : les vôtres les remplaceront.</p>\n'
+            f'        </div>\n'
+            f'      </div><!--/P-->')
+
+
 TEMPLATE = open(os.path.join(ROOT, "outils", "gabarit_apercu.html"), encoding="utf-8").read()
 
 
@@ -1085,6 +1321,8 @@ def build(m):
     defaults = json.dumps({"nom": m["nom"], "ville": "Villeneuve", "tel": m["tel"], "metier": m["label"]}, ensure_ascii=False)
     w = dict(WIDGETS[m["slug"]])
     w.setdefault("schedule", {})
+    if m["slug"] in QUOTE:
+        w["estimate"] = QUOTE[m["slug"]]
     order = ["services"] + (["tarifs"] if m["slug"] in TARIFS else []) + ["booking", "special", "gallery", "info", "faq"]
     cls = {name: ("s-soft" if i % 2 == 0 else "") for i, name in enumerate(order)}
     tarifs = tarifs_html(TARIFS[m["slug"]], cls["tarifs"]) if m["slug"] in TARIFS else ""
@@ -1119,6 +1357,7 @@ def build(m):
         "W_TITLE": html.escape(w["title"]), "W_INTRO": html.escape(w["intro"]), "W_NOTE": html.escape(w["note"]),
         "W_SUBMIT": html.escape(w["submit"]), "W_SHORT": html.escape(w["short"]), "WIDGET": widget_json, "WA_PYLOMAE": WA_PYLOMAE,
         "AVIS": avis_html(m["slug"]), "AVANT_APRES": avant_apres_html(m),
+        "GADGET": gadget_html(m), "ZONE": zone_html(m),
     }
     out = TEMPLATE
     for k, v in rep.items():
