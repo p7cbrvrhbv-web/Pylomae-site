@@ -1,0 +1,155 @@
+{
+ "slug": "masseur",
+ "label": "Masseur",
+ "kicker": "Masseur",
+ "tagline": "Un vrai moment pour souffler, à {ville}.",
+ "about_title": "Le cabinet",
+ "about": "{nom} vous reçoit à {ville} pour des massages de détente et des massages du monde. Une salle au calme, une huile choisie avec vous et un massage adapté à ce dont vous avez besoin ce jour-là.",
+ "trust": [
+  "Sur rendez-vous",
+  "Huiles naturelles",
+  "Salle au calme"
+ ],
+ "services_h2": "Les massages",
+ "services": [
+  [
+   "Massage relaxant",
+   "Des gestes lents et enveloppants pour relâcher les tensions."
+  ],
+  [
+   "Massage du dos",
+   "Nuque, épaules et dos : idéal après une semaine chargée."
+  ],
+  [
+   "Massage aux pierres chaudes",
+   "La chaleur des pierres pour détendre les muscles en profondeur."
+  ],
+  [
+   "Massages du monde",
+   "Californien, balinais, suédois… selon vos envies."
+  ],
+  [
+   "Réflexologie plantaire",
+   "Un travail sur les pieds pour une détente du corps entier."
+  ],
+  [
+   "Bon cadeau",
+   "Un massage à offrir, avec la date au choix."
+  ]
+ ],
+ "tarifs": {
+  "title": "Tarifs",
+  "note": "",
+  "groups": [
+   [
+    "Détente",
+    [
+     [
+      "Massage relaxant",
+      "1 h",
+      "60 €"
+     ],
+     [
+      "Massage du dos",
+      "30 min",
+      "35 €"
+     ],
+     [
+      "Massage aux pierres chaudes",
+      "1 h 15",
+      "75 €"
+     ]
+    ]
+   ],
+   [
+    "Massages du monde",
+    [
+     [
+      "Californien",
+      "1 h",
+      "65 €"
+     ],
+     [
+      "Balinais",
+      "1 h",
+      "65 €"
+     ],
+     [
+      "Réflexologie plantaire",
+      "45 min",
+      "45 €"
+     ]
+    ]
+   ],
+   [
+    "À offrir",
+    [
+     [
+      "Bon cadeau",
+      "selon le massage",
+      "dès 35 €"
+     ]
+    ]
+   ]
+  ],
+  "highlight": null
+ },
+ "special_h2": "Comment se passe une séance",
+ "special_p": "Tout est fait pour que vous vous sentiez à l’aise.",
+ "special": [
+  [
+   "Avant",
+   "Nous faisons le point sur vos tensions et vos envies."
+  ],
+  [
+   "Pendant",
+   "Vous gardez vos sous-vêtements, la pression s’adapte à vous."
+  ],
+  [
+   "Après",
+   "Un verre d’eau et un moment pour revenir doucement."
+  ],
+  [
+   "Hygiène",
+   "Linge changé et table désinfectée à chaque séance."
+  ]
+ ],
+ "special_style": "points",
+ "gallery_title": "Le cabinet en images",
+ "place_title": "Le cabinet",
+ "place_text": "À {ville}, sur rendez-vous.",
+ "hours": [
+  [
+   "Mardi au vendredi",
+   "10 h – 19 h"
+  ],
+  [
+   "Samedi",
+   "9 h – 16 h"
+  ],
+  [
+   "Dimanche et lundi",
+   "Fermé"
+  ]
+ ],
+ "faq": [
+  [
+   "Faut-il prendre rendez-vous ?",
+   "Oui, les massages se font uniquement sur rendez-vous, par téléphone ou par message."
+  ],
+  [
+   "Quel massage choisir la première fois ?",
+   "Le massage relaxant est un bon début. Nous en parlons ensemble avant de commencer."
+  ],
+  [
+   "Proposez-vous des bons cadeaux ?",
+   "Oui, pour le massage de votre choix. Demandez-le par message, nous le préparons pour la date voulue."
+  ]
+ ],
+ "contact_h2": "Prenez rendez-vous",
+ "contact_p": "Appelez ou envoyez un message avec le massage souhaité et vos disponibilités.",
+ "cta": "Prendre rendez-vous",
+ "sms": "Envoyer un message",
+ "tarifs_class": "",
+ "demo_tel": "0639981247"
+}
