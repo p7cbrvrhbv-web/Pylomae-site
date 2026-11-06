@@ -12,7 +12,7 @@ Adrien débute en code et travaille sous Windows : explications simples, en fran
 
 - `index.html` : page d'accueil. Les coordonnées et les témoignages sont dans le bloc `CONFIG` en haut du fichier ; la section « Ils m'ont fait confiance » reste cachée tant que `temoignages` est vide.
 - `cgv/` : conditions générales de vente. `apercu/` : outil d'aperçu manuel. `realisations/` : captures des vrais sites clients (section « Réalisation » de l'accueil et lien dans le bloc offre des modèles).
-- `modeles/<métier>/index.html` et `modeles/<métier>/contenu.json` : les 15 modèles par métier. **Fichiers générés : ne jamais les modifier à la main.**
+- `modeles/<métier>/index.html` et `modeles/<métier>/contenu.json` : les 16 modèles par métier. **Fichiers générés : ne jamais les modifier à la main.**
 - `outils/generer_apercus.py` (thèmes, métiers, textes), `outils/gabarit_apercu.html` (gabarit commun), `outils/metiers.json` (généré lui aussi).
 
 ## Modifier un modèle ou ajouter un métier

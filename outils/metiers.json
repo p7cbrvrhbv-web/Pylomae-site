@@ -56,6 +56,13 @@
     "nom": "Institut Éclat"
   },
   {
+    "slug": "masseur",
+    "label": "Masseur",
+    "phrase": "un cabinet de massage",
+    "hero": "https://images.unsplash.com/photo-1745327883508-b6cd32e5dde5?auto=format&fit=crop&q=70&w=800&h=560&crop=entropy",
+    "nom": "Massages Sérénité"
+  },
+  {
     "slug": "restaurant",
     "label": "Restaurant",
     "phrase": "un restaurant",
