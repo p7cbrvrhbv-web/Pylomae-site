@@ -417,6 +417,88 @@ textarea.bk-input{min-height:96px;resize:vertical}
   }
 }
 @media (prefers-reduced-motion: reduce){ .open-now.on i{animation:none} .btn,.svc{transition:none} }
+
+/* ===== Finition « premium » : grande photo plein écran, cartes en relief, rythme des sections ===== */
+.wrap{max-width:1180px}
+
+/* Haut de page : la photo occupe tout l'écran, le nom se lit dessus */
+.hero{position:relative;isolation:isolate;overflow:hidden;background:var(--deep);color:#FFFFFF;padding:0;display:grid;align-items:end;min-height:min(88svh,780px)}
+.hero-in{display:block;padding-block:clamp(150px,26vh,260px) clamp(64px,9vw,104px)}
+.hero-body{max-width:680px}
+.hero-img{position:absolute;inset:0;z-index:-2;aspect-ratio:auto;max-height:none;border-radius:0;box-shadow:none}
+.hero-img img{object-position:center 30%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,var(--shade-strong) 0%,var(--shade-mid) 48%,rgba(0,0,0,.18) 100%),linear-gradient(to right,var(--shade-mid) 0%,transparent 72%)}
+.hero .kicker{color:rgba(255,255,255,.92);font-weight:600;letter-spacing:.02em}
+.hero .kicker::before{content:"";display:inline-block;vertical-align:middle;width:34px;height:2px;margin-right:12px;border-radius:2px;background:#FFFFFF;opacity:.85}
+.hero h1{color:#FFFFFF;text-shadow:0 2px 28px rgba(0,0,0,.28)}
+.hero .tagline{color:rgba(255,255,255,.92);max-width:42ch}
+.hero .rating{background:rgba(255,255,255,.14);color:#FFFFFF;box-shadow:inset 0 0 0 1px rgba(255,255,255,.3);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.hero .rating span.n{color:rgba(255,255,255,.82)}
+.hero .stars{color:rgba(255,255,255,.35)}
+.hero .btn-cta{background:#FFFFFF;color:var(--deep);box-shadow:0 14px 30px -16px rgba(0,0,0,.6)}
+.hero .ctas{flex-wrap:wrap}
+.hero .ctas .btn{white-space:nowrap;flex:1 1 auto}
+@media (min-width:560px){.hero .ctas .btn{flex:0 0 auto}}
+.hero .btn-ghost{border-color:rgba(255,255,255,.8);color:#FFFFFF;background:rgba(255,255,255,.08);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+@media (min-width:860px){ .hero-in{grid-template-columns:none} }
+@media (max-width:759px){ .hero{min-height:min(80svh,640px)} .hero-in{padding-block:120px 72px} }
+
+/* Engagements : carte blanche à cheval sur la photo */
+.trust{background:transparent;color:var(--ink);position:relative;z-index:2;margin-top:-44px}
+.trust ul{background:#FFFFFF;border-radius:calc(var(--radius) + 12px);box-shadow:0 0 0 1px var(--line),0 30px 60px -38px rgba(0,0,0,.45);padding:22px clamp(18px,3vw,34px);gap:14px 28px}
+.trust li{font-size:1rem}
+.trust svg{color:var(--brand-text);width:24px;height:24px}
+@media (max-width:759px){ .trust{margin-top:-36px} .trust ul{padding:6px 18px;gap:0} .trust li{padding:14px 0;border-top:1px solid var(--line)} .trust li:first-child{border-top:0} }
+
+/* Titres de section : un trait de couleur au-dessus */
+.s h2::before{content:"";display:block;width:44px;height:3px;border-radius:2px;background:var(--brand);margin-bottom:20px}
+.contact h2::before{background:#FFFFFF;opacity:.7}
+.s{padding-block:clamp(64px,9vw,112px)}
+
+/* Prestations : cartes numérotées, trois par ligne sur grand écran */
+.services{counter-reset:svc;gap:16px;margin-top:44px}
+.svc{counter-increment:svc;position:relative;padding:26px 24px 24px;gap:8px;border-radius:calc(var(--radius) + 10px);background:#FFFFFF;box-shadow:0 0 0 1px var(--line);overflow:hidden}
+.s:not(.s-soft) .svc{background:var(--soft);box-shadow:none}
+.svc::before{content:counter(svc,decimal-leading-zero);font-family:var(--f-head);font-weight:var(--head-weight);font-size:1rem;letter-spacing:.06em;color:var(--brand-text);opacity:.9}
+.svc::after{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--brand);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.svc h3{font-size:1.3rem;gap:10px}
+.svc h3::before{display:none}
+.svc p{padding-left:0}
+@media (hover:hover){ .svc:hover{transform:translateY(-3px);box-shadow:0 0 0 1px var(--line),0 22px 40px -28px rgba(0,0,0,.5)} .svc:hover::after{transform:scaleX(1)} }
+@media (min-width:980px){ .services{grid-template-columns:repeat(3,minmax(0,1fr))} }
+
+/* Avis : cartes en relief avec un grand guillemet */
+.gr{position:relative;background:#FFFFFF;box-shadow:0 0 0 1px var(--line),0 22px 44px -34px rgba(0,0,0,.45);padding:22px 22px 20px;gap:10px}
+.gr::after{content:"”";position:absolute;right:18px;top:6px;font-family:Georgia,"Times New Roman",serif;font-size:3.6rem;line-height:1;color:var(--brand);opacity:.16;pointer-events:none}
+.gr p{font-size:1.02rem;line-height:1.55}
+.gr small{font-weight:600}
+
+/* Tarifs, infos, questions : cartes */
+.pgroup{background:#FFFFFF;border-radius:calc(var(--radius) + 10px);box-shadow:0 0 0 1px var(--line);padding:22px 24px 8px}
+.pitem:last-child{border-bottom:0}
+.prices{gap:16px}
+.formule{box-shadow:0 26px 50px -34px rgba(0,0,0,.6)}
+.info > div{box-shadow:0 0 0 1px var(--line)}
+.faq{border-top:0;display:grid;gap:10px}
+.faq details{border:0;border-radius:calc(var(--radius) + 8px);background:#FFFFFF;box-shadow:0 0 0 1px var(--line);padding:0 20px;transition:box-shadow .2s ease}
+.s:not(.s-soft) .faq details{background:var(--soft);box-shadow:none}
+.faq details[open]{box-shadow:0 0 0 1.5px var(--brand)}
+.faq summary{padding:18px 0;align-items:center}
+.faq summary::after{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--brand);color:var(--brand-ink);font-size:1.2rem}
+.faq p{padding-bottom:20px}
+
+/* Photos : léger zoom au survol */
+.gallery img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover){ .gallery figure:hover img{transform:scale(1.045)} }
+.gallery figure,.ba,.bk-panel{box-shadow:0 26px 54px -40px rgba(0,0,0,.5)}
+
+/* Boutons et bas de page */
+.btn{min-height:48px}
+.btn-brand,.bk-go{box-shadow:0 14px 26px -16px var(--brand)}
+.contact{position:relative;isolation:isolate;overflow:hidden}
+.contact::before{content:"";position:absolute;z-index:-1;right:-12%;top:-40%;width:70%;aspect-ratio:1;border-radius:50%;background:var(--brand);opacity:.38;filter:blur(90px)}
+.top{box-shadow:0 10px 30px -26px rgba(0,0,0,.5)}
+@media (prefers-reduced-motion: reduce){ .svc::after,.gallery img,.faq details{transition:none} }
 </style>
 </head>
 <body>
@@ -449,17 +531,18 @@ textarea.bk-input{min-height:96px;resize:vertical}
       </div>
     </div>
     <picture class="hero-img">
-      <img src="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy" srcset="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=600&h=900&crop=entropy 600w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy 900w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=1200&h=1800&crop=entropy 1200w" sizes="(min-width: 860px) 50vw, 100vw" alt="Allée en briques bordée de massifs fleuris" fetchpriority="high">
+      <source media="(min-width: 860px)" srcset="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=1400&h=875&crop=entropy 1400w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=2000&h=1250&crop=entropy 2000w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=2600&h=1625&crop=entropy 2600w" sizes="100vw">
+      <img src="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy" srcset="https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=600&h=900&crop=entropy 600w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=900&h=1350&crop=entropy 900w, https://images.unsplash.com/photo-1700689807667-82630348b301?auto=format&fit=crop&q=70&w=1200&h=1800&crop=entropy 1200w" sizes="100vw" alt="Allée en briques bordée de massifs fleuris" fetchpriority="high">
     </picture>
   </div>
 </section>
 
 <div class="trust">
-  <ul class="wrap"><!--R:trust-->
+  <div class="wrap"><ul><!--R:trust-->
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Devis sur photo</li>
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Entretien à l’année</li>
     <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M8 12.3l2.6 2.6L16 9.5"/></svg>Déchets verts évacués</li>
-  <!--/R:trust--></ul>
+  <!--/R:trust--></ul></div>
 </div>
 
 <main>
